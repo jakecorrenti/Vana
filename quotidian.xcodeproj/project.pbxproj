@@ -8,18 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		080A02A7FF5FEB8C0F90C073 /* Pods_quotidian.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65393EAFFF2F85AC57387586 /* Pods_quotidian.framework */; };
+		3E4388B223DD518800B0C45C /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4388B123DD518800B0C45C /* TabController.swift */; };
+		3E4388B523DD51B700B0C45C /* DailyTasksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4388B423DD51B700B0C45C /* DailyTasksVC.swift */; };
+		3E4388B823DD520300B0C45C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4388B723DD520300B0C45C /* Constants.swift */; };
+		3E58B50D23DF31C40024DC01 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58B50C23DF31C40024DC01 /* TextFieldCell.swift */; };
+		3E58B50F23DF3B7E0024DC01 /* TextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58B50E23DF3B7E0024DC01 /* TextViewCell.swift */; };
+		3E58B51123DF67AE0024DC01 /* TimePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58B51023DF67AE0024DC01 /* TimePickerCell.swift */; };
+		3E660AD923DFB401008F3F95 /* RepeatDaysSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E660AD823DFB401008F3F95 /* RepeatDaysSelectionVC.swift */; };
+		3E971E6A23E1B11E00F6E191 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E971E6923E1B11E00F6E191 /* Task.swift */; };
+		3E971E6C23E1B12C00F6E191 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E971E6B23E1B12C00F6E191 /* ChecklistItem.swift */; };
+		3EC006F023DD61F3000E30FC /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC006EF23DD61F3000E30FC /* UIView + Extension.swift */; };
+		3EC006F523DD69C0000E30FC /* NewTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC006F423DD69C0000E30FC /* NewTaskVC.swift */; };
 		3ED686E023DCCE0500955D61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED686DF23DCCE0500955D61 /* AppDelegate.swift */; };
 		3ED686E223DCCE0500955D61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED686E123DCCE0500955D61 /* SceneDelegate.swift */; };
-		3ED686E423DCCE0500955D61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED686E323DCCE0500955D61 /* ViewController.swift */; };
 		3ED686E923DCCE0700955D61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ED686E823DCCE0700955D61 /* Assets.xcassets */; };
 		3ED686EC23DCCE0700955D61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ED686EA23DCCE0700955D61 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E4388B123DD518800B0C45C /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
+		3E4388B423DD51B700B0C45C /* DailyTasksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTasksVC.swift; sourceTree = "<group>"; };
+		3E4388B723DD520300B0C45C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3E58B50C23DF31C40024DC01 /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
+		3E58B50E23DF3B7E0024DC01 /* TextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewCell.swift; sourceTree = "<group>"; };
+		3E58B51023DF67AE0024DC01 /* TimePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerCell.swift; sourceTree = "<group>"; };
+		3E660AD823DFB401008F3F95 /* RepeatDaysSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatDaysSelectionVC.swift; sourceTree = "<group>"; };
+		3E971E6923E1B11E00F6E191 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		3E971E6B23E1B12C00F6E191 /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
+		3EC006EF23DD61F3000E30FC /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
+		3EC006F423DD69C0000E30FC /* NewTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskVC.swift; sourceTree = "<group>"; };
 		3ED686DC23DCCE0500955D61 /* quotidian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quotidian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ED686DF23DCCE0500955D61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3ED686E123DCCE0500955D61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3ED686E323DCCE0500955D61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3ED686E823DCCE0700955D61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3ED686EB23DCCE0700955D61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3ED686ED23DCCE0700955D61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +69,95 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		3E4388AB23DD512700B0C45C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3E4388B023DD516700B0C45C /* General */,
+				3E4388B323DD51A800B0C45C /* DailyTasks */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3E4388AC23DD512F00B0C45C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3E58B50B23DF31B40024DC01 /* General */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3E4388AD23DD513400B0C45C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3E971E6823E1B10B00F6E191 /* NewTask */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3E4388AE23DD513A00B0C45C /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				3ED686E823DCCE0700955D61 /* Assets.xcassets */,
+				3ED686DF23DCCE0500955D61 /* AppDelegate.swift */,
+				3ED686E123DCCE0500955D61 /* SceneDelegate.swift */,
+				3ED686EA23DCCE0700955D61 /* LaunchScreen.storyboard */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		3E4388AF23DD513E00B0C45C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3EC006EF23DD61F3000E30FC /* UIView + Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3E4388B023DD516700B0C45C /* General */ = {
+			isa = PBXGroup;
+			children = (
+				3E4388B123DD518800B0C45C /* TabController.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		3E4388B323DD51A800B0C45C /* DailyTasks */ = {
+			isa = PBXGroup;
+			children = (
+				3E4388B423DD51B700B0C45C /* DailyTasksVC.swift */,
+				3EC006F423DD69C0000E30FC /* NewTaskVC.swift */,
+				3E660AD823DFB401008F3F95 /* RepeatDaysSelectionVC.swift */,
+			);
+			path = DailyTasks;
+			sourceTree = "<group>";
+		};
+		3E4388B623DD51F800B0C45C /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				3E4388B723DD520300B0C45C /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		3E58B50B23DF31B40024DC01 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				3E58B50C23DF31C40024DC01 /* TextFieldCell.swift */,
+				3E58B50E23DF3B7E0024DC01 /* TextViewCell.swift */,
+				3E58B51023DF67AE0024DC01 /* TimePickerCell.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		3E971E6823E1B10B00F6E191 /* NewTask */ = {
+			isa = PBXGroup;
+			children = (
+				3E971E6923E1B11E00F6E191 /* Task.swift */,
+				3E971E6B23E1B12C00F6E191 /* ChecklistItem.swift */,
+			);
+			path = NewTask;
+			sourceTree = "<group>";
+		};
 		3ED686D323DCCE0500955D61 = {
 			isa = PBXGroup;
 			children = (
@@ -70,11 +179,12 @@
 		3ED686DE23DCCE0500955D61 /* quotidian */ = {
 			isa = PBXGroup;
 			children = (
-				3ED686DF23DCCE0500955D61 /* AppDelegate.swift */,
-				3ED686E123DCCE0500955D61 /* SceneDelegate.swift */,
-				3ED686E323DCCE0500955D61 /* ViewController.swift */,
-				3ED686E823DCCE0700955D61 /* Assets.xcassets */,
-				3ED686EA23DCCE0700955D61 /* LaunchScreen.storyboard */,
+				3E4388B623DD51F800B0C45C /* Constants */,
+				3E4388AF23DD513E00B0C45C /* Extensions */,
+				3E4388AE23DD513A00B0C45C /* Misc */,
+				3E4388AD23DD513400B0C45C /* Model */,
+				3E4388AC23DD512F00B0C45C /* View */,
+				3E4388AB23DD512700B0C45C /* Controller */,
 				3ED686ED23DCCE0700955D61 /* Info.plist */,
 			);
 			path = quotidian;
@@ -202,9 +312,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3ED686E423DCCE0500955D61 /* ViewController.swift in Sources */,
+				3E58B50F23DF3B7E0024DC01 /* TextViewCell.swift in Sources */,
+				3E4388B823DD520300B0C45C /* Constants.swift in Sources */,
+				3E4388B523DD51B700B0C45C /* DailyTasksVC.swift in Sources */,
+				3EC006F523DD69C0000E30FC /* NewTaskVC.swift in Sources */,
+				3E971E6A23E1B11E00F6E191 /* Task.swift in Sources */,
+				3E660AD923DFB401008F3F95 /* RepeatDaysSelectionVC.swift in Sources */,
+				3E971E6C23E1B12C00F6E191 /* ChecklistItem.swift in Sources */,
+				3EC006F023DD61F3000E30FC /* UIView + Extension.swift in Sources */,
 				3ED686E023DCCE0500955D61 /* AppDelegate.swift in Sources */,
+				3E4388B223DD518800B0C45C /* TabController.swift in Sources */,
 				3ED686E223DCCE0500955D61 /* SceneDelegate.swift in Sources */,
+				3E58B50D23DF31C40024DC01 /* TextFieldCell.swift in Sources */,
+				3E58B51123DF67AE0024DC01 /* TimePickerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
