@@ -21,8 +21,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window                     = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene        = windowScene
-        window?.rootViewController = ViewController()
+        window?.rootViewController = TabController()
         window?.makeKeyAndVisible()
+        
+        window?.tintColor = Colors.qPurple
         
         if #available(iOS 13.0, *) {
             window?.overrideUserInterfaceStyle = .light
