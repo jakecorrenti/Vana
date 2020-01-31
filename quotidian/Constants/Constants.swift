@@ -20,12 +20,17 @@ enum Images {
     static var plus        = "plus.circle.fill"
     static var circle      = "circle"
     static var checkCircle = "checkmark.circle"
+    static var bell        = "bell.circle.fill"
+    static var list        = "line.horizontal.3.decrease.circle.fill"
+    static var repeatRing  = "arrow.2.circlepath.circle.fill"
 }
 
 enum Cells {
     static var defaultCell    = "defaultCellID"
     static var textFieldCell  = "textFieldCellID"
     static var textViewCell   = "textViewCellID"
-    static var timePickerCell = "timePickerCell"
+    static var timePickerCell = "timePickerCellID"
+    static var taskCell       = "taskCellID"
 }
 
+ 

@@ -379,36 +379,46 @@ extension NewTaskVC : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath == IndexPath(row: 1, section: 2) {
-            if reminderRows.count == 2 {
-                reminderRows.append(1)
-                tableView.insertRows(at: [IndexPath(row: reminderRows.count - 1 , section: 2)], with: .automatic)
-            } else if reminderRows.count == 3 {
-                reminderRows.removeLast()
-                tableView.deleteRows(at: [IndexPath(row: reminderRows.count, section: 2)], with: .automatic)
+        
+        switch indexPath.section {
+        case 2:
+            if indexPath.row == 1 {
+                if reminderRows.count == 2 {
+                    reminderRows.append(1)
+                    tableView.insertRows(at: [IndexPath(row: reminderRows.count - 1 , section: 2)], with: .automatic)
+                } else if reminderRows.count == 3 {
+                    reminderRows.removeLast()
+                    tableView.deleteRows(at: [IndexPath(row: reminderRows.count, section: 2)], with: .automatic)
+                }
             }
-        } else if indexPath == IndexPath(row: 1, section: 3) {
-            let repeatDays      = RepeatDaysSelectionVC()
-            repeatDays.delegate = self
-            navigationController?.pushViewController(repeatDays, animated: true)
-        } else if indexPath == IndexPath(row: 0, section: 4) {
-            promptUserForSubTask()
-        } else if indexPath.section == 4 && indexPath.row > 0 {
-            
-            let alertSheet = UIAlertController(title: "Delete item?", message: "Would you like to delete \"\(subTasks[indexPath.row])\"?", preferredStyle: .actionSheet)
-            
-            let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (action: UIAlertAction) in
-                self.subTasks.remove(at: indexPath.row)
-                self.tableView.deleteRows(at: [IndexPath(row: indexPath.row, section: 4)], with: .automatic)
-                
-                print(self.subTasks)
+        case 3:
+            if indexPath.row == 1 {
+                let repeatDays      = RepeatDaysSelectionVC()
+                repeatDays.delegate = self
+                navigationController?.pushViewController(repeatDays, animated: true)
+            }
+        case 4:
+            if indexPath.row == 0 {
+                promptUserForSubTask()
+            } else if indexPath.row > 0 {
+                let alertSheet = UIAlertController(title: "Delete item?", message: "Would you like to delete \"\(subTasks[indexPath.row])\"?", preferredStyle: .actionSheet)
+
+                let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (action: UIAlertAction) in
+                    self.subTasks.remove(at: indexPath.row)
+                    self.tableView.deleteRows(at: [IndexPath(row: indexPath.row, section: 4)], with: .automatic)
+
+                    print(self.subTasks)
+                }
+
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+                alertSheet.addAction(deleteAction)
+                alertSheet.addAction(cancelAction)
+                present(alertSheet, animated: true)
             }
             
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            
-            alertSheet.addAction(deleteAction)
-            alertSheet.addAction(cancelAction)
-            present(alertSheet, animated: true)
+        default:
+            print("The selected indexpath does not exist ")
         }
     }
     
