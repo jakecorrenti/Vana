@@ -106,7 +106,7 @@ class NewTaskVC: UIViewController {
     func setupNavBar() {
         view.backgroundColor = Colors.qBG
         
-        navigationItem.title = "New task"
+//        navigationItem.title = "New task"
         navigationController?.navigationBar.largeTitleTextAttributes = [
             NSAttributedString.Key.foregroundColor : Colors.qDarkGrey
         ]
@@ -185,6 +185,9 @@ class NewTaskVC: UIViewController {
     func getDescription() -> String {
         let descriptionCell = tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! TextViewCell
         guard let taskDescription = descriptionCell.textView.text else { return "" }
+        
+        if taskDescription == "Description" { return "" }
+        
         return taskDescription
     }
     

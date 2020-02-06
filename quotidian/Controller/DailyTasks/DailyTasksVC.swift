@@ -53,6 +53,7 @@ class DailyTasksVC: UIViewController {
         setupNavBar()
         setupUI()
         
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
     
     // -----------------------------------------
@@ -83,11 +84,13 @@ class DailyTasksVC: UIViewController {
     }
     
     func accessTasks() -> Results<Task> {
-        return realm.objects(Task.self)
+        return realm.objects(Task.self).filter("isCompleted == false")
     }
     
     @objc func addButtonPressed() {
-        navigationController?.pushViewController(NewTaskVC(), animated: true)
+        let newTaskVC = NewTaskVC()
+        newTaskVC.navigationItem.title = "New task"
+        navigationController?.pushViewController(newTaskVC, animated: true)
     }
 }
 
@@ -99,7 +102,7 @@ extension DailyTasksVC : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cells.taskCell, for: indexPath) as! TaskCell
         cell.backgroundColor = Colors.qBG
-        cell.selectionStyle  = .none 
+        cell.selectionStyle  = .none
         cell.configure(task: accessTasks()[indexPath.row])
         return cell
     }
@@ -110,5 +113,12 @@ extension DailyTasksVC : UITableViewDataSource {
 extension DailyTasksVC : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detail                  = TaskDetailVC()
+        detail.navigationItem.title = accessTasks()[indexPath.row].title
+        detail.taskSelected         = accessTasks()[indexPath.row]
+        navigationController?.pushViewController(detail, animated: true)
     }
 }

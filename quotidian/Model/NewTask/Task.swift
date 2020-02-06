@@ -15,6 +15,9 @@ class Task: Object {
     @objc dynamic var taskDescription   = ""
     @objc dynamic var reminderShortTime = ""
     @objc dynamic var reminderLongTime  = Date()
+    @objc dynamic var uid               = "\(UUID())"
+    @objc dynamic var isCompleted       = false
+    @objc dynamic var completedDate     = Date()
     
     var repeatDays     = List<String>()
     var checkListItems = List<CheckListItem>()

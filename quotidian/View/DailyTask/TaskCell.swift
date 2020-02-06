@@ -86,15 +86,15 @@ class TaskCell: UITableViewCell {
     
     func setupUI() {
         [reminderImage, checklistImage, repeatImage].forEach {propertiesImageStack.addArrangedSubview($0)}
-        [containerView, titleLabel, descriptionLabel, propertiesImageStack].forEach {addSubview($0)}
+        [containerView, titleLabel, propertiesImageStack, descriptionLabel].forEach {addSubview($0)}
         
         containerView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, centerX: nil, centerY: nil, padding: .init(top: 8, left: 16, bottom: 8, right: 16), size: .zero)
         
         titleLabel.anchor(top: containerView.topAnchor, leading: containerView.leadingAnchor, bottom: nil, trailing: nil, centerX: nil, centerY: nil, padding: .init(top: 19, left: 13, bottom: 0, right: 0), size: .zero)
         
-        descriptionLabel.anchor(top: titleLabel.bottomAnchor, leading: containerView.leadingAnchor, bottom: nil, trailing: nil, centerX: nil, centerY: nil, padding: .init(top: 19, left: 13, bottom: 0, right: 0), size: .zero)
-        
         propertiesImageStack.anchor(top: containerView.topAnchor, leading: nil, bottom: containerView.bottomAnchor, trailing: containerView.trailingAnchor, centerX: nil, centerY: nil, padding: .init(top: 10, left: 0, bottom: 10, right: 13), size: .init(width: containerView.frame.height / 2, height: 0))
+        
+        descriptionLabel.anchor(top: titleLabel.bottomAnchor, leading: containerView.leadingAnchor, bottom: nil, trailing: propertiesImageStack.leadingAnchor, centerX: nil, centerY: nil, padding: .init(top: 19, left: 13, bottom: 0, right: 0), size: .zero)
         
     }
     
