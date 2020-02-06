@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		080A02A7FF5FEB8C0F90C073 /* Pods_quotidian.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65393EAFFF2F85AC57387586 /* Pods_quotidian.framework */; };
+		3E42EFF923E4C8DA000611ED /* TaskDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E42EFF823E4C8DA000611ED /* TaskDetailVC.swift */; };
 		3E4388B223DD518800B0C45C /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4388B123DD518800B0C45C /* TabController.swift */; };
 		3E4388B523DD51B700B0C45C /* DailyTasksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4388B423DD51B700B0C45C /* DailyTasksVC.swift */; };
 		3E4388B823DD520300B0C45C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4388B723DD520300B0C45C /* Constants.swift */; };
 		3E58B50D23DF31C40024DC01 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58B50C23DF31C40024DC01 /* TextFieldCell.swift */; };
 		3E58B50F23DF3B7E0024DC01 /* TextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58B50E23DF3B7E0024DC01 /* TextViewCell.swift */; };
 		3E58B51123DF67AE0024DC01 /* TimePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58B51023DF67AE0024DC01 /* TimePickerCell.swift */; };
+		3E58CEA123E88BEF0042881B /* CompletionButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58CEA023E88BEF0042881B /* CompletionButtonCell.swift */; };
 		3E660AD923DFB401008F3F95 /* RepeatDaysSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E660AD823DFB401008F3F95 /* RepeatDaysSelectionVC.swift */; };
 		3E971E6A23E1B11E00F6E191 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E971E6923E1B11E00F6E191 /* Task.swift */; };
 		3E971E6C23E1B12C00F6E191 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E971E6B23E1B12C00F6E191 /* ChecklistItem.swift */; };
@@ -27,12 +29,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E42EFF823E4C8DA000611ED /* TaskDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailVC.swift; sourceTree = "<group>"; };
 		3E4388B123DD518800B0C45C /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		3E4388B423DD51B700B0C45C /* DailyTasksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTasksVC.swift; sourceTree = "<group>"; };
 		3E4388B723DD520300B0C45C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3E58B50C23DF31C40024DC01 /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
 		3E58B50E23DF3B7E0024DC01 /* TextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewCell.swift; sourceTree = "<group>"; };
 		3E58B51023DF67AE0024DC01 /* TimePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerCell.swift; sourceTree = "<group>"; };
+		3E58CEA023E88BEF0042881B /* CompletionButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionButtonCell.swift; sourceTree = "<group>"; };
 		3E660AD823DFB401008F3F95 /* RepeatDaysSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatDaysSelectionVC.swift; sourceTree = "<group>"; };
 		3E971E6923E1B11E00F6E191 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		3E971E6B23E1B12C00F6E191 /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 				3E4388B423DD51B700B0C45C /* DailyTasksVC.swift */,
 				3EC006F423DD69C0000E30FC /* NewTaskVC.swift */,
 				3E660AD823DFB401008F3F95 /* RepeatDaysSelectionVC.swift */,
+				3E42EFF823E4C8DA000611ED /* TaskDetailVC.swift */,
 			);
 			path = DailyTasks;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				3EA5A76C23E38A76001BB874 /* TaskCell.swift */,
+				3E58CEA023E88BEF0042881B /* CompletionButtonCell.swift */,
 			);
 			path = DailyTask;
 			sourceTree = "<group>";
@@ -328,7 +334,9 @@
 				3E4388B523DD51B700B0C45C /* DailyTasksVC.swift in Sources */,
 				3EC006F523DD69C0000E30FC /* NewTaskVC.swift in Sources */,
 				3E971E6A23E1B11E00F6E191 /* Task.swift in Sources */,
+				3E42EFF923E4C8DA000611ED /* TaskDetailVC.swift in Sources */,
 				3E660AD923DFB401008F3F95 /* RepeatDaysSelectionVC.swift in Sources */,
+				3E58CEA123E88BEF0042881B /* CompletionButtonCell.swift in Sources */,
 				3E971E6C23E1B12C00F6E191 /* ChecklistItem.swift in Sources */,
 				3EC006F023DD61F3000E30FC /* UIView + Extension.swift in Sources */,
 				3EA5A76D23E38A76001BB874 /* TaskCell.swift in Sources */,
