@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import UserNotifications
 
 protocol TimeChangedDelegate {
     func updateTime(time: Date)
@@ -28,9 +29,12 @@ class NewTaskVC: UIViewController {
     var subTasks       = [""]
     
     var daysSelected = [String]()
+    var weekdayIntSelected = [Int]()
     var fullRemindTime: Date?
     
     var realm: Realm?
+    
+    let center = UNUserNotificationCenter.current()
     
     lazy var dateFormatter: DateFormatter = {
         let f        = DateFormatter()
@@ -96,7 +100,7 @@ class NewTaskVC: UIViewController {
         
         setupNavBar()
         setupUI()
-
+        requestNotificationPermission()
     }
     
     // -----------------------------------------
@@ -106,7 +110,6 @@ class NewTaskVC: UIViewController {
     func setupNavBar() {
         view.backgroundColor = Colors.qBG
         
-//        navigationItem.title = "New task"
         navigationController?.navigationBar.largeTitleTextAttributes = [
             NSAttributedString.Key.foregroundColor : Colors.qDarkGrey
         ]
@@ -124,6 +127,85 @@ class NewTaskVC: UIViewController {
         view.addSubview(tableView)
         
         tableView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, centerX: nil, centerY: nil)
+    }
+    
+    func requestNotificationPermission() {
+        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            if let error = error {
+                print("There was an error: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func setupNotifications(task: Task) {
+        //MARK: - IMPLEMENT
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Complete the task: \(task.title)"
+        content.body = "Open your Quotidian app to complete your remaining tasks!"
+        
+        let date = task.reminderLongTime
+        
+        for day in daysSelected {
+            switch day {
+            case "Sunday" :
+                weekdayIntSelected.append(1)
+            case "Monday":
+                weekdayIntSelected.append(2)
+            case "Tuesday":
+                weekdayIntSelected.append(3)
+            case "Wednesday":
+                weekdayIntSelected.append(4)
+            case "Thursday":
+                weekdayIntSelected.append(5)
+            case "Friday":
+                weekdayIntSelected.append(6)
+            case "Saturday":
+                weekdayIntSelected.append(7)
+            default:
+                print("")
+            }
+        }
+        
+        if weekdayIntSelected.count == 0 {
+            let dateComponents = Calendar.current.dateComponents([
+                .hour,
+                .minute,
+            ], from: date)
+            
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+            
+            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+            
+            center.add(request) { (error) in
+                if let error = error {
+                    print("There was an error: \(error.localizedDescription)")
+                }
+            }
+        } else {
+            for weekday in weekdayIntSelected {
+                
+                
+                var dateComponents = Calendar.current.dateComponents([
+                    .hour,
+                    .minute,
+                ], from: date)
+                
+                dateComponents.weekday = weekday
+                
+                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+                
+                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                
+                center.add(request) { (error) in
+                    if let error = error {
+                        print("There was an error: \(error.localizedDescription)")
+                    }
+                }
+            }
+
+        }
+        
     }
     
     func accessRealm() {
@@ -260,6 +342,11 @@ class NewTaskVC: UIViewController {
             guard let realm = realm else { return }
             try! realm.write {
                 realm.add(task)
+                
+                if task.reminderShortTime != "" {
+                    setupNotifications(task: task)
+                }
+                
                 navigationController?.popViewController(animated: true)
             }
         }

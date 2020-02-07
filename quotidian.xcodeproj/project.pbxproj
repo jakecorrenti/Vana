@@ -481,6 +481,7 @@
 			baseConfigurationReference = 524830ADCB0AE818ED122F10 /* Pods-quotidian.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = quotidian/quotidian.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B6XP6DNN6W;
 				INFOPLIST_FILE = quotidian/Info.plist;
@@ -500,6 +501,7 @@
 			baseConfigurationReference = B5CB5F5548ACF3F476020EB1 /* Pods-quotidian.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = quotidian/quotidian.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B6XP6DNN6W;
 				INFOPLIST_FILE = quotidian/Info.plist;
