@@ -195,7 +195,7 @@ class NewTaskVC: UIViewController {
                 
                 let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
                 
-                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                let request = UNNotificationRequest(identifier: task.uid, content: content, trigger: trigger)
                 
                 center.add(request) { (error) in
                     if let error = error {

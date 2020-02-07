@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import UserNotifications
 
 protocol TaskCompletedDelegate {
     func completionFor(status: Bool)
@@ -331,8 +332,12 @@ extension TaskDetailVC: TaskCompletedDelegate {
                         self.realm.delete(checklistItem!)
                     }
                     
+                    let center = UNUserNotificationCenter.current()
+                    center.removePendingNotificationRequests(withIdentifiers: [task!.uid])
+                    
                     self.realm.delete(task!)
                 }
+                
                 self.navigationController?.popViewController(animated: true)
             }
             
