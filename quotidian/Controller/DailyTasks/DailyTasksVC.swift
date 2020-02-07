@@ -76,6 +76,7 @@ class DailyTasksVC: UIViewController {
         let addButton = UIBarButtonItem(image: UIImage(systemName: Images.plus), style: .plain, target: self, action: #selector(addButtonPressed))
         navigationItem.rightBarButtonItem = addButton
         navigationItem.backBarButtonItem  = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        
     }
     
     func setupUI() {

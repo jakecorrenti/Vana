@@ -22,3 +22,5 @@ class Task: Object {
     var repeatDays     = List<String>()
     var checkListItems = List<CheckListItem>()
 }
+
+
