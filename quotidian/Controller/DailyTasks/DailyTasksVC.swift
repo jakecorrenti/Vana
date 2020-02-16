@@ -65,9 +65,6 @@ class DailyTasksVC: UIViewController {
        
         navigationItem.title = "Tasks"
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [
-            NSAttributedString.Key.foregroundColor : Colors.qDarkGrey
-        ]
 
         navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor : Colors.qDarkGrey

@@ -8,47 +8,75 @@
 
 /* Begin PBXBuildFile section */
 		080A02A7FF5FEB8C0F90C073 /* Pods_quotidian.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65393EAFFF2F85AC57387586 /* Pods_quotidian.framework */; };
+		18CED81FD98241172AA481D3 /* CurrentHabitRoutineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CED1687F8DE1F23F1C94AD /* CurrentHabitRoutineVC.swift */; };
+		18CED883DEC5CD22D79CD568 /* HabitCueVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CED86E9050023EAD9BA5FC /* HabitCueVC.swift */; };
+		3E41563B23F98DDB00B614FB /* RoutineAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41563A23F98DDB00B614FB /* RoutineAction.swift */; };
+		3E41563D23F98E3600B614FB /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41563C23F98E3600B614FB /* Habit.swift */; };
+		3E41563F23F990DD00B614FB /* NewRoutineOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41563E23F990DD00B614FB /* NewRoutineOnboardingVC.swift */; };
+		3E41564123F99CC800B614FB /* NewHabitRoutineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41564023F99CC800B614FB /* NewHabitRoutineVC.swift */; };
+		3E41564323F9A3A400B614FB /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41564223F9A3A400B614FB /* UIViewController + Extension.swift */; };
+		3E41564523F9A84100B614FB /* HabitRewardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41564423F9A84100B614FB /* HabitRewardVC.swift */; };
 		3E42EFF923E4C8DA000611ED /* TaskDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E42EFF823E4C8DA000611ED /* TaskDetailVC.swift */; };
 		3E4388B223DD518800B0C45C /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4388B123DD518800B0C45C /* TabController.swift */; };
 		3E4388B523DD51B700B0C45C /* DailyTasksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4388B423DD51B700B0C45C /* DailyTasksVC.swift */; };
 		3E4388B823DD520300B0C45C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4388B723DD520300B0C45C /* Constants.swift */; };
+		3E4EDD0B23F46AAB001A5FC7 /* ThreeHabitPartsDescText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4EDD0A23F46AAB001A5FC7 /* ThreeHabitPartsDescText.swift */; };
 		3E58B50D23DF31C40024DC01 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58B50C23DF31C40024DC01 /* TextFieldCell.swift */; };
 		3E58B50F23DF3B7E0024DC01 /* TextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58B50E23DF3B7E0024DC01 /* TextViewCell.swift */; };
 		3E58B51123DF67AE0024DC01 /* TimePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58B51023DF67AE0024DC01 /* TimePickerCell.swift */; };
 		3E58CEA123E88BEF0042881B /* CompletionButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E58CEA023E88BEF0042881B /* CompletionButtonCell.swift */; };
 		3E660AD923DFB401008F3F95 /* RepeatDaysSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E660AD823DFB401008F3F95 /* RepeatDaysSelectionVC.swift */; };
+		3E8FC00923F3A7E2001CE18C /* BreakBadHabitsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8FC00823F3A7E2001CE18C /* BreakBadHabitsVC.swift */; };
+		3E8FC00D23F3AA26001CE18C /* BreakBadHabitsIntroText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8FC00C23F3AA26001CE18C /* BreakBadHabitsIntroText.swift */; };
 		3E971E6A23E1B11E00F6E191 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E971E6923E1B11E00F6E191 /* Task.swift */; };
 		3E971E6C23E1B12C00F6E191 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E971E6B23E1B12C00F6E191 /* ChecklistItem.swift */; };
 		3EA5A76D23E38A76001BB874 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5A76C23E38A76001BB874 /* TaskCell.swift */; };
 		3EC006F023DD61F3000E30FC /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC006EF23DD61F3000E30FC /* UIView + Extension.swift */; };
 		3EC006F523DD69C0000E30FC /* NewTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC006F423DD69C0000E30FC /* NewTaskVC.swift */; };
+		3EC0EB4523F5C9810049F13C /* PurpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0EB4423F5C9810049F13C /* PurpleButton.swift */; };
+		3ED3815423F8A555002CA85E /* HabitNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED3815323F8A555002CA85E /* HabitNameVC.swift */; };
 		3ED686E023DCCE0500955D61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED686DF23DCCE0500955D61 /* AppDelegate.swift */; };
 		3ED686E223DCCE0500955D61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED686E123DCCE0500955D61 /* SceneDelegate.swift */; };
 		3ED686E923DCCE0700955D61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ED686E823DCCE0700955D61 /* Assets.xcassets */; };
 		3ED686EC23DCCE0700955D61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ED686EA23DCCE0700955D61 /* LaunchScreen.storyboard */; };
+		3EE502BE23EE6A6E00659802 /* MyHabitsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE502BD23EE6A6E00659802 /* MyHabitsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18CED1687F8DE1F23F1C94AD /* CurrentHabitRoutineVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentHabitRoutineVC.swift; sourceTree = "<group>"; };
+		18CED86E9050023EAD9BA5FC /* HabitCueVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HabitCueVC.swift; sourceTree = "<group>"; };
+		3E41563A23F98DDB00B614FB /* RoutineAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineAction.swift; sourceTree = "<group>"; };
+		3E41563C23F98E3600B614FB /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
+		3E41563E23F990DD00B614FB /* NewRoutineOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRoutineOnboardingVC.swift; sourceTree = "<group>"; };
+		3E41564023F99CC800B614FB /* NewHabitRoutineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitRoutineVC.swift; sourceTree = "<group>"; };
+		3E41564223F9A3A400B614FB /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
+		3E41564423F9A84100B614FB /* HabitRewardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitRewardVC.swift; sourceTree = "<group>"; };
 		3E42EFF823E4C8DA000611ED /* TaskDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailVC.swift; sourceTree = "<group>"; };
 		3E4388B123DD518800B0C45C /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		3E4388B423DD51B700B0C45C /* DailyTasksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTasksVC.swift; sourceTree = "<group>"; };
 		3E4388B723DD520300B0C45C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3E4EDD0A23F46AAB001A5FC7 /* ThreeHabitPartsDescText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeHabitPartsDescText.swift; sourceTree = "<group>"; };
 		3E58B50C23DF31C40024DC01 /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
 		3E58B50E23DF3B7E0024DC01 /* TextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewCell.swift; sourceTree = "<group>"; };
 		3E58B51023DF67AE0024DC01 /* TimePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerCell.swift; sourceTree = "<group>"; };
 		3E58CEA023E88BEF0042881B /* CompletionButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionButtonCell.swift; sourceTree = "<group>"; };
 		3E660AD823DFB401008F3F95 /* RepeatDaysSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatDaysSelectionVC.swift; sourceTree = "<group>"; };
+		3E8FC00823F3A7E2001CE18C /* BreakBadHabitsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakBadHabitsVC.swift; sourceTree = "<group>"; };
+		3E8FC00C23F3AA26001CE18C /* BreakBadHabitsIntroText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakBadHabitsIntroText.swift; sourceTree = "<group>"; };
 		3E971E6923E1B11E00F6E191 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		3E971E6B23E1B12C00F6E191 /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		3EA5A76C23E38A76001BB874 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		3EC006EF23DD61F3000E30FC /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		3EC006F423DD69C0000E30FC /* NewTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskVC.swift; sourceTree = "<group>"; };
+		3EC0EB4423F5C9810049F13C /* PurpleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurpleButton.swift; sourceTree = "<group>"; };
+		3ED3815323F8A555002CA85E /* HabitNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitNameVC.swift; sourceTree = "<group>"; };
 		3ED686DC23DCCE0500955D61 /* quotidian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quotidian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ED686DF23DCCE0500955D61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3ED686E123DCCE0500955D61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3ED686E823DCCE0700955D61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3ED686EB23DCCE0700955D61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3ED686ED23DCCE0700955D61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EE502BD23EE6A6E00659802 /* MyHabitsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitsVC.swift; sourceTree = "<group>"; };
 		524830ADCB0AE818ED122F10 /* Pods-quotidian.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quotidian.debug.xcconfig"; path = "Target Support Files/Pods-quotidian/Pods-quotidian.debug.xcconfig"; sourceTree = "<group>"; };
 		65393EAFFF2F85AC57387586 /* Pods_quotidian.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quotidian.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5CB5F5548ACF3F476020EB1 /* Pods-quotidian.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quotidian.release.xcconfig"; path = "Target Support Files/Pods-quotidian/Pods-quotidian.release.xcconfig"; sourceTree = "<group>"; };
@@ -75,11 +103,21 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		3E41563923F98DCC00B614FB /* NewHabit */ = {
+			isa = PBXGroup;
+			children = (
+				3E41563A23F98DDB00B614FB /* RoutineAction.swift */,
+				3E41563C23F98E3600B614FB /* Habit.swift */,
+			);
+			path = NewHabit;
+			sourceTree = "<group>";
+		};
 		3E4388AB23DD512700B0C45C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				3E4388B023DD516700B0C45C /* General */,
 				3E4388B323DD51A800B0C45C /* DailyTasks */,
+				3EE502BC23EE6A5900659802 /* Habits */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -87,6 +125,7 @@
 		3E4388AC23DD512F00B0C45C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3E8FC00A23F3AA02001CE18C /* Habits */,
 				3EA5A76B23E38A64001BB874 /* DailyTask */,
 				3E58B50B23DF31B40024DC01 /* General */,
 			);
@@ -96,6 +135,7 @@
 		3E4388AD23DD513400B0C45C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3E41563923F98DCC00B614FB /* NewHabit */,
 				3E971E6823E1B10B00F6E191 /* NewTask */,
 			);
 			path = Model;
@@ -116,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				3EC006EF23DD61F3000E30FC /* UIView + Extension.swift */,
+				3E41564223F9A3A400B614FB /* UIViewController + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -155,6 +196,33 @@
 				3E58B51023DF67AE0024DC01 /* TimePickerCell.swift */,
 			);
 			path = General;
+			sourceTree = "<group>";
+		};
+		3E8FC00723F3A7C3001CE18C /* InitialOnboarding */ = {
+			isa = PBXGroup;
+			children = (
+				3E8FC00823F3A7E2001CE18C /* BreakBadHabitsVC.swift */,
+				3E41563E23F990DD00B614FB /* NewRoutineOnboardingVC.swift */,
+			);
+			path = InitialOnboarding;
+			sourceTree = "<group>";
+		};
+		3E8FC00A23F3AA02001CE18C /* Habits */ = {
+			isa = PBXGroup;
+			children = (
+				3E8FC00B23F3AA08001CE18C /* NewHabitOnboarding */,
+			);
+			path = Habits;
+			sourceTree = "<group>";
+		};
+		3E8FC00B23F3AA08001CE18C /* NewHabitOnboarding */ = {
+			isa = PBXGroup;
+			children = (
+				3E8FC00C23F3AA26001CE18C /* BreakBadHabitsIntroText.swift */,
+				3E4EDD0A23F46AAB001A5FC7 /* ThreeHabitPartsDescText.swift */,
+				3EC0EB4423F5C9810049F13C /* PurpleButton.swift */,
+			);
+			path = NewHabitOnboarding;
 			sourceTree = "<group>";
 		};
 		3E971E6823E1B10B00F6E191 /* NewTask */ = {
@@ -205,6 +273,20 @@
 				3ED686ED23DCCE0700955D61 /* Info.plist */,
 			);
 			path = quotidian;
+			sourceTree = "<group>";
+		};
+		3EE502BC23EE6A5900659802 /* Habits */ = {
+			isa = PBXGroup;
+			children = (
+				3E8FC00723F3A7C3001CE18C /* InitialOnboarding */,
+				3EE502BD23EE6A6E00659802 /* MyHabitsVC.swift */,
+				3ED3815323F8A555002CA85E /* HabitNameVC.swift */,
+				18CED86E9050023EAD9BA5FC /* HabitCueVC.swift */,
+				18CED1687F8DE1F23F1C94AD /* CurrentHabitRoutineVC.swift */,
+				3E41564023F99CC800B614FB /* NewHabitRoutineVC.swift */,
+				3E41564423F9A84100B614FB /* HabitRewardVC.swift */,
+			);
+			path = Habits;
 			sourceTree = "<group>";
 		};
 		99BE4424E0314170163CFC80 /* Frameworks */ = {
@@ -329,22 +411,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E41564523F9A84100B614FB /* HabitRewardVC.swift in Sources */,
 				3E58B50F23DF3B7E0024DC01 /* TextViewCell.swift in Sources */,
 				3E4388B823DD520300B0C45C /* Constants.swift in Sources */,
 				3E4388B523DD51B700B0C45C /* DailyTasksVC.swift in Sources */,
+				3E8FC00923F3A7E2001CE18C /* BreakBadHabitsVC.swift in Sources */,
+				3E41563F23F990DD00B614FB /* NewRoutineOnboardingVC.swift in Sources */,
 				3EC006F523DD69C0000E30FC /* NewTaskVC.swift in Sources */,
 				3E971E6A23E1B11E00F6E191 /* Task.swift in Sources */,
 				3E42EFF923E4C8DA000611ED /* TaskDetailVC.swift in Sources */,
 				3E660AD923DFB401008F3F95 /* RepeatDaysSelectionVC.swift in Sources */,
+				3ED3815423F8A555002CA85E /* HabitNameVC.swift in Sources */,
 				3E58CEA123E88BEF0042881B /* CompletionButtonCell.swift in Sources */,
 				3E971E6C23E1B12C00F6E191 /* ChecklistItem.swift in Sources */,
+				3E4EDD0B23F46AAB001A5FC7 /* ThreeHabitPartsDescText.swift in Sources */,
 				3EC006F023DD61F3000E30FC /* UIView + Extension.swift in Sources */,
 				3EA5A76D23E38A76001BB874 /* TaskCell.swift in Sources */,
+				3E41563B23F98DDB00B614FB /* RoutineAction.swift in Sources */,
 				3ED686E023DCCE0500955D61 /* AppDelegate.swift in Sources */,
+				3E8FC00D23F3AA26001CE18C /* BreakBadHabitsIntroText.swift in Sources */,
 				3E4388B223DD518800B0C45C /* TabController.swift in Sources */,
 				3ED686E223DCCE0500955D61 /* SceneDelegate.swift in Sources */,
+				3EC0EB4523F5C9810049F13C /* PurpleButton.swift in Sources */,
+				3E41564323F9A3A400B614FB /* UIViewController + Extension.swift in Sources */,
 				3E58B50D23DF31C40024DC01 /* TextFieldCell.swift in Sources */,
+				3EE502BE23EE6A6E00659802 /* MyHabitsVC.swift in Sources */,
+				3E41563D23F98E3600B614FB /* Habit.swift in Sources */,
 				3E58B51123DF67AE0024DC01 /* TimePickerCell.swift in Sources */,
+				18CED883DEC5CD22D79CD568 /* HabitCueVC.swift in Sources */,
+				18CED81FD98241172AA481D3 /* CurrentHabitRoutineVC.swift in Sources */,
+				3E41564123F99CC800B614FB /* NewHabitRoutineVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

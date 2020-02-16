@@ -10,8 +10,6 @@ import Foundation
 import RealmSwift
 
 class CheckListItem: Object {
-    
-
     @objc dynamic var name        = ""
     @objc dynamic var isCompleted = false
     @objc dynamic var task: Task?
