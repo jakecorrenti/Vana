@@ -14,9 +14,14 @@ class TabController: UITabBarController {
         super.viewDidLoad()
 
         let tasks        = UINavigationController(rootViewController: DailyTasksVC())
-        tasks.tabBarItem = UITabBarItem(title: "Tasks", image: UIImage(systemName: Images.checkMark), tag: 0)
+        tasks.tabBarItem = UITabBarItem(title: "Tasks", image: UIImage.init(systemName: Images.checkMark, withConfiguration: UIImage.SymbolConfiguration(weight: .semibold)), tag: 0)
         
-        viewControllers = [tasks]
+        let habits        = UINavigationController(rootViewController: MyHabitsVC())
+        habits.tabBarItem = UITabBarItem(title: "Habits", image: UIImage.init(systemName: Images.timelapse, withConfiguration: UIImage.SymbolConfiguration(weight: .semibold)), tag: 1)
+        
+        viewControllers = [tasks, habits]
+        
+        tabBar.tintColor = .black 
         
     }
 

@@ -28,7 +28,7 @@ class NewTaskVC: UIViewController {
     var repeatRows     = [1]
     var subTasks       = [""]
     
-    var daysSelected = [String]()
+    var daysSelected       = [String]()
     var weekdayIntSelected = [Int]()
     var fullRemindTime: Date?
     
@@ -110,10 +110,6 @@ class NewTaskVC: UIViewController {
     func setupNavBar() {
         view.backgroundColor = Colors.qBG
         
-        navigationController?.navigationBar.largeTitleTextAttributes = [
-            NSAttributedString.Key.foregroundColor : Colors.qDarkGrey
-        ]
-        
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationItem.backBarButtonItem  = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
@@ -140,11 +136,9 @@ class NewTaskVC: UIViewController {
     func setupNotifications(task: Task) {
         //MARK: - IMPLEMENT
         
-        let content = UNMutableNotificationContent()
-        content.title = "Complete the task: \(task.title)"
-        content.body = "Open your Quotidian app to complete your remaining tasks!"
-        
-        let date = task.reminderLongTime
+        let content   = UNMutableNotificationContent()
+        content.title = "You must complete your \"\(task.title)\" task"
+        content.body  = "Open Quotidian and complete your pending tasks!"
         
         for day in daysSelected {
             switch day {
@@ -167,15 +161,19 @@ class NewTaskVC: UIViewController {
             }
         }
         
+        print("WEEKDAYS SELECTED: \(weekdayIntSelected)")
+        
         if weekdayIntSelected.count == 0 {
             let dateComponents = Calendar.current.dateComponents([
                 .hour,
-                .minute,
-            ], from: date)
+                .minute
+            ], from: task.reminderLongTime)
             
-            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
             
-            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+            let uid = UUID().uuidString
+            task.notificationID.append(uid)
+            let request = UNNotificationRequest(identifier: uid, content: content, trigger: trigger)
             
             center.add(request) { (error) in
                 if let error = error {
@@ -184,18 +182,18 @@ class NewTaskVC: UIViewController {
             }
         } else {
             for weekday in weekdayIntSelected {
-                
-                
                 var dateComponents = Calendar.current.dateComponents([
                     .hour,
-                    .minute,
-                ], from: date)
+                    .minute
+                ], from: task.reminderLongTime)
                 
                 dateComponents.weekday = weekday
                 
                 let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
                 
-                let request = UNNotificationRequest(identifier: task.uid, content: content, trigger: trigger)
+                let uid = UUID().uuidString
+                task.notificationID.append(uid)
+                let request = UNNotificationRequest(identifier: uid, content: content, trigger: trigger)
                 
                 center.add(request) { (error) in
                     if let error = error {
@@ -203,7 +201,6 @@ class NewTaskVC: UIViewController {
                     }
                 }
             }
-
         }
         
     }
