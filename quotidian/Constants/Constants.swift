@@ -16,6 +16,7 @@ enum Colors {
     static var qCompleteGreen = #colorLiteral(red: 0.6431372549, green: 0.8705882353, blue: 0.7215686275, alpha: 1)
     static var qDeleteRed     = #colorLiteral(red: 0.8705882353, green: 0.6431372549, blue: 0.6431372549, alpha: 1)
     static var qLightPurple   = #colorLiteral(red: 0.8941176471, green: 0.9019607843, blue: 0.9882352941, alpha: 1)
+    static var qLightGray     = UIColor(red: 239, green: 239, blue: 244, alpha: 1)
     static var qDeactivated   = #colorLiteral(red: 0.8196078431, green: 0.8196078431, blue: 0.8196078431, alpha: 1)
 }
 
@@ -37,6 +38,7 @@ enum Cells {
     static var timePickerCell = "timePickerCellID"
     static var taskCell       = "taskCellID"
     static var completionCell = "completionCellID"
+    static var habitCell      = "habitCellID"
 }
 
  
