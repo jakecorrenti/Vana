@@ -18,6 +18,8 @@
 		18CED80F7E4607FA8F6C1954 /* HabitRewardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CED05A953B254971B8E1FA /* HabitRewardVC.swift */; };
 		18CEDA1B673C363865CB7D3E /* HabitNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CED2B1199BF483D529EB03 /* HabitNameVC.swift */; };
 		18CEDADA31C08C8B7D8D0AC8 /* NewHabitRoutineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CED7DA564EAE2B5A903C6E /* NewHabitRoutineVC.swift */; };
+		3E11EB1923FC91480058EF27 /* BarChartDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11EB1823FC91480058EF27 /* BarChartDetailVC.swift */; };
+		3E2D2F0023FB312500045638 /* RoutineBarChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2D2EFF23FB312400045638 /* RoutineBarChartVC.swift */; };
 		3E41563B23F98DDB00B614FB /* RoutineAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41563A23F98DDB00B614FB /* RoutineAction.swift */; };
 		3E41563D23F98E3600B614FB /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41563C23F98E3600B614FB /* Habit.swift */; };
 		3E41564323F9A3A400B614FB /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41564223F9A3A400B614FB /* UIViewController + Extension.swift */; };
@@ -55,6 +57,8 @@
 		18CEDD4A7009EBC6FAE7BA6F /* HabitDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HabitDetailVC.swift; sourceTree = "<group>"; };
 		18CEDD549434222DBD8007A9 /* MyHabitsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHabitsVC.swift; sourceTree = "<group>"; };
 		18CEDE98D28B39FA05DF1106 /* HabitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HabitCell.swift; sourceTree = "<group>"; };
+		3E11EB1823FC91480058EF27 /* BarChartDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartDetailVC.swift; sourceTree = "<group>"; };
+		3E2D2EFF23FB312400045638 /* RoutineBarChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineBarChartVC.swift; sourceTree = "<group>"; };
 		3E41563A23F98DDB00B614FB /* RoutineAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineAction.swift; sourceTree = "<group>"; };
 		3E41563C23F98E3600B614FB /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		3E41564223F9A3A400B614FB /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
@@ -114,7 +118,9 @@
 		18CED6AE08FC9B0D832B508F /* HabitDetail */ = {
 			isa = PBXGroup;
 			children = (
+				3E2D2EFF23FB312400045638 /* RoutineBarChartVC.swift */,
 				18CEDD4A7009EBC6FAE7BA6F /* HabitDetailVC.swift */,
+				3E11EB1823FC91480058EF27 /* BarChartDetailVC.swift */,
 			);
 			path = HabitDetail;
 			sourceTree = "<group>";
@@ -135,6 +141,13 @@
 				B5CB5F5548ACF3F476020EB1 /* Pods-quotidian.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		3E2D2EFE23FB310800045638 /* HabitDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HabitDetail;
 			sourceTree = "<group>";
 		};
 		3E41563923F98DCC00B614FB /* NewHabit */ = {
@@ -235,6 +248,7 @@
 		3E8FC00A23F3AA02001CE18C /* Habits */ = {
 			isa = PBXGroup;
 			children = (
+				3E2D2EFE23FB310800045638 /* HabitDetail */,
 				3E8FC00B23F3AA08001CE18C /* NewHabitOnboarding */,
 				18CEDE98D28B39FA05DF1106 /* HabitCell.swift */,
 			);
@@ -443,6 +457,7 @@
 				3E58CEA123E88BEF0042881B /* CompletionButtonCell.swift in Sources */,
 				3E971E6C23E1B12C00F6E191 /* ChecklistItem.swift in Sources */,
 				3E4EDD0B23F46AAB001A5FC7 /* ThreeHabitPartsDescText.swift in Sources */,
+				3E2D2F0023FB312500045638 /* RoutineBarChartVC.swift in Sources */,
 				3EC006F023DD61F3000E30FC /* UIView + Extension.swift in Sources */,
 				3EA5A76D23E38A76001BB874 /* TaskCell.swift in Sources */,
 				3E41563B23F98DDB00B614FB /* RoutineAction.swift in Sources */,
@@ -456,6 +471,7 @@
 				3E41563D23F98E3600B614FB /* Habit.swift in Sources */,
 				3E58B51123DF67AE0024DC01 /* TimePickerCell.swift in Sources */,
 				18CED7CEEC30E900847FCFD5 /* BreakBadHabitsVC.swift in Sources */,
+				3E11EB1923FC91480058EF27 /* BarChartDetailVC.swift in Sources */,
 				18CED5D94D77290B5D513077 /* NewRoutineOnboardingVC.swift in Sources */,
 				18CED80F7E4607FA8F6C1954 /* HabitRewardVC.swift in Sources */,
 				18CED66F846E7580006208D1 /* CurrentHabitRoutineVC.swift in Sources */,

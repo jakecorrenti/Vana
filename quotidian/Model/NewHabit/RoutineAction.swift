@@ -11,8 +11,11 @@ import RealmSwift
 
 class RoutineAction: Object {
     
-    @objc dynamic var name                = ""
-    @objc dynamic var habit               : Habit?
-    @objc dynamic var isCompleted: Bool   = false
-    @objc dynamic var completedDate: Date = Date()
+    @objc dynamic var name                  = ""
+    @objc dynamic var habit                 : Habit?
+    @objc dynamic var isCompleted: Bool     = false
+    @objc dynamic var completedDate: String = ""
+    @objc dynamic var uid: String           = UUID().uuidString
+    
+    var daysCompleted = List<String>()
 }
