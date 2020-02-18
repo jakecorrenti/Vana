@@ -11,12 +11,12 @@ import RealmSwift
 
 class Habit: Object {
     
-    @objc dynamic var name: String        = ""
-    @objc dynamic var cue: String         = ""
-    @objc dynamic var reward: String      = ""
-    @objc dynamic var uid: String         = UUID().uuidString
-    @objc dynamic var isCompleted: Bool   = false
-    @objc dynamic var completedDate: Date = Date()
+    @objc dynamic var name: String          = ""
+    @objc dynamic var cue: String           = ""
+    @objc dynamic var reward: String        = ""
+    @objc dynamic var uid: String           = UUID().uuidString
+    @objc dynamic var isCompleted: Bool     = false
+    @objc dynamic var completedDate: String = ""
     
     var originalRoutine = List<RoutineAction>()
     var updatedRoutine  = List<RoutineAction>()

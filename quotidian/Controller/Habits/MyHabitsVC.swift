@@ -68,7 +68,7 @@ class MyHabitsVC: UIViewController {
 
     func accessHabits() -> Results<Habit> {
         let realm = try! Realm()
-        return realm.objects(Habit.self)
+        return realm.objects(Habit.self).filter("isCompleted == false")
     }
     
     @objc func addButtonPressed() {
@@ -105,6 +105,7 @@ extension MyHabitsVC: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detail = HabitDetailVC()
         detail.habit = accessHabits()[indexPath.row]
+        detail.barChartVC.habit = accessHabits()[indexPath.row]
         navigationController?.pushViewController(detail, animated: true)
     }
 }
