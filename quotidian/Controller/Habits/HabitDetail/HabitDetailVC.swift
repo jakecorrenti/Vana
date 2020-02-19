@@ -272,8 +272,10 @@ extension HabitDetailVC : UITableViewDataSource {
         }
         
         if habit!.updatedRoutine[indexPath.row].isCompleted {
+            print("Completed")
             cell.imageView?.image = UIImage(systemName: Images.completedCircle)
         } else {
+            print("Not completed")
             cell.imageView?.image = UIImage(systemName: Images.circle)
         }
         
@@ -291,32 +293,32 @@ extension HabitDetailVC : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
         
-        let cell  = tableView.cellForRow(at: indexPath)
-        let action = realm.objects(RoutineAction.self).filter("uid == '\(habit!.updatedRoutine[indexPath.row].uid)'").first
+        let routine = habit!.updatedRoutine[indexPath.row]
         
-        if cell?.imageView?.image == UIImage(systemName: Images.circle) {
-            cell?.imageView?.image = UIImage(systemName: Images.completedCircle)
-            
+        if routine.isCompleted {
             try! realm.write {
-                action?.isCompleted   = true
-                action?.completedDate = "\(formatter.string(from: Date()))"
-                action?.daysCompleted.append(formatter.string(from: Date()))
-            }
-        } else if cell?.imageView?.image == UIImage(systemName: Images.completedCircle) {
-            cell?.imageView?.image = UIImage(systemName: Images.circle)
-            
-            try! realm.write {
-                action?.isCompleted   = false
+                routine.isCompleted = false
                 
-                for (i, day) in action!.daysCompleted.enumerated() {
-                    if day == action?.completedDate {
-                        action?.daysCompleted.remove(at: i)
+                for (i, day) in routine.daysCompleted.enumerated() {
+                    if day == routine.completedDate {
+                        routine.daysCompleted.remove(at: i)
                     }
                 }
                 
-                action?.completedDate = ""
+                routine.completedDate = ""
+                cell?.imageView?.image = UIImage(systemName: Images.circle)
                 
+            }
+        } else {
+            cell?.imageView?.image = UIImage(systemName: Images.completedCircle)
+            
+            try! realm.write {
+                routine.isCompleted = true
+                routine.completedDate = formatter.string(from: Date())
+                routine.daysCompleted.append(formatter.string(from: Date()))
+                cell?.imageView?.image = UIImage(systemName: Images.completedCircle)
             }
         }
     }
