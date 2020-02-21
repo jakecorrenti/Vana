@@ -11,6 +11,13 @@ import RealmSwift
 
 class EditHabitVC: UIViewController {
     
+    enum EditCheckType: String {
+        case title   = "title"
+        case cue     = "cue"
+        case routine = "routine"
+        case reward  = "reward"
+    }
+    
     // -----------------------------------------
     // MARK: Properties
     // -----------------------------------------
@@ -76,22 +83,12 @@ class EditHabitVC: UIViewController {
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
-    
-    func isTitleValid() -> Bool {
-        let titleCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! TextFieldCell
-        let titleCellText = titleCell.textField.text
-        
-        if titleCellText == "" || titleCellText == " " || titleCellText == nil {
-            return false
-        }
-        
-        return true
-    }
-    
+
     func compareTitles() {
-        if isTitleValid() {
-            let titleCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! TextFieldCell
-            let title     = titleCell.textField.text!
+        let titleCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! TextFieldCell
+        
+        if isTextFieldValid(cell: titleCell) {
+            let title = titleCell.textField.text!
             
             if title != habit.name {
                 try! realm.write {
@@ -104,21 +101,11 @@ class EditHabitVC: UIViewController {
         }
     }
     
-    func isCueValid() -> Bool {
-        let cueCell = tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! TextFieldCell
-        let cueCellText = cueCell.textField.text
-        
-        if cueCellText == "" || cueCellText == " " || cueCellText == nil {
-            return false
-        }
-        
-        return true
-    }
-    
     func compareCues() {
-        if isCueValid() {
-            let cueCell = tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! TextFieldCell
-            let cue     = cueCell.textField.text!
+        let cueCell = tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! TextFieldCell
+        
+        if isTextFieldValid(cell: cueCell) {
+            let cue = cueCell.textField.text!
             
             if cue != habit.cue {
                 try! realm.write {
@@ -166,22 +153,11 @@ class EditHabitVC: UIViewController {
             }
         }
     }
-    
-    func isRewardValid() -> Bool {
-        let rewardCell = tableView.cellForRow(at: IndexPath(row: 0, section: 3)) as! TextFieldCell
-        let rewardCellText = rewardCell.textField.text
-        
-        if rewardCellText == "" || rewardCellText == " " || rewardCellText == nil {
-            return false
-        }
-        
-        return true
-    }
-    
+
     func compareRewards() {
-        if isRewardValid() {
-            let rewardCell = tableView.cellForRow(at: IndexPath(row: 0, section: 3)) as! TextFieldCell
-            let reward     = rewardCell.textField.text!
+        let rewardCell = tableView.cellForRow(at: IndexPath(row: 0, section: 3)) as! TextFieldCell
+        if isTextFieldValid(cell: rewardCell) {
+            let reward = rewardCell.textField.text!
             
             if reward != habit.reward {
                 try! realm.write {
@@ -192,6 +168,17 @@ class EditHabitVC: UIViewController {
         } else {
             showMissingInformationAlert(title: "reward")
         }
+    }
+    
+    func isTextFieldValid<T>(cell: T) -> Bool {
+        guard let cell = cell as? TextFieldCell else { return false }
+        let text = cell.textField.text
+        
+        if text == "" || text == " " || text == nil {
+            return false
+        }
+        
+        return true
     }
     
     func showMissingInformationAlert(title: String) {
