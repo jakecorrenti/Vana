@@ -12,13 +12,12 @@ class HabitDetailVC: UIViewController {
     // MARK: Properties
     // -----------------------------------------
 
-    var habit: Habit?
-    let realm = try! Realm()
-    
+    var habit      : Habit?
+    let realm      = try! Realm()
     let barChartVC = RoutineBarChartVC()
     
     lazy var formatter: DateFormatter = {
-        let f = DateFormatter()
+        let f        = DateFormatter()
         f.dateFormat = "MM/dd/yyyy"
         return f
     }()
@@ -122,6 +121,7 @@ class HabitDetailVC: UIViewController {
         super.viewWillAppear(animated)
 
         tabBarController?.tabBar.isHidden = true
+        actionsTableView.reloadData()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -147,6 +147,9 @@ class HabitDetailVC: UIViewController {
         navigationItem.title = habit!.name
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        
+        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonPressed))
+        navigationItem.rightBarButtonItem = editButton
     }
 
     func setupUI() {
@@ -190,9 +193,6 @@ class HabitDetailVC: UIViewController {
         
         barChartVC.configure(numberOfDays: 7)
         barChartVC.view.layer.cornerRadius = 12
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(tapInitiated))
-        barChartVC.view.addGestureRecognizer(tap)
     }
     
     @objc func historyValueChanged() {
@@ -240,11 +240,10 @@ class HabitDetailVC: UIViewController {
         present(controller, animated: true, completion: nil)
     }
     
-    @objc func tapInitiated() {
-        let detail              = BarChartDetailVC()
-        detail.habit            = habit
-        detail.dayRangeSelected = timePeriodControl.selectedSegmentIndex
-        navigationController?.pushViewController(detail, animated: true)
+    @objc func editButtonPressed() {
+        let edit   = EditHabitVC()
+        edit.habit = habit!
+        navigationController?.pushViewController(edit, animated: true)
     }
 }
 
@@ -307,7 +306,7 @@ extension HabitDetailVC : UITableViewDelegate {
                     }
                 }
                 
-                routine.completedDate = ""
+                routine.completedDate  = ""
                 cell?.imageView?.image = UIImage(systemName: Images.circle)
                 
             }
@@ -315,7 +314,7 @@ extension HabitDetailVC : UITableViewDelegate {
             cell?.imageView?.image = UIImage(systemName: Images.completedCircle)
             
             try! realm.write {
-                routine.isCompleted = true
+                routine.isCompleted   = true
                 routine.completedDate = formatter.string(from: Date())
                 routine.daysCompleted.append(formatter.string(from: Date()))
                 cell?.imageView?.image = UIImage(systemName: Images.completedCircle)

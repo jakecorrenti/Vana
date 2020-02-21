@@ -47,7 +47,7 @@ class NewTaskVC: UIViewController {
     // -----------------------------------------
     
     lazy var tableView: UITableView = {
-        let view                 = UITableView(frame: .zero, style: .grouped)
+        let view                 = UITableView(frame: .zero, style: .insetGrouped)
         view.backgroundColor     = Colors.qBG
         view.delegate            = self
         view.dataSource          = self

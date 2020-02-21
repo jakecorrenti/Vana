@@ -29,16 +29,18 @@ enum Images {
     static var list            = "line.horizontal.3.decrease.circle.fill"
     static var repeatRing      = "arrow.2.circlepath.circle.fill"
     static var timelapse       = "timelapse"
+    static var xMark           = "xmark.circle.fill"
 }
 
 enum Cells {
-    static var defaultCell    = "defaultCellID"
-    static var textFieldCell  = "textFieldCellID"
-    static var textViewCell   = "textViewCellID"
-    static var timePickerCell = "timePickerCellID"
-    static var taskCell       = "taskCellID"
-    static var completionCell = "completionCellID"
-    static var habitCell      = "habitCellID"
+    static var defaultCell        = "defaultCellID"
+    static var textFieldCell      = "textFieldCellID"
+    static var textViewCell       = "textViewCellID"
+    static var timePickerCell     = "timePickerCellID"
+    static var taskCell           = "taskCellID"
+    static var completionCell     = "completionCellID"
+    static var habitCell          = "habitCellID"
+    static var textFieldImageCell = "textFieldWithImageCellID"
 }
 
  

@@ -29,18 +29,18 @@ class HabitCell: UITableViewCell {
 
     lazy var habitDailyProgressBar: UIProgressView = {
         let view                 = UIProgressView()
-        view.backgroundColor     = Colors.qLightGray
+        view.progress            = 0
+        view.backgroundColor     = UIColor.init(white: 0.95, alpha: 1)
         view.progressTintColor   = Colors.qPurple
         view.layer.cornerRadius  = 6
         view.layer.masksToBounds = true
-        view.setProgress(0.5, animated: true)
         return view
     }()
 
     lazy var progressLabel: UILabel = {
         let view       = UILabel()
-        view.text      = "Progress:"
-        view.font      = UIFont.systemFont(ofSize: 18)
+        view.text      = "Today's progress:"
+        view.font      = UIFont.systemFont(ofSize: 15)
         view.textColor = .black
         return view
     }()
@@ -56,7 +56,7 @@ class HabitCell: UITableViewCell {
     lazy var routinesCompletedLabel: UILabel = {
         let view           = UILabel()
         view.text          = "Actions completed:"
-        view.font          = UIFont.systemFont(ofSize: 18)
+        view.font          = UIFont.systemFont(ofSize: 15)
         view.textColor     = .black
         view.textAlignment = .right
         return view
@@ -117,6 +117,16 @@ class HabitCell: UITableViewCell {
 
     func configure(habit: Habit) {
         habitNameLabel.text = habit.name
+        
+        var progress: Float = 0.0
+        for action in habit.updatedRoutine where action.isCompleted {
+            progress += 1
+        }
+        let percentage = progress / Float(habit.updatedRoutine.count)
+        habitDailyProgressBar.setProgress(percentage, animated: false)
+        
+        progressValueLabel.text = "\(Int(percentage * 100))%"
+        routinesCompletedValueLabel.text = "\(Int(progress))/\(habit.updatedRoutine.count)"
     }
 
 }
