@@ -52,7 +52,8 @@ class RoutineBarChartVC: UIViewController {
     
     func setupUI() {
         
-        view.addSubview(barStackView)
+        [barStackView].forEach {view.addSubview($0)}
+        
         barStackView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, centerX: nil, centerY: nil, padding: .init(top: 8, left: 8, bottom: 8, right: 8), size: .zero)
     }
     
@@ -62,7 +63,6 @@ class RoutineBarChartVC: UIViewController {
     }
     
     func configure(numberOfDays: Int) {
-        
         let data = accessBarChartData(numberOfDays: numberOfDays)
         
         barStackView.arrangedSubviews.forEach { barStackView.removeArrangedSubview($0) }
@@ -82,12 +82,14 @@ class RoutineBarChartVC: UIViewController {
             
             let multiplier = data[-day]
             barView.anchor(top: nil, leading: barBGView.leadingAnchor, bottom: barBGView.bottomAnchor, trailing: barBGView.trailingAnchor, centerX: nil, centerY: nil)
+            
             barView.heightAnchor.constraint(equalTo: barBGView.heightAnchor, multiplier: multiplier).isActive = true
             
             barStackView.addArrangedSubview(barBGView)
         }
+        
     }
-    
+ 
     func accessBarChartData(numberOfDays: Int) -> [CGFloat] {
         var dates            = [String]()
         var completedActions = [CGFloat]()
