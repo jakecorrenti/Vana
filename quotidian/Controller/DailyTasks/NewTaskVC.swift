@@ -134,8 +134,6 @@ class NewTaskVC: UIViewController {
     }
     
     func setupNotifications(task: Task) {
-        //MARK: - IMPLEMENT
-        
         let content   = UNMutableNotificationContent()
         content.title = "You must complete your \"\(task.title)\" task"
         content.body  = "Open Quotidian and complete your pending tasks!"
