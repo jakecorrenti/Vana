@@ -78,6 +78,9 @@ class TaskDetailVC: UIViewController {
         view.backgroundColor = Colors.qBG
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        
+        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonPressed))
+        navigationItem.rightBarButtonItem = editButton
     }
     
     func setupUI() {
@@ -137,6 +140,12 @@ class TaskDetailVC: UIViewController {
         }
         return false
     }
+    
+    @objc func editButtonPressed() {
+        let edit  = EditTaskVC()
+        edit.task = taskSelected
+        navigationController?.pushViewController(edit, animated: true)
+    }
 }
 
 // -----------------------------------------
@@ -170,6 +179,7 @@ extension TaskDetailVC : UITableViewDataSource {
             if taskSelected.taskDescription != "" {
                 cell.textLabel?.text      = taskSelected.taskDescription
                 cell.textLabel?.textColor = .black
+                cell.textLabel?.numberOfLines = 0
             } else {
                 cell.textLabel?.text      = "No description provided"
                 cell.textLabel?.textColor = .lightGray

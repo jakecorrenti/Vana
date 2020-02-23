@@ -52,19 +52,19 @@ class TextViewCell: UITableViewCell {
 
 extension TextViewCell: UITextViewDelegate {
     
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == Colors.qDarkGrey {
-            textView.text      = nil
-            textView.textColor = Colors.qDarkGrey
-            textView.font = UIFont.systemFont(ofSize: 15)
-        }
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text == "" || textView.text.isEmpty {
-            textView.text      = "Description"
-            textView.textColor = Colors.qDarkGrey
-            textView.font      = UIFont.systemFont(ofSize: 15)
-        }
-    }
+//    func textViewDidBeginEditing(_ textView: UITextView) {
+//        if textView.textColor == Colors.qDarkGrey {
+//            textView.text      = nil
+//            textView.textColor = Colors.qDarkGrey
+//            textView.font = UIFont.systemFont(ofSize: 15)
+//        }
+//    }
+//
+//    func textViewDidEndEditing(_ textView: UITextView) {
+//        if textView.text == "" || textView.text.isEmpty {
+//            textView.text      = "Description"
+//            textView.textColor = Colors.qDarkGrey
+//            textView.font      = UIFont.systemFont(ofSize: 15)
+//        }
+//    }
 }

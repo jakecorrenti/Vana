@@ -11,13 +11,6 @@ import RealmSwift
 
 class EditHabitVC: UIViewController {
     
-    enum EditCheckType: String {
-        case title   = "title"
-        case cue     = "cue"
-        case routine = "routine"
-        case reward  = "reward"
-    }
-    
     // -----------------------------------------
     // MARK: Properties
     // -----------------------------------------
