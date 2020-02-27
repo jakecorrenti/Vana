@@ -9,19 +9,35 @@
 import Foundation
 import RealmSwift
 
-class Task: Object {
+class Task: Object, Storable {
 
-    @objc dynamic var title             = ""
-    @objc dynamic var taskDescription   = ""
+    @objc dynamic var name              = ""
+    @objc dynamic var notes             = ""
     @objc dynamic var reminderShortTime = ""
     @objc dynamic var reminderLongTime  = Date()
     @objc dynamic var uid               = "\(UUID())"
     @objc dynamic var isCompleted       = false
-    @objc dynamic var completedDate     = Date()
+    @objc dynamic var completedDate     = ""
+    @objc dynamic var userList: UserList?
     
     var repeatDays     = List<String>()
-    var checkListItems = List<CheckListItem>()
     var notificationID = List<String>()
+    
+    func updateCompletion(with status: Bool) throws {
+        let object = realm?.objects(Task.self).filter("uid == '\(self.uid)'").first
+        var realm: Realm?
+        
+        do {
+            try realm = Realm()
+        } catch {
+            print("\(error.localizedDescription)")
+        }
+        
+        try realm?.write {
+            object?.isCompleted = status 
+        }
+        
+    }
 }
 
 

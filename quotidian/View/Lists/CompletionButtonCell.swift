@@ -14,7 +14,7 @@ class CompletionButtonCell: UITableViewCell {
     // MARK: Properties
     // -----------------------------------------
     
-    var delegate: TaskCompletedDelegate?
+//    var delegate: TaskCompletedDelegate?
     
     // -----------------------------------------
     // MARK: Views
@@ -72,10 +72,10 @@ class CompletionButtonCell: UITableViewCell {
     // -----------------------------------------
     
     @objc func completed() {
-        delegate?.completionFor(status: true)
+//        delegate?.completionFor(status: true)
     }
     
     @objc func deleted() {
-        delegate?.completionFor(status: false )
+//        delegate?.completionFor(status: false )
     }
 }
