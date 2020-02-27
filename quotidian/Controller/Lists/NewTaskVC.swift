@@ -34,10 +34,23 @@ class NewTaskVC: UIViewController {
     private var numberOfReminderRows = 1
     private var numberOfRepeatRows = 1
     private var selectedTimeFullFormat: Date?
+    private var repeatingDays: [String]?
     
     lazy var formatter: DateFormatter = {
         let f = DateFormatter()
         f.dateFormat = "h:mm a"
+        return f
+    }()
+    
+    lazy var hourFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateFormat = "hh"
+        return f
+    }()
+    
+    lazy var minuteFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateFormat = "mm"
         return f
     }()
     
@@ -178,6 +191,74 @@ class NewTaskVC: UIViewController {
         return text
     }
     
+    private func getRepeatingTaskHourComponent() -> Int {
+        return Calendar.current.component(.hour, from: selectedTimeFullFormat!)
+    }
+    
+    private func getRepeatingTaskMinuteComponent() -> Int {
+        return Calendar.current.component(.minute, from: selectedTimeFullFormat!)
+    }
+    
+    private func getRepeatingTaskDayComponent() -> [Int]? {
+        if repeatingDays != nil {
+            var dayComponents = [Int]()
+            
+            for day in repeatingDays! {
+                switch day {
+                case "Sunday":
+                    dayComponents.append(1)
+                case "Monday":
+                    dayComponents.append(2)
+                case "Tuesday":
+                    dayComponents.append(3)
+                case "Wednesday":
+                    dayComponents.append(4)
+                case "Thursday":
+                    dayComponents.append(5)
+                case "Friday":
+                    dayComponents.append(6)
+                case "Saturday":
+                    dayComponents.append(7)
+                default:
+                    return nil
+                }
+            }
+        }
+        return nil
+    }
+    
+    private func setupNotifications() {
+        let notificationsManager = LocalNotificationsManager()
+        
+        if getRepeatingTaskDayComponent() != nil {
+            for day in getRepeatingTaskDayComponent()! {
+                
+                var notificationDateComponents = DateComponents()
+                notificationDateComponents.weekday = day
+                notificationDateComponents.hour = getRepeatingTaskHourComponent()
+                notificationDateComponents.minute = getRepeatingTaskMinuteComponent()
+
+                notificationsManager.notifications = [
+                    LocalNotification(id: UUID().uuidString, title: "Complete: \(getTaskName())", dateTime: notificationDateComponents, isRepeating: isRepeatingSwitch.isOn)
+                ]
+                
+                notificationsManager.schedule()
+            }
+            
+        } else {
+            
+            var notificationDateComponents = DateComponents()
+            notificationDateComponents.hour = getRepeatingTaskHourComponent()
+            notificationDateComponents.minute = getRepeatingTaskMinuteComponent()
+
+            notificationsManager.notifications = [
+                LocalNotification(id: UUID().uuidString, title: "Complete: \(getTaskName())", dateTime: notificationDateComponents, isRepeating: isRepeatingSwitch.isOn)
+            ]
+
+            notificationsManager.schedule()
+        }
+    }
+    
     // -----------------------------------------
     // MARK: View Interactions
     // -----------------------------------------
@@ -187,6 +268,12 @@ class NewTaskVC: UIViewController {
         task.name = getTaskName()
         task.userList = selectedList
         task.notes = getTaskNotes()
+        
+        if selectedTimeFullFormat != nil {
+            task.reminderLongTime = selectedTimeFullFormat!
+            task.reminderShortTime = formatter.string(from: selectedTimeFullFormat!)
+            setupNotifications()
+        }
         
         try? selectedList.append(task: task)
         try? dbManager.save(object: task)
