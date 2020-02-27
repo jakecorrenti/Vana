@@ -77,6 +77,8 @@ class RepeatDaysSelectionVC: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         
+        navigationItem.title = "Select days"
+        
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonPressed))
         
         navigationItem.rightBarButtonItem = doneButton

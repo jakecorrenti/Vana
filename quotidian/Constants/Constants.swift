@@ -18,6 +18,13 @@ enum Colors {
     static var qLightPurple   = #colorLiteral(red: 0.8941176471, green: 0.9019607843, blue: 0.9882352941, alpha: 1)
     static var qLightGray     = UIColor(red: 239, green: 239, blue: 244, alpha: 1)
     static var qDeactivated   = #colorLiteral(red: 0.8196078431, green: 0.8196078431, blue: 0.8196078431, alpha: 1)
+    
+    static var qListRed       = #colorLiteral(red: 0.9529411765, green: 0.6274509804, blue: 0.6274509804, alpha: 1)
+    static var qListOrange    = #colorLiteral(red: 0.9529411765, green: 0.7921568627, blue: 0.6274509804, alpha: 1)
+    static var qListBlue      = #colorLiteral(red: 0.6274509804, green: 0.8666666667, blue: 0.9529411765, alpha: 1)
+    static var qListPurple    = #colorLiteral(red: 0.6274509804, green: 0.6588235294, blue: 0.9529411765, alpha: 1)
+    static var qListGreen     = #colorLiteral(red: 0.6274509804, green: 0.9529411765, blue: 0.6274509804, alpha: 1)
+    static var qListGray      = #colorLiteral(red: 0.8274509804, green: 0.8274509804, blue: 0.8274509804, alpha: 1)
 }
 
 enum Images {
@@ -41,6 +48,8 @@ enum Cells {
     static var completionCell     = "completionCellID"
     static var habitCell          = "habitCellID"
     static var textFieldImageCell = "textFieldWithImageCellID"
+    static var listCell           = "listCellID"
+    static var listInProgressCell = "listInProgressCellID"
 }
 
  

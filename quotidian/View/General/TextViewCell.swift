@@ -16,9 +16,7 @@ class TextViewCell: UITableViewCell {
     
     lazy var textView: UITextView = {
         let view       = UITextView()
-        view.text      = "Description"
         view.textColor = Colors.qDarkGrey
-        view.delegate  = self
         view.font      = UIFont.systemFont(ofSize: 15)
         return view
     }()
@@ -48,23 +46,4 @@ class TextViewCell: UITableViewCell {
         
         textView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, centerX: nil, centerY: nil, padding: .init(top: 0, left: 16, bottom: 0, right: 16), size: .zero)
     }
-}
-
-extension TextViewCell: UITextViewDelegate {
-    
-//    func textViewDidBeginEditing(_ textView: UITextView) {
-//        if textView.textColor == Colors.qDarkGrey {
-//            textView.text      = nil
-//            textView.textColor = Colors.qDarkGrey
-//            textView.font = UIFont.systemFont(ofSize: 15)
-//        }
-//    }
-//
-//    func textViewDidEndEditing(_ textView: UITextView) {
-//        if textView.text == "" || textView.text.isEmpty {
-//            textView.text      = "Description"
-//            textView.textColor = Colors.qDarkGrey
-//            textView.font      = UIFont.systemFont(ofSize: 15)
-//        }
-//    }
 }
