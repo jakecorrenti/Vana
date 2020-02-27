@@ -71,6 +71,9 @@ class MyListsVC: UIViewController {
         
         reloadCollectionViewData()
         getListsInProgress()
+        
+        LocalNotificationsManager().listScheduledNotifications()
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -85,6 +88,8 @@ class MyListsVC: UIViewController {
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         getListsInProgress()
+        
+        
     }
     
     // -----------------------------------------

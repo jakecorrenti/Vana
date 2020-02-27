@@ -19,6 +19,8 @@
 		18CEDA1B673C363865CB7D3E /* HabitNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CED2B1199BF483D529EB03 /* HabitNameVC.swift */; };
 		18CEDADA31C08C8B7D8D0AC8 /* NewHabitRoutineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CED7DA564EAE2B5A903C6E /* NewHabitRoutineVC.swift */; };
 		3E2D2F0023FB312500045638 /* RoutineBarChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2D2EFF23FB312400045638 /* RoutineBarChartVC.swift */; };
+		3E3646602408281800814F0D /* LocalNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E36465F2408281800814F0D /* LocalNotificationsManager.swift */; };
+		3E3646622408285800814F0D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3646612408285800814F0D /* Notification.swift */; };
 		3E41563B23F98DDB00B614FB /* RoutineAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41563A23F98DDB00B614FB /* RoutineAction.swift */; };
 		3E41563D23F98E3600B614FB /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41563C23F98E3600B614FB /* Habit.swift */; };
 		3E41564323F9A3A400B614FB /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41564223F9A3A400B614FB /* UIViewController + Extension.swift */; };
@@ -67,6 +69,8 @@
 		18CEDD549434222DBD8007A9 /* MyHabitsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHabitsVC.swift; sourceTree = "<group>"; };
 		18CEDE98D28B39FA05DF1106 /* HabitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HabitCell.swift; sourceTree = "<group>"; };
 		3E2D2EFF23FB312400045638 /* RoutineBarChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineBarChartVC.swift; sourceTree = "<group>"; };
+		3E36465F2408281800814F0D /* LocalNotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationsManager.swift; sourceTree = "<group>"; };
+		3E3646612408285800814F0D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		3E41563A23F98DDB00B614FB /* RoutineAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineAction.swift; sourceTree = "<group>"; };
 		3E41563C23F98E3600B614FB /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		3E41564223F9A3A400B614FB /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
@@ -168,6 +172,15 @@
 			path = HabitDetail;
 			sourceTree = "<group>";
 		};
+		3E36465E2408280300814F0D /* NotificationsManager */ = {
+			isa = PBXGroup;
+			children = (
+				3E36465F2408281800814F0D /* LocalNotificationsManager.swift */,
+				3E3646612408285800814F0D /* Notification.swift */,
+			);
+			path = NotificationsManager;
+			sourceTree = "<group>";
+		};
 		3E41563923F98DCC00B614FB /* NewHabit */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,7 +213,6 @@
 		3E4388AD23DD513400B0C45C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3E75FA4E24044528004BA1E5 /* DBManager */,
 				3E75FA4B24043D28004BA1E5 /* List */,
 				3E41563923F98DCC00B614FB /* NewHabit */,
 				3E971E6823E1B10B00F6E191 /* NewTask */,
@@ -347,6 +359,8 @@
 		3ED686DE23DCCE0500955D61 /* quotidian */ = {
 			isa = PBXGroup;
 			children = (
+				3E36465E2408280300814F0D /* NotificationsManager */,
+				3E75FA4E24044528004BA1E5 /* DBManager */,
 				3E4388B623DD51F800B0C45C /* Constants */,
 				3E4388AF23DD513E00B0C45C /* Extensions */,
 				3E4388AE23DD513A00B0C45C /* Misc */,
@@ -501,6 +515,7 @@
 				3E971E6C23E1B12C00F6E191 /* ChecklistItem.swift in Sources */,
 				3E8C1BC123FE3E3C0009C533 /* EditHabitVC.swift in Sources */,
 				3ED7028D240770080088BC8A /* ListInProgressCell.swift in Sources */,
+				3E3646622408285800814F0D /* Notification.swift in Sources */,
 				3E4EDD0B23F46AAB001A5FC7 /* ThreeHabitPartsDescText.swift in Sources */,
 				3E2D2F0023FB312500045638 /* RoutineBarChartVC.swift in Sources */,
 				3EC006F023DD61F3000E30FC /* UIView + Extension.swift in Sources */,
@@ -512,6 +527,7 @@
 				3E75FA522404458A004BA1E5 /* StorageContext.swift in Sources */,
 				3E75FA4D24043D36004BA1E5 /* UserList.swift in Sources */,
 				3E4388B223DD518800B0C45C /* TabController.swift in Sources */,
+				3E3646602408281800814F0D /* LocalNotificationsManager.swift in Sources */,
 				3ED686E223DCCE0500955D61 /* SceneDelegate.swift in Sources */,
 				3EC0EB4523F5C9810049F13C /* PurpleButton.swift in Sources */,
 				3E41564323F9A3A400B614FB /* UIViewController + Extension.swift in Sources */,

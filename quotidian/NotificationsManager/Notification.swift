@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+
+struct LocalNotification {
+    
+    // -----------------------------------------
+    // MARK: Properties
+    // -----------------------------------------
+    
+    var id: String
+    var title: String
+    var dateTime: DateComponents
+    var isRepeating: Bool
+}
