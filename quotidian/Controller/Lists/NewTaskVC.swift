@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 // -----------------------------------------
 // MARK: Custom Delegates
@@ -34,7 +35,7 @@ class NewTaskVC: UIViewController {
     private var numberOfReminderRows = 1
     private var numberOfRepeatRows = 1
     private var selectedTimeFullFormat: Date?
-    private var repeatingDays: [String]?
+    private var repeatingDays = List<String>()
     
     lazy var formatter: DateFormatter = {
         let f = DateFormatter()
@@ -122,6 +123,8 @@ class NewTaskVC: UIViewController {
         doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonPressed))
         doneButton.isEnabled = false
         navigationItem.rightBarButtonItem = doneButton
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
 
     }
     
@@ -141,12 +144,14 @@ class NewTaskVC: UIViewController {
         numberOfReminderRows += 1
         
         tableView.insertRows(at: [IndexPath(row: numberOfReminderRows - 1, section: 2)], with: .automatic)
+        tableView.scrollToRow(at: IndexPath(row: numberOfReminderRows - 1, section: 2), at: .bottom, animated: true)
     }
     
     private func onSetRepeatDays() {
         numberOfRepeatRows += 1
         
         tableView.insertRows(at: [IndexPath(row: numberOfRepeatRows - 1, section: 3)], with: .automatic)
+        tableView.scrollToRow(at: IndexPath(row: numberOfRepeatRows - 1, section: 3), at: .bottom, animated: true)
     }
 
     private func onRemoveReminder() {
@@ -203,7 +208,7 @@ class NewTaskVC: UIViewController {
         if repeatingDays != nil {
             var dayComponents = [Int]()
             
-            for day in repeatingDays! {
+            for day in repeatingDays {
                 switch day {
                 case "Sunday":
                     dayComponents.append(1)
@@ -223,6 +228,7 @@ class NewTaskVC: UIViewController {
                     return nil
                 }
             }
+            return dayComponents
         }
         return nil
     }
@@ -231,6 +237,9 @@ class NewTaskVC: UIViewController {
         let notificationsManager = LocalNotificationsManager()
         
         if getRepeatingTaskDayComponent() != nil {
+            
+            var notifications = [LocalNotification]()
+            
             for day in getRepeatingTaskDayComponent()! {
                 
                 var notificationDateComponents = DateComponents()
@@ -238,12 +247,12 @@ class NewTaskVC: UIViewController {
                 notificationDateComponents.hour = getRepeatingTaskHourComponent()
                 notificationDateComponents.minute = getRepeatingTaskMinuteComponent()
 
-                notificationsManager.notifications = [
-                    LocalNotification(id: UUID().uuidString, title: "Complete: \(getTaskName())", dateTime: notificationDateComponents, isRepeating: isRepeatingSwitch.isOn)
-                ]
+                notifications.append(LocalNotification(id: UUID().uuidString, title: "Complete: \(getTaskName())", dateTime: notificationDateComponents, isRepeating: isRepeatingSwitch.isOn))
                 
-                notificationsManager.schedule()
             }
+            
+            notificationsManager.notifications = notifications
+            notificationsManager.schedule()
             
         } else {
             
@@ -268,6 +277,7 @@ class NewTaskVC: UIViewController {
         task.name = getTaskName()
         task.userList = selectedList
         task.notes = getTaskNotes()
+        task.repeatDays = repeatingDays
         
         if selectedTimeFullFormat != nil {
             task.reminderLongTime = selectedTimeFullFormat!
@@ -421,9 +431,11 @@ extension NewTaskVC : UITableViewDelegate {
             if numberOfReminderRows < 3 {
                 numberOfReminderRows += 1
                 tableView.insertRows(at: [IndexPath(row: numberOfReminderRows - 1, section: 2)], with: .automatic)
+                tableView.scrollToRow(at: IndexPath(row: numberOfReminderRows - 1, section: 2), at: .bottom, animated: true)
             } else {
                 numberOfReminderRows -= 1
                 tableView.deleteRows(at: [IndexPath(row: numberOfReminderRows, section: 2)], with: .automatic)
+                tableView.scrollToRow(at: IndexPath(row: numberOfReminderRows - 1, section: 2), at: .bottom, animated: true)
             }
         case IndexPath(row: 1, section: 3):
             let repeating = RepeatDaysSelectionVC()
@@ -450,6 +462,8 @@ extension NewTaskVC: TimeChangedDelegate {
 extension NewTaskVC: RepeatDaysDelegate {
     func getRepeatDays(days: [String]) {
         print(days)
+        
+        days.forEach {repeatingDays.append($0)}
         
         var daysString = ""
         

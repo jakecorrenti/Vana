@@ -21,6 +21,7 @@
 		3E2D2F0023FB312500045638 /* RoutineBarChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2D2EFF23FB312400045638 /* RoutineBarChartVC.swift */; };
 		3E3646602408281800814F0D /* LocalNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E36465F2408281800814F0D /* LocalNotificationsManager.swift */; };
 		3E3646622408285800814F0D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3646612408285800814F0D /* Notification.swift */; };
+		3E364664240887DF00814F0D /* TaskDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E364663240887DF00814F0D /* TaskDetailVC.swift */; };
 		3E41563B23F98DDB00B614FB /* RoutineAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41563A23F98DDB00B614FB /* RoutineAction.swift */; };
 		3E41563D23F98E3600B614FB /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41563C23F98E3600B614FB /* Habit.swift */; };
 		3E41564323F9A3A400B614FB /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41564223F9A3A400B614FB /* UIViewController + Extension.swift */; };
@@ -71,6 +72,7 @@
 		3E2D2EFF23FB312400045638 /* RoutineBarChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineBarChartVC.swift; sourceTree = "<group>"; };
 		3E36465F2408281800814F0D /* LocalNotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationsManager.swift; sourceTree = "<group>"; };
 		3E3646612408285800814F0D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		3E364663240887DF00814F0D /* TaskDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailVC.swift; sourceTree = "<group>"; };
 		3E41563A23F98DDB00B614FB /* RoutineAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineAction.swift; sourceTree = "<group>"; };
 		3E41563C23F98E3600B614FB /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		3E41564223F9A3A400B614FB /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				3EC006F423DD69C0000E30FC /* NewTaskVC.swift */,
 				3E660AD823DFB401008F3F95 /* RepeatDaysSelectionVC.swift */,
 				3ED70288240631E50088BC8A /* ListDetailVC.swift */,
+				3E364663240887DF00814F0D /* TaskDetailVC.swift */,
 			);
 			path = Lists;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 			files = (
 				3E58B50F23DF3B7E0024DC01 /* TextViewCell.swift in Sources */,
 				3E4388B823DD520300B0C45C /* Constants.swift in Sources */,
+				3E364664240887DF00814F0D /* TaskDetailVC.swift in Sources */,
 				3E4388B523DD51B700B0C45C /* MyListsVC.swift in Sources */,
 				3E8E6E842402D720004B5D04 /* NewListVC.swift in Sources */,
 				3EC006F523DD69C0000E30FC /* NewTaskVC.swift in Sources */,
