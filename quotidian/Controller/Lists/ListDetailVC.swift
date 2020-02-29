@@ -123,6 +123,9 @@ extension ListDetailVC : UITableViewDelegate {
         print("tapped: \(indexPath.row)")
         
         // push to the task detail view where the user can edit and delete a task
+        let detail = TaskDetailVC()
+        detail.selectedTask = selectedList.tasks[indexPath.row]
+        navigationController?.pushViewController(detail, animated: true)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
