@@ -55,6 +55,12 @@ class NewTaskVC: UIViewController {
         return f
     }()
     
+    lazy var dayAndTimeFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateFormat = "EEEE MMMM d, h:mm a"
+        return f
+    }()
+    
     // -----------------------------------------
     // MARK: Views
     // -----------------------------------------
@@ -110,6 +116,7 @@ class NewTaskVC: UIViewController {
         setupNavBar()
         setupUI()
         
+//        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
     
     // -----------------------------------------
@@ -125,7 +132,7 @@ class NewTaskVC: UIViewController {
         navigationItem.rightBarButtonItem = doneButton
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-
+        
     }
     
     private func setupUI() {
@@ -204,6 +211,14 @@ class NewTaskVC: UIViewController {
         return Calendar.current.component(.minute, from: selectedTimeFullFormat!)
     }
     
+    private func getTaskDayOfMonth() -> Int {
+        return Calendar.current.component(.day, from: selectedTimeFullFormat!)
+    }
+    
+    private func getTaskMonth() -> Int {
+        return Calendar.current.component(.month, from: selectedTimeFullFormat!)
+    }
+    
     private func getRepeatingTaskDayComponent() -> [Int]? {
         if repeatingDays != nil {
             var dayComponents = [Int]()
@@ -259,6 +274,8 @@ class NewTaskVC: UIViewController {
             var notificationDateComponents = DateComponents()
             notificationDateComponents.hour = getRepeatingTaskHourComponent()
             notificationDateComponents.minute = getRepeatingTaskMinuteComponent()
+            notificationDateComponents.day = getTaskDayOfMonth()
+            notificationDateComponents.month = getTaskMonth()
 
             notificationsManager.notifications = [
                 LocalNotification(id: UUID().uuidString, title: "Complete: \(getTaskName())", dateTime: notificationDateComponents, isRepeating: isRepeatingSwitch.isOn)
@@ -368,7 +385,7 @@ extension NewTaskVC : UITableViewDataSource {
                 return cell
             } else if indexPath.row == 1 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: Cells.defaultCell, for: indexPath)
-                cell.textLabel?.text = formatter.string(from: Date())
+                cell.textLabel?.text = dayAndTimeFormatter.string(from: Date())
                 cell.textLabel?.textColor = Colors.qDarkGrey
                 cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
                 cell.textLabel?.textAlignment = .right
@@ -454,7 +471,7 @@ extension NewTaskVC : UITableViewDelegate {
 extension NewTaskVC: TimeChangedDelegate {
     func updateTime(time: Date) {
         let timeDisplayCell = tableView.cellForRow(at: IndexPath(row: 1, section: 2))
-        timeDisplayCell?.textLabel?.text = formatter.string(from: time)
+        timeDisplayCell?.textLabel?.text = dayAndTimeFormatter.string(from: time)
         selectedTimeFullFormat = time 
     }
 }
