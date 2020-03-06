@@ -16,6 +16,12 @@ class TaskDetailVC: UIViewController {
     
     var selectedTask = Task()
     
+    lazy var dayAndTimeFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateFormat = "EEEE MMMM d, h:mm a"
+        return f
+    }()
+    
     // -----------------------------------------
     // MARK: Views
     // -----------------------------------------
@@ -62,13 +68,24 @@ class TaskDetailVC: UIViewController {
         view.backgroundColor = Colors.qBG
         navigationItem.title = "Task info"
         
-        
+        let deleteButton = UIBarButtonItem(image: UIImage(systemName: Images.trashcan), style: .plain, target: self, action: #selector(deleteButtonPressed))
+        deleteButton.tintColor = Colors.qDeleteRed
+        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonPressed))
+        navigationItem.rightBarButtonItems = [deleteButton, editButton]
     }
     
     private func setupUI() {
         view.addSubview(tableView)
         
         tableView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, centerX: nil, centerY: nil)
+    }
+    
+    @objc func deleteButtonPressed() {
+        
+    }
+    
+    @objc func editButtonPressed() {
+        
     }
 }
 
@@ -112,7 +129,7 @@ extension TaskDetailVC : UITableViewDataSource {
             if selectedTask.reminderShortTime == "" {
                 cell.textField.text = "There is no reminder set"
             } else {
-                cell.textField.text = selectedTask.reminderShortTime
+                cell.textField.text = dayAndTimeFormatter.string(from: selectedTask.reminderLongTime)
             }
             cell.textField.isEnabled = false
             cell.selectionStyle = .none

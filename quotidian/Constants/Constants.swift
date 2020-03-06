@@ -37,6 +37,7 @@ enum Images {
     static var repeatRing      = "arrow.2.circlepath.circle.fill"
     static var timelapse       = "timelapse"
     static var xMark           = "xmark.circle.fill"
+    static var trashcan        = "trash"
 }
 
 enum Cells {

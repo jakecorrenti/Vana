@@ -18,7 +18,7 @@ class TimePickerCell: UITableViewCell {
     
     lazy var datePicker: UIDatePicker = {
         let view = UIDatePicker()
-        view.datePickerMode = .time
+        view.datePickerMode = .dateAndTime
         view.addTarget(self, action: #selector(timeValueChanged), for: .valueChanged)
         return view
     }()
