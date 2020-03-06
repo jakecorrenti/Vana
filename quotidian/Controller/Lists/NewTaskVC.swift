@@ -236,7 +236,7 @@ class NewTaskVC: UIViewController {
     private func setupNotifications() {
         let notificationsManager = LocalNotificationsManager()
         
-        if getRepeatingTaskDayComponent() != nil {
+        if getRepeatingTaskDayComponent() != [Int]() {
             
             var notifications = [LocalNotification]()
             
