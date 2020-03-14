@@ -84,8 +84,42 @@ class TaskDetailVC: UIViewController {
         tableView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, centerX: nil, centerY: nil)
     }
     
-    @objc func deleteButtonPressed() {
+    private func deleteNotifications() {
+        var ids = [String]()
+        var matchingIDs = [String]()
         
+        UNUserNotificationCenter.current().getPendingNotificationRequests { (notifications) in
+            print(notifications.count)
+            notifications.forEach { ids.append($0.identifier)}
+        }
+        
+        while ids.count == 0 {
+            // loops through until the ids are populated to ensure that the data used is representing actual data
+        }
+        
+        for id in ids {
+            for notificationID in selectedTask.notificationID {
+                if id == notificationID {
+                    matchingIDs.append(id)
+                }
+            }
+        }
+        
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: matchingIDs)
+        
+    }
+    
+    @objc func deleteButtonPressed() {
+        let controller = UIAlertController(title: "Would you like to delete \(selectedTask.name)?", message: nil, preferredStyle: .alert)
+        let delete = UIAlertAction(title: "Delete", style: .destructive) { (action: UIAlertAction) in
+            let dbManager: StorageContext = RealmStorageContext()
+            self.deleteNotifications()
+            try? dbManager.delete(object: self.selectedTask)
+            self.navigationController?.popViewController(animated: true)
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        [delete, cancel].forEach {controller.addAction($0)}
+        present(controller, animated: true, completion: nil)
     }
     
     @objc func editButtonPressed() {
