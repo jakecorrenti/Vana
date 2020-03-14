@@ -18,6 +18,6 @@ protocol StorageContext {
     // delete an object that conforms to the Storable protocol
     func delete(object: Storable) throws
     
-    // updates an object that conforms to the Storable protocol
-    func update(object: Storable, objectType: AnyClass) throws
+    // updates an object that conforms to the Object protocol (Realm Specific update style)
+    func update(object: Object) throws
 }

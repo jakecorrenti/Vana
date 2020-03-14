@@ -37,12 +37,15 @@ class RealmStorageContext: StorageContext {
         }
     }
     
-    //MARK: - Figure out the proper parameters 
-    func update(object: Storable, objectType: AnyClass) throws {
+    func update(object: Object) throws {
         do {
             try realm = Realm()
         } catch {
-            print("\(error.localizedDescription)")
+            fatalError("\(error.localizedDescription)")
+        }
+        
+        try realm?.write {
+            realm?.add(object, update: .modified)
         }
     }
 }
