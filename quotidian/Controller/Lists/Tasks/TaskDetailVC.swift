@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class TaskDetailVC: UIViewController {
     
@@ -47,6 +48,7 @@ class TaskDetailVC: UIViewController {
         super.viewWillAppear(animated)
         
         tabBarController?.tabBar.isHidden = true
+        tableView.reloadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -67,9 +69,11 @@ class TaskDetailVC: UIViewController {
     private func setupNavBar() {
         view.backgroundColor = Colors.qBG
         navigationItem.title = "Task info"
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         
         let deleteButton = UIBarButtonItem(image: UIImage(systemName: Images.trashcan), style: .plain, target: self, action: #selector(deleteButtonPressed))
         deleteButton.tintColor = Colors.qDeleteRed
+        
         let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonPressed))
         navigationItem.rightBarButtonItems = [deleteButton, editButton]
     }
@@ -85,7 +89,10 @@ class TaskDetailVC: UIViewController {
     }
     
     @objc func editButtonPressed() {
-        
+        let edit = EditTaskVC()
+        edit.selectedTask = selectedTask
+        if selectedTask.reminderShortTime != "" { edit.numberOfReminderRows = 2 }
+        navigationController?.pushViewController(edit, animated: true)
     }
 }
 

@@ -36,6 +36,7 @@ class NewTaskVC: UIViewController {
     private var numberOfRepeatRows = 1
     private var selectedTimeFullFormat: Date?
     private var repeatingDays = List<String>()
+    private var notificationIDs = List<String>()
     
     lazy var formatter: DateFormatter = {
         let f = DateFormatter()
@@ -262,7 +263,11 @@ class NewTaskVC: UIViewController {
                 notificationDateComponents.hour = getRepeatingTaskHourComponent()
                 notificationDateComponents.minute = getRepeatingTaskMinuteComponent()
 
-                notifications.append(LocalNotification(id: UUID().uuidString, title: "Complete: \(getTaskName())", dateTime: notificationDateComponents, isRepeating: isRepeatingSwitch.isOn))
+                let id = UUID().uuidString
+                
+                notifications.append(LocalNotification(id: id, title: "Complete: \(getTaskName())", dateTime: notificationDateComponents, isRepeating: isRepeatingSwitch.isOn))
+                
+                notificationIDs.append(id)
                 
             }
             
@@ -276,11 +281,14 @@ class NewTaskVC: UIViewController {
             notificationDateComponents.minute = getRepeatingTaskMinuteComponent()
             notificationDateComponents.day = getTaskDayOfMonth()
             notificationDateComponents.month = getTaskMonth()
+            
+            let id = UUID().uuidString
 
             notificationsManager.notifications = [
-                LocalNotification(id: UUID().uuidString, title: "Complete: \(getTaskName())", dateTime: notificationDateComponents, isRepeating: isRepeatingSwitch.isOn)
+                LocalNotification(id: id, title: "Complete: \(getTaskName())", dateTime: notificationDateComponents, isRepeating: isRepeatingSwitch.isOn)
             ]
-
+            
+            notificationIDs.append(id)
             notificationsManager.schedule()
         }
     }
@@ -295,6 +303,7 @@ class NewTaskVC: UIViewController {
         task.userList = selectedList
         task.notes = getTaskNotes()
         task.repeatDays = repeatingDays
+        task.notificationID = notificationIDs
         
         if selectedTimeFullFormat != nil {
             task.reminderLongTime = selectedTimeFullFormat!
