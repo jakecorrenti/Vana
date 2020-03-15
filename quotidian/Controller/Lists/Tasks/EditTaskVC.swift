@@ -150,14 +150,6 @@ class EditTaskVC: UIViewController {
         return days
     }
     
-    /*
-     TODO:
-     - remove all old notifications from que that are related to the current task object ✅
-     - remove all old notification ids from the related task object
-     - create new notifications based on the new task data
-     - assign new notification ids to related task object
-     */
-    
     private func removeCurrentPendingNotificationRequests() {
         var ids = [String]()
         var matchingIDs = [String]()
@@ -180,7 +172,6 @@ class EditTaskVC: UIViewController {
         }
         
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: matchingIDs)
-        
     }
     
     private func createUpdatedTaskObject() {
@@ -272,6 +263,7 @@ class EditTaskVC: UIViewController {
         let dbManager: StorageContext = RealmStorageContext()
         // scroll to top to prevent name cell contents from being nil since it is not in the que
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+        removeCurrentPendingNotificationRequests()
         createUpdatedTaskObject()
         createUpdatedNotifications()
         try? dbManager.update(object: updatedTask)
