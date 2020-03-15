@@ -63,8 +63,9 @@ class ListDetailVC: UIViewController {
         view.backgroundColor = Colors.qBG
         navigationItem.title = selectedList.name
         
+        let moreButton = UIBarButtonItem(image: UIImage(systemName: Images.more), style: .plain, target: self, action: #selector(moreButtonPressed))
         let addButton = UIBarButtonItem(image: UIImage(systemName: Images.plus), style: .plain, target: self, action: #selector(addButtonPressed))
-        navigationItem.rightBarButtonItem = addButton
+        navigationItem.rightBarButtonItems = [addButton, moreButton]
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         
     }
@@ -73,6 +74,22 @@ class ListDetailVC: UIViewController {
         view.addSubview(tasksTableView)
         
         tasksTableView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, centerX: nil, centerY: nil)
+    }
+    
+    @objc func moreButtonPressed() {
+        let controller = UIAlertController(title: "Would you like to edit or delete \(selectedList.name)?", message: nil, preferredStyle: .actionSheet)
+        let edit = UIAlertAction(title: "Edit", style: .default) { (alert) in
+            // edit action
+            let edit = EditListVC()
+            edit.selectedList = self.selectedList
+            self.navigationController?.pushViewController(edit, animated: true)
+        }
+        let delete = UIAlertAction(title: "Delete", style: .destructive) { (alert) in
+            // delete action
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        [edit, delete, cancel].forEach { controller.addAction($0) }
+        present(controller, animated: true, completion: nil)
     }
     
     @objc func addButtonPressed() {
@@ -95,7 +112,7 @@ extension ListDetailVC : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cells.defaultCell, for: indexPath)
         cell.textLabel?.text = selectedList.tasks[indexPath.row].name
         cell.textLabel?.textColor = .black
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
+        cell.textLabel?.font = .systemFont(ofSize: 20)
         cell.accessoryType = .detailButton
         cell.backgroundColor = Colors.qBG
         cell.selectionStyle = .none

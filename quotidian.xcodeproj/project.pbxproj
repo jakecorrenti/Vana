@@ -49,6 +49,7 @@
 		3EC006F023DD61F3000E30FC /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC006EF23DD61F3000E30FC /* UIView + Extension.swift */; };
 		3EC006F523DD69C0000E30FC /* NewTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC006F423DD69C0000E30FC /* NewTaskVC.swift */; };
 		3EC0EB4523F5C9810049F13C /* PurpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0EB4423F5C9810049F13C /* PurpleButton.swift */; };
+		3ED40073241D3C8D00BD6C3F /* EditListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED40072241D3C8D00BD6C3F /* EditListVC.swift */; };
 		3ED686E023DCCE0500955D61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED686DF23DCCE0500955D61 /* AppDelegate.swift */; };
 		3ED686E223DCCE0500955D61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED686E123DCCE0500955D61 /* SceneDelegate.swift */; };
 		3ED686E923DCCE0700955D61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ED686E823DCCE0700955D61 /* Assets.xcassets */; };
@@ -101,6 +102,7 @@
 		3EC006EF23DD61F3000E30FC /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		3EC006F423DD69C0000E30FC /* NewTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskVC.swift; sourceTree = "<group>"; };
 		3EC0EB4423F5C9810049F13C /* PurpleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurpleButton.swift; sourceTree = "<group>"; };
+		3ED40072241D3C8D00BD6C3F /* EditListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditListVC.swift; sourceTree = "<group>"; };
 		3ED686DC23DCCE0500955D61 /* quotidian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quotidian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ED686DF23DCCE0500955D61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3ED686E123DCCE0500955D61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				3E8E6E832402D720004B5D04 /* NewListVC.swift */,
 				3E660AD823DFB401008F3F95 /* RepeatDaysSelectionVC.swift */,
 				3ED70288240631E50088BC8A /* ListDetailVC.swift */,
+				3ED40072241D3C8D00BD6C3F /* EditListVC.swift */,
 				3EDFDD7E2412ED0D0076DBC5 /* Tasks */,
 			);
 			path = Lists;
@@ -556,6 +559,7 @@
 				18CED66F846E7580006208D1 /* CurrentHabitRoutineVC.swift in Sources */,
 				3E75FA5424044611004BA1E5 /* RealmStorageContext.swift in Sources */,
 				18CED2E364D13F05A4493B53 /* HabitCueVC.swift in Sources */,
+				3ED40073241D3C8D00BD6C3F /* EditListVC.swift in Sources */,
 				3E75FA5024044540004BA1E5 /* Storable.swift in Sources */,
 				18CEDADA31C08C8B7D8D0AC8 /* NewHabitRoutineVC.swift in Sources */,
 				18CEDA1B673C363865CB7D3E /* HabitNameVC.swift in Sources */,

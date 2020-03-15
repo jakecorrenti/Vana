@@ -117,7 +117,7 @@ class NewTaskVC: UIViewController {
         setupNavBar()
         setupUI()
         
-//        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
     
     // -----------------------------------------

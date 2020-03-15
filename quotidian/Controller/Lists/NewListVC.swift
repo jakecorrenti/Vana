@@ -16,6 +16,7 @@ class NewListVC: UIViewController {
     
     let dbManager: StorageContext = RealmStorageContext()
     var selectedColorIndex = 0
+    var selectedColor = "" // variable is used for editing the list
 
     let colorValues: [UIColor] = [
         Colors.qListOrange,
@@ -177,8 +178,8 @@ extension NewListVC : UICollectionViewDelegate {
         cell?.contentView.layer.borderColor = UIColor.black.cgColor
         cell?.contentView.layer.borderWidth = 3
         cell?.contentView.layer.cornerRadius = 26
-        
         selectedColorIndex = indexPath.row + 1
+        selectedColor = colorNames[indexPath.row + 1]
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
