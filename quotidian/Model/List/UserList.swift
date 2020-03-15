@@ -15,6 +15,10 @@ class UserList: Object, Storable {
     @objc dynamic var uid: String = UUID().uuidString
     var tasks = List<Task>()
     
+    override class func primaryKey() -> String? {
+        return "uid"
+    }
+    
     func append(task: Task) throws {
         var realm: Realm?
         do {

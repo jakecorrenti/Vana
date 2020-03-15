@@ -38,6 +38,7 @@ enum Images {
     static var timelapse       = "timelapse"
     static var xMark           = "xmark.circle.fill"
     static var trashcan        = "trash"
+    static var more            = "ellipsis"
 }
 
 enum Cells {
