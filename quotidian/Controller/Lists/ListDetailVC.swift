@@ -76,6 +76,37 @@ class ListDetailVC: UIViewController {
         tasksTableView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, centerX: nil, centerY: nil)
     }
     
+    private func deleteAllListPendingNotifications() {
+        var ids = [String]()
+        
+        for task in selectedList.tasks {
+            for notification in task.notificationID {
+                ids.append(notification)
+            }
+        }
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ids)
+    }
+    
+    private func deleteAllListTasks() {
+        let dbManager: StorageContext = RealmStorageContext()
+        
+        for task in selectedList.tasks {
+            try? dbManager.delete(object: task)
+        }
+    }
+    
+    private func deleteList() {
+        let dbManager: StorageContext = RealmStorageContext()
+        
+        // delete the notifications that each task has within the list
+        deleteAllListPendingNotifications()
+        // delete the tasks within the list
+        deleteAllListTasks()
+        // delete the list
+        try? dbManager.delete(object: selectedList)
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
     @objc func moreButtonPressed() {
         let controller = UIAlertController(title: "Would you like to edit or delete \(selectedList.name)?", message: nil, preferredStyle: .actionSheet)
         let edit = UIAlertAction(title: "Edit", style: .default) { (alert) in
@@ -86,6 +117,7 @@ class ListDetailVC: UIViewController {
         }
         let delete = UIAlertAction(title: "Delete", style: .destructive) { (alert) in
             // delete action
+            self.deleteList()
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         [edit, delete, cancel].forEach { controller.addAction($0) }
