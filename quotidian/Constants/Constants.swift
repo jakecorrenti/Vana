@@ -39,6 +39,9 @@ enum Images {
     static var xMark           = "xmark.circle.fill"
     static var trashcan        = "trash"
     static var more            = "ellipsis"
+    static var clock           = "clock"
+    static var desk            = "studentdesk"
+    static var present         = "gift"
 }
 
 enum Cells {

@@ -27,6 +27,7 @@ class EditHabitVC: UIViewController {
         view.delegate        = self
         view.dataSource      = self
         view.backgroundColor = Colors.qBG
+        view.keyboardDismissMode = .onDrag
         view.register(TextFieldCell.self, forCellReuseIdentifier: Cells.textFieldCell)
         return view
     }()
@@ -224,18 +225,21 @@ extension EditHabitVC : UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: Cells.textFieldCell, for: indexPath) as! TextFieldCell
             cell.configure(placeholder: "Enter habit name...")
             cell.textField.text = habit.name
+            cell.textField.textColor = .black
             cell.selectionStyle = .none
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: Cells.textFieldCell, for: indexPath) as! TextFieldCell
             cell.configure(placeholder: "Enter habit cue...")
             cell.textField.text = habit.cue
+            cell.textField.textColor = .black
             cell.selectionStyle = .none
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: Cells.textFieldCell, for: indexPath) as! TextFieldCell
             cell.configure(placeholder: "Enter rouine action...")
             cell.textField.text = habit.updatedRoutine[indexPath.row].name
+            cell.textField.textColor = .black
             cell.selectionStyle = .none
             return cell
         case 3:
@@ -243,6 +247,7 @@ extension EditHabitVC : UITableViewDataSource {
             cell.configure(placeholder: "Enter habit reward...")
             cell.textField.text = habit.reward
             cell.selectionStyle = .none
+            cell.textField.textColor = .black
             return cell
         default:
             return UITableViewCell()

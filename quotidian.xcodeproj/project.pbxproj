@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		080A02A7FF5FEB8C0F90C073 /* Pods_quotidian.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65393EAFFF2F85AC57387586 /* Pods_quotidian.framework */; };
 		18CED182AF5AA7E9C1260B78 /* HabitDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CEDD4A7009EBC6FAE7BA6F /* HabitDetailVC.swift */; };
 		18CED2B6E0C0E373F79FE1F7 /* MyHabitsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CEDD549434222DBD8007A9 /* MyHabitsVC.swift */; };
 		18CED2E364D13F05A4493B53 /* HabitCueVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CEDB48CC0C8AA6F6480580 /* HabitCueVC.swift */; };
@@ -50,6 +49,7 @@
 		3EC006F523DD69C0000E30FC /* NewTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC006F423DD69C0000E30FC /* NewTaskVC.swift */; };
 		3EC0EB4523F5C9810049F13C /* PurpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0EB4423F5C9810049F13C /* PurpleButton.swift */; };
 		3ED40073241D3C8D00BD6C3F /* EditListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED40072241D3C8D00BD6C3F /* EditListVC.swift */; };
+		3ED40077241F355700BD6C3F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3ED40076241F355700BD6C3F /* GoogleService-Info.plist */; };
 		3ED686E023DCCE0500955D61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED686DF23DCCE0500955D61 /* AppDelegate.swift */; };
 		3ED686E223DCCE0500955D61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED686E123DCCE0500955D61 /* SceneDelegate.swift */; };
 		3ED686E923DCCE0700955D61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ED686E823DCCE0700955D61 /* Assets.xcassets */; };
@@ -58,6 +58,7 @@
 		3ED7028B24063BE80088BC8A /* UINavigationController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7028A24063BE80088BC8A /* UINavigationController + Extension.swift */; };
 		3ED7028D240770080088BC8A /* ListInProgressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7028C240770080088BC8A /* ListInProgressCell.swift */; };
 		3EDFDD802412ED260076DBC5 /* EditTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDFDD7F2412ED260076DBC5 /* EditTaskVC.swift */; };
+		750B85CCF6CDECDC40A2A3E3 /* Pods_Vana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D498B0E63758311CC58654A6 /* Pods_Vana.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		18CEDD4A7009EBC6FAE7BA6F /* HabitDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HabitDetailVC.swift; sourceTree = "<group>"; };
 		18CEDD549434222DBD8007A9 /* MyHabitsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHabitsVC.swift; sourceTree = "<group>"; };
 		18CEDE98D28B39FA05DF1106 /* HabitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HabitCell.swift; sourceTree = "<group>"; };
+		360EB87822C77124E9549FF9 /* Pods-Vana.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vana.release.xcconfig"; path = "Target Support Files/Pods-Vana/Pods-Vana.release.xcconfig"; sourceTree = "<group>"; };
 		3E2D2EFF23FB312400045638 /* RoutineBarChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineBarChartVC.swift; sourceTree = "<group>"; };
 		3E36465F2408281800814F0D /* LocalNotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationsManager.swift; sourceTree = "<group>"; };
 		3E3646612408285800814F0D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
@@ -103,7 +105,8 @@
 		3EC006F423DD69C0000E30FC /* NewTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskVC.swift; sourceTree = "<group>"; };
 		3EC0EB4423F5C9810049F13C /* PurpleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurpleButton.swift; sourceTree = "<group>"; };
 		3ED40072241D3C8D00BD6C3F /* EditListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditListVC.swift; sourceTree = "<group>"; };
-		3ED686DC23DCCE0500955D61 /* quotidian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quotidian.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ED40076241F355700BD6C3F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3ED686DC23DCCE0500955D61 /* Vana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vana.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ED686DF23DCCE0500955D61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3ED686E123DCCE0500955D61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3ED686E823DCCE0700955D61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -114,8 +117,9 @@
 		3ED7028C240770080088BC8A /* ListInProgressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInProgressCell.swift; sourceTree = "<group>"; };
 		3EDFDD7F2412ED260076DBC5 /* EditTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskVC.swift; sourceTree = "<group>"; };
 		524830ADCB0AE818ED122F10 /* Pods-quotidian.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quotidian.debug.xcconfig"; path = "Target Support Files/Pods-quotidian/Pods-quotidian.debug.xcconfig"; sourceTree = "<group>"; };
-		65393EAFFF2F85AC57387586 /* Pods_quotidian.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quotidian.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5CB5F5548ACF3F476020EB1 /* Pods-quotidian.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quotidian.release.xcconfig"; path = "Target Support Files/Pods-quotidian/Pods-quotidian.release.xcconfig"; sourceTree = "<group>"; };
+		D498B0E63758311CC58654A6 /* Pods_Vana.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vana.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8DE8C4B5786D75D0EF21B9E /* Pods-Vana.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vana.debug.xcconfig"; path = "Target Support Files/Pods-Vana/Pods-Vana.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				080A02A7FF5FEB8C0F90C073 /* Pods_quotidian.framework in Frameworks */,
+				750B85CCF6CDECDC40A2A3E3 /* Pods_Vana.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,15 +171,10 @@
 			children = (
 				524830ADCB0AE818ED122F10 /* Pods-quotidian.debug.xcconfig */,
 				B5CB5F5548ACF3F476020EB1 /* Pods-quotidian.release.xcconfig */,
+				D8DE8C4B5786D75D0EF21B9E /* Pods-Vana.debug.xcconfig */,
+				360EB87822C77124E9549FF9 /* Pods-Vana.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		3E2D2EFE23FB310800045638 /* HabitDetail */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = HabitDetail;
 			sourceTree = "<group>";
 		};
 		3E36465E2408280300814F0D /* NotificationsManager */ = {
@@ -308,7 +307,6 @@
 		3E8FC00A23F3AA02001CE18C /* Habits */ = {
 			isa = PBXGroup;
 			children = (
-				3E2D2EFE23FB310800045638 /* HabitDetail */,
 				3E8FC00B23F3AA08001CE18C /* NewHabitOnboarding */,
 				18CEDE98D28B39FA05DF1106 /* HabitCell.swift */,
 			);
@@ -358,7 +356,7 @@
 		3ED686DD23DCCE0500955D61 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3ED686DC23DCCE0500955D61 /* quotidian.app */,
+				3ED686DC23DCCE0500955D61 /* Vana.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -375,6 +373,7 @@
 				3E4388AC23DD512F00B0C45C /* View */,
 				3E4388AB23DD512700B0C45C /* Controller */,
 				3ED686ED23DCCE0700955D61 /* Info.plist */,
+				3ED40076241F355700BD6C3F /* GoogleService-Info.plist */,
 			);
 			path = quotidian;
 			sourceTree = "<group>";
@@ -402,7 +401,7 @@
 		99BE4424E0314170163CFC80 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				65393EAFFF2F85AC57387586 /* Pods_quotidian.framework */,
+				D498B0E63758311CC58654A6 /* Pods_Vana.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -410,9 +409,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3ED686DB23DCCE0500955D61 /* quotidian */ = {
+		3ED686DB23DCCE0500955D61 /* Vana */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3ED686F023DCCE0700955D61 /* Build configuration list for PBXNativeTarget "quotidian" */;
+			buildConfigurationList = 3ED686F023DCCE0700955D61 /* Build configuration list for PBXNativeTarget "Vana" */;
 			buildPhases = (
 				E9651906713C16F987B0330C /* [CP] Check Pods Manifest.lock */,
 				3ED686D823DCCE0500955D61 /* Sources */,
@@ -424,9 +423,9 @@
 			);
 			dependencies = (
 			);
-			name = quotidian;
+			name = Vana;
 			productName = quotidian;
-			productReference = 3ED686DC23DCCE0500955D61 /* quotidian.app */;
+			productReference = 3ED686DC23DCCE0500955D61 /* Vana.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -457,7 +456,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3ED686DB23DCCE0500955D61 /* quotidian */,
+				3ED686DB23DCCE0500955D61 /* Vana */,
 			);
 		};
 /* End PBXProject section */
@@ -469,6 +468,7 @@
 			files = (
 				3ED686EC23DCCE0700955D61 /* LaunchScreen.storyboard in Resources */,
 				3ED686E923DCCE0700955D61 /* Assets.xcassets in Resources */,
+				3ED40077241F355700BD6C3F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,15 +481,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-quotidian/Pods-quotidian-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Vana/Pods-Vana-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-quotidian/Pods-quotidian-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Vana/Pods-Vana-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-quotidian/Pods-quotidian-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Vana/Pods-Vana-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E9651906713C16F987B0330C /* [CP] Check Pods Manifest.lock */ = {
@@ -507,7 +507,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-quotidian-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Vana-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -702,7 +702,7 @@
 		};
 		3ED686F123DCCE0700955D61 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 524830ADCB0AE818ED122F10 /* Pods-quotidian.debug.xcconfig */;
+			baseConfigurationReference = D8DE8C4B5786D75D0EF21B9E /* Pods-Vana.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = quotidian/quotidian.entitlements;
@@ -714,15 +714,15 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jakecorrenti.quotidian;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Vana;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		3ED686F223DCCE0700955D61 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5CB5F5548ACF3F476020EB1 /* Pods-quotidian.release.xcconfig */;
+			baseConfigurationReference = 360EB87822C77124E9549FF9 /* Pods-Vana.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = quotidian/quotidian.entitlements;
@@ -734,9 +734,9 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jakecorrenti.quotidian;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Vana;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -752,7 +752,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3ED686F023DCCE0700955D61 /* Build configuration list for PBXNativeTarget "quotidian" */ = {
+		3ED686F023DCCE0700955D61 /* Build configuration list for PBXNativeTarget "Vana" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3ED686F123DCCE0700955D61 /* Debug */,
