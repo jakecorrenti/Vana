@@ -19,7 +19,7 @@ class TabController: UITabBarController {
         let habits        = UINavigationController(rootViewController: MyHabitsVC())
         habits.tabBarItem = UITabBarItem(title: "Habits", image: UIImage.init(systemName: Images.timelapse, withConfiguration: UIImage.SymbolConfiguration(weight: .semibold)), tag: 1)
         
-        viewControllers = [lists, habits]
+        viewControllers = [habits]
         
         tabBar.tintColor = .black 
         

@@ -1,6 +1,0 @@
-framework module Pods_quotidian {
-  umbrella header "Pods-quotidian-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -38,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Now that we've told Realm how to handle the schema change, opening the file
         // will automatically perform the migration
         let _ = try! Realm()
-        
+        FirebaseApp.configure()
         return true
     }
 

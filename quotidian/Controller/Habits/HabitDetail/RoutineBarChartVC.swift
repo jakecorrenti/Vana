@@ -35,6 +35,30 @@ class RoutineBarChartVC: UIViewController {
         return view
     }()
     
+    lazy var greatestNumberInScaleLabel: UILabel = {
+        let view = UILabel()
+        view.text = "\(self.habit!.updatedRoutine.count)"
+        view.textColor = Colors.qDarkGrey
+        view.font = .systemFont(ofSize: 11)
+        return view
+    }()
+    
+    lazy var zeroLabel: UILabel = {
+        let view = UILabel()
+        view.text = "\(0)"
+        view.textColor = Colors.qDarkGrey
+        view.font = .systemFont(ofSize: 11)
+        return view
+    }()
+    
+    lazy var halfOfScaleLabel: UILabel = {
+        let view = UILabel()
+        view.text = "\(Int(self.habit!.updatedRoutine.count / 2))"
+        view.textColor = Colors.qDarkGrey
+        view.font = .systemFont(ofSize: 11)
+        return view
+    }()
+    
     // -----------------------------------------
     // MARK: Initialization
     // -----------------------------------------
@@ -52,9 +76,46 @@ class RoutineBarChartVC: UIViewController {
     
     func setupUI() {
         
-        [barStackView].forEach {view.addSubview($0)}
+        [greatestNumberInScaleLabel, barStackView, halfOfScaleLabel, zeroLabel].forEach {view.addSubview($0)}
         
-        barStackView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, centerX: nil, centerY: nil, padding: .init(top: 8, left: 8, bottom: 8, right: 8), size: .zero)
+        constrainGreatestNumberInScale()
+        constrainBarStackView()
+        constrainHalfOfScale()
+        constrainZeroLabel()
+    }
+    
+    private func constrainBarStackView() {
+        barStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            barStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
+            barStackView.leadingAnchor.constraint(equalTo: greatestNumberInScaleLabel.trailingAnchor, constant: 4),
+            barStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8),
+            barStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8)
+        ])
+    }
+    
+    private func constrainGreatestNumberInScale() {
+        greatestNumberInScaleLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            greatestNumberInScaleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
+            greatestNumberInScaleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 4)
+        ])
+    }
+    
+    private func constrainHalfOfScale() {
+        halfOfScaleLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            halfOfScaleLabel.centerYAnchor.constraint(equalTo: barStackView.centerYAnchor),
+            halfOfScaleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 4)
+        ])
+    }
+    
+    private func constrainZeroLabel() {
+        zeroLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            zeroLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 4),
+            zeroLabel.bottomAnchor.constraint(equalTo: barStackView.bottomAnchor)
+        ])
     }
     
     func setupContainerView() {

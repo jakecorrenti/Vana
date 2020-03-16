@@ -73,6 +73,7 @@ class HabitDetailVC: UIViewController {
         view.isScrollEnabled     = false
         view.layer.cornerRadius  = 12
         view.layer.masksToBounds = true
+        view.separatorStyle      = .none 
         view.register(UITableViewCell.self, forCellReuseIdentifier: Cells.defaultCell)
         return view
     }()
@@ -142,7 +143,7 @@ class HabitDetailVC: UIViewController {
     // MARK: Setup UI
     // -----------------------------------------
 
-    func setupNavBar() {
+    private func setupNavBar() {
         view.backgroundColor = Colors.qBG
         navigationItem.title = habit!.name
         
@@ -152,41 +153,150 @@ class HabitDetailVC: UIViewController {
         navigationItem.rightBarButtonItem = editButton
     }
 
-    func setupUI() {
+    private func setupUI() {
         view.addSubview(scrollView)
         
         addBarChartVC()
         
-        
         [completionHistoryLabel, timePeriodControl, barChartVC.view, routineCueLabel, routineCueValueLabel, routineActionsLabel, actionsTableView, routineRewardLabel, routineRewardValueLabel, completeHabitButton, deleteHabitButton].forEach {scrollView.addSubview($0)}
 
-        scrollView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, centerX: nil, centerY: nil)
-
-        completionHistoryLabel.anchor(top: scrollView.topAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: scrollView.trailingAnchor, centerX: nil, centerY: nil, padding: .init(top: 24, left: 16, bottom: 0, right: 16))
-        timePeriodControl.anchor(top: completionHistoryLabel.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: scrollView.trailingAnchor, centerX: nil, centerY: nil, padding: .init(top: 22, left: 16, bottom: 0, right: 16), size: .init(width: view.frame.width - 32, height: 0))
-        barChartVC.view.anchor(top: timePeriodControl.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: scrollView.trailingAnchor, centerX: nil, centerY: nil, padding: .init(top: 22, left: 16, bottom: 0, right: 16), size: .init(width: 0, height: 200))
-        
-        routineCueLabel.anchor(top: barChartVC.view.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: scrollView.trailingAnchor, centerX: nil, centerY: nil, padding: .init(top: 50, left: 16, bottom: 0, right: 16))
-        routineCueValueLabel.anchor(top: routineCueLabel.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: scrollView.trailingAnchor, centerX: nil, centerY: nil, padding: .init(top: 22, left: 16, bottom: 0, right: 16))
-        
-        routineActionsLabel.anchor(top: routineCueValueLabel.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: scrollView.trailingAnchor, centerX: nil, centerY: nil, padding: .init(top: 50, left: 16, bottom: 0, right: 16))
-        actionsTableView.anchor(top: routineActionsLabel.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: scrollView.trailingAnchor, centerX: nil, centerY: nil, padding: .init(top: 22, left: 16, bottom: 0, right: 16), size: .init(width: 0, height: habit!.updatedRoutine.count * 50))
-        
-        routineRewardLabel.anchor(top: actionsTableView.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: scrollView.trailingAnchor, centerX: nil, centerY: nil, padding: .init(top: 50, left: 16, bottom: 0, right: 16))
-        routineRewardValueLabel.anchor(top: routineRewardLabel.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: scrollView.trailingAnchor, centerX: nil, centerY: nil, padding: .init(top: 22, left: 16, bottom: 0, right: 16))
-        
-        completeHabitButton.anchor(top: routineRewardValueLabel.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: scrollView.trailingAnchor, centerX: nil, centerY: nil, padding: .init(top: 50, left: 16, bottom: 0, right: 16), size: .init(width: 0, height: 50))
-        deleteHabitButton.anchor(top: completeHabitButton.bottomAnchor, leading: scrollView.leadingAnchor, bottom: scrollView.bottomAnchor, trailing: scrollView.trailingAnchor, centerX: nil, centerY: nil, padding: .init(top: 22, left: 16, bottom: 16, right: 16), size: .zero)
-        
+        constrainScrollView()
+        constrainCompletionHistoryLabel()
+        constrainTimePeriodControl()
+        constrainBarChart()
+        constrainRoutineCueLabel()
+        constrainRoutineCueValueLabel()
+        constrainRoutineActionsLabel()
+        constrainActionsTableView()
+        constrainRoutineRewardLabel()
+        constrainRoutineRewardValueLabel()
+        constrainCompleteHabitButton()
+        constrainDeleteHabitButton()
     }
     
-    func populateHabitLabels() {
+    private func constrainScrollView() {
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+    
+    private func constrainCompletionHistoryLabel() {
+        completionHistoryLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            completionHistoryLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 24),
+            completionHistoryLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
+            completionHistoryLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16)
+        ])
+    }
+    
+    private func constrainTimePeriodControl() {
+        timePeriodControl.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            timePeriodControl.topAnchor.constraint(equalTo: completionHistoryLabel.bottomAnchor, constant: 22),
+            timePeriodControl.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
+            timePeriodControl.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16),
+            timePeriodControl.widthAnchor.constraint(equalToConstant: view.frame.width - 32)
+        ])
+    }
+    
+    private func constrainBarChart() {
+        barChartVC.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            barChartVC.view.topAnchor.constraint(equalTo: timePeriodControl.bottomAnchor, constant: 22),
+            barChartVC.view.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
+            barChartVC.view.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16),
+            barChartVC.view.heightAnchor.constraint(equalToConstant: 200)
+        ])
+    }
+    
+    private func constrainRoutineCueLabel() {
+        routineCueLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            routineCueLabel.topAnchor.constraint(equalTo: barChartVC.view.bottomAnchor, constant: 50),
+            routineCueLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
+            routineCueLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16)
+        ])
+    }
+    
+    private func constrainRoutineCueValueLabel() {
+        routineCueValueLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            routineCueValueLabel.topAnchor.constraint(equalTo: routineCueLabel.bottomAnchor, constant: 22),
+            routineCueValueLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
+            routineCueValueLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16)
+        ])
+    }
+    
+    private func constrainRoutineActionsLabel() {
+        routineActionsLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            routineActionsLabel.topAnchor.constraint(equalTo: routineCueValueLabel.bottomAnchor, constant: 50),
+            routineActionsLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
+            routineActionsLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16)
+        ])
+    }
+    
+    private func constrainActionsTableView() {
+        actionsTableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            actionsTableView.topAnchor.constraint(equalTo: routineActionsLabel.bottomAnchor, constant: 22),
+            actionsTableView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
+            actionsTableView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16),
+            actionsTableView.heightAnchor.constraint(equalToConstant: CGFloat(habit!.updatedRoutine.count * 50))
+        ])
+    }
+
+    
+    private func constrainRoutineRewardLabel() {
+        routineRewardLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            routineRewardLabel.topAnchor.constraint(equalTo: actionsTableView.bottomAnchor, constant: 50),
+            routineRewardLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
+            routineRewardLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16)
+        ])
+    }
+    
+    private func constrainRoutineRewardValueLabel() {
+        routineRewardValueLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            routineRewardValueLabel.topAnchor.constraint(equalTo: routineRewardLabel.bottomAnchor, constant: 22),
+            routineRewardValueLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
+            routineRewardValueLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16)
+        ])
+    }
+    
+    private func constrainCompleteHabitButton() {
+        completeHabitButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            completeHabitButton.topAnchor.constraint(equalTo: routineRewardValueLabel.bottomAnchor, constant: 50),
+            completeHabitButton.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
+            completeHabitButton.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16),
+            completeHabitButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+    }
+    
+    private func constrainDeleteHabitButton() {
+        deleteHabitButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            deleteHabitButton.topAnchor.constraint(equalTo: completeHabitButton.bottomAnchor, constant: 22),
+            deleteHabitButton.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
+            deleteHabitButton.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16),
+            deleteHabitButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 16),
+            deleteHabitButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+    }
+    
+    private func populateHabitLabels() {
         routineCueValueLabel.text    = habit!.cue
         routineRewardValueLabel.text = habit!.reward
         
     }
     
-    func addBarChartVC() {
+    private func addBarChartVC() {
         scrollView.addSubview(barChartVC.view)
         self.addChild(barChartVC)
         barChartVC.didMove(toParent: self)
