@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class RoutineAction: Object {
+class RoutineAction: Object, Storable {
     
     @objc dynamic var name                  = ""
     @objc dynamic var habit                 : Habit?

@@ -32,6 +32,7 @@ class EditHabitVC: UIViewController {
         return view
     }()
     
+    
     // -----------------------------------------
     // MARK: Lifecycle
     // -----------------------------------------
@@ -266,6 +267,30 @@ extension EditHabitVC : UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 4
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if habit.updatedRoutine.count > 1 {
+                let dbManager: StorageContext = RealmStorageContext()
+                let object = habit.updatedRoutine[indexPath.row]
+                try? dbManager.delete(object: object)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            } else {
+                let alert = UIAlertController(title: "You must have at least one action in your routine", message: nil, preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alert.addAction(ok)
+                present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        if indexPath.section == 2 {
+            return .delete
+        } else {
+            return .none
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
