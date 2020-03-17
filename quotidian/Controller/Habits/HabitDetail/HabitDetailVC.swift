@@ -21,6 +21,12 @@ class HabitDetailVC: UIViewController {
         f.dateFormat = "MM/dd/yyyy"
         return f
     }()
+    
+    lazy var shorterFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateFormat = "MMM d, yyyy"
+        return f
+    }()
 
     // -----------------------------------------
     // MARK: Views
@@ -113,6 +119,13 @@ class HabitDetailVC: UIViewController {
         view.addTarget(self, action: #selector(deletHabitButtonPressed), for: .touchUpInside)
         return view
     }()
+    
+    lazy var dateRangeLabel: UILabel = {
+        let view = UILabel()
+        view.text = "3/3/2020 - 3/20/2020"
+        view.font = .boldSystemFont(ofSize: 18)
+        return view
+    }()
 
     // -----------------------------------------
     // MARK: Lifecycle
@@ -157,12 +170,14 @@ class HabitDetailVC: UIViewController {
         view.addSubview(scrollView)
         
         addBarChartVC()
+        updateDateRangeLabel(numberOfDays: 7)
         
-        [completionHistoryLabel, timePeriodControl, barChartVC.view, routineCueLabel, routineCueValueLabel, routineActionsLabel, actionsTableView, routineRewardLabel, routineRewardValueLabel, completeHabitButton, deleteHabitButton].forEach {scrollView.addSubview($0)}
+        [completionHistoryLabel, timePeriodControl, dateRangeLabel, barChartVC.view, routineCueLabel, routineCueValueLabel, routineActionsLabel, actionsTableView, routineRewardLabel, routineRewardValueLabel, completeHabitButton, deleteHabitButton].forEach {scrollView.addSubview($0)}
 
         constrainScrollView()
         constrainCompletionHistoryLabel()
         constrainTimePeriodControl()
+        constrainDateRangeLabel()
         constrainBarChart()
         constrainRoutineCueLabel()
         constrainRoutineCueValueLabel()
@@ -203,10 +218,19 @@ class HabitDetailVC: UIViewController {
         ])
     }
     
+    private func constrainDateRangeLabel() {
+        dateRangeLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            dateRangeLabel.topAnchor.constraint(equalTo: timePeriodControl.bottomAnchor, constant: 24),
+            dateRangeLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
+            dateRangeLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16)
+        ])
+    }
+    
     private func constrainBarChart() {
         barChartVC.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            barChartVC.view.topAnchor.constraint(equalTo: timePeriodControl.bottomAnchor, constant: 22),
+            barChartVC.view.topAnchor.constraint(equalTo: dateRangeLabel.bottomAnchor, constant: 8),
             barChartVC.view.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
             barChartVC.view.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16),
             barChartVC.view.heightAnchor.constraint(equalToConstant: 200)
@@ -305,16 +329,27 @@ class HabitDetailVC: UIViewController {
         barChartVC.view.layer.cornerRadius = 12
     }
     
+    private func updateDateRangeLabel(numberOfDays: Int) {
+        let previousDate = shorterFormatter.string(from: Calendar.current.date(byAdding: .day, value: -numberOfDays, to: Date())!)
+        let currentDate = shorterFormatter.string(from: Date())
+        
+        dateRangeLabel.text = "\(previousDate) - \(currentDate)"
+    }
+    
     @objc func historyValueChanged() {
         switch timePeriodControl.selectedSegmentIndex {
         case 0:
             barChartVC.configure(numberOfDays: 7)
+            updateDateRangeLabel(numberOfDays: 7)
         case 1:
             barChartVC.configure(numberOfDays: 14)
+            updateDateRangeLabel(numberOfDays: 14)
         case 2:
             barChartVC.configure(numberOfDays: 30)
+            updateDateRangeLabel(numberOfDays: 30)
         case 3:
             barChartVC.configure(numberOfDays: 60)
+            updateDateRangeLabel(numberOfDays: 60)
         default:
             print("The index selected does not exist")
         }
