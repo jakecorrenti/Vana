@@ -91,7 +91,7 @@ class EditHabitVC: UIViewController {
         newRoutineActionFAB.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             newRoutineActionFAB.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            newRoutineActionFAB.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            newRoutineActionFAB.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16),
             newRoutineActionFAB.heightAnchor.constraint(equalToConstant: 56),
             newRoutineActionFAB.widthAnchor.constraint(equalToConstant: 56)
         ])
