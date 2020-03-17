@@ -56,7 +56,7 @@ class MyHabitsVC: UIViewController {
     
     private func checkIfHabitsHaveBeenCreated() {
         let realm = try! Realm()
-        let habits = realm.objects(Habit.self)
+        let habits = realm.objects(Habit.self).filter("isCompleted == false")
         if habits.count == 0 {
             setupTableViewEmptyStateUI()
         } else {
