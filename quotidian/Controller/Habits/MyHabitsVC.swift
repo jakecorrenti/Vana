@@ -25,6 +25,8 @@ class MyHabitsVC: UIViewController {
         view.register(HabitCell.self, forCellReuseIdentifier: Cells.habitCell)
         return view
     }()
+    
+    lazy var emptyStateView = HabitListEmptyState()
 
     // -----------------------------------------
     // MARK: Lifecycle
@@ -36,6 +38,8 @@ class MyHabitsVC: UIViewController {
         tableView.reloadData()
         tabBarController?.tabBar.isHidden = false
         
+        checkIfHabitsHaveBeenCreated()
+        
         print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
     
@@ -43,13 +47,33 @@ class MyHabitsVC: UIViewController {
         super.viewDidLoad()
 
         setupNavBar()
-        setupUI()
     }
 
     
     // -----------------------------------------
     // MARK: Setup UI
     // -----------------------------------------
+    
+    private func checkIfHabitsHaveBeenCreated() {
+        let realm = try! Realm()
+        let habits = realm.objects(Habit.self)
+        if habits.count == 0 {
+            setupTableViewEmptyStateUI()
+        } else {
+            setupUI()
+        }
+    }
+    
+    private func setupTableViewEmptyStateUI() {
+        view.addSubview(emptyStateView)
+        
+        emptyStateView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            emptyStateView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emptyStateView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            emptyStateView.widthAnchor.constraint(equalToConstant: view.frame.width * 0.75)
+        ])
+    }
     
     func setupNavBar() {
         view.backgroundColor = Colors.qBG
