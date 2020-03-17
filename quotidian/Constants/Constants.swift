@@ -48,6 +48,7 @@ enum Images {
     static var star            = "star"
     static var lock            = "lock"
     static var camera          = "camera"
+    static var pencil          = "pencil"
 }
 
 enum Cells {
