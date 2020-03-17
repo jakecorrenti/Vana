@@ -465,5 +465,9 @@ extension HabitDetailVC : UITableViewDelegate {
                 cell?.imageView?.image = UIImage(systemName: Images.completedCircle)
             }
         }
+        
+        // updates the bar value when routine actions are completed/un-completed
+        historyValueChanged()
+        
     }
 }
