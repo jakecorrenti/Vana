@@ -309,7 +309,7 @@ class HabitDetailVC: UIViewController {
             deleteHabitButton.topAnchor.constraint(equalTo: completeHabitButton.bottomAnchor, constant: 22),
             deleteHabitButton.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
             deleteHabitButton.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16),
-            deleteHabitButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 16),
+            deleteHabitButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -16),
             deleteHabitButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
