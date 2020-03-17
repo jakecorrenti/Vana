@@ -18,6 +18,8 @@
 		18CEDA1B673C363865CB7D3E /* HabitNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CED2B1199BF483D529EB03 /* HabitNameVC.swift */; };
 		18CEDADA31C08C8B7D8D0AC8 /* NewHabitRoutineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CED7DA564EAE2B5A903C6E /* NewHabitRoutineVC.swift */; };
 		3E2D2F0023FB312500045638 /* RoutineBarChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2D2EFF23FB312400045638 /* RoutineBarChartVC.swift */; };
+		3E305478241FFD5E006F271D /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E305477241FFD5E006F271D /* AvatarView.swift */; };
+		3E30547A242049FB006F271D /* SendFeedbackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E305479242049FB006F271D /* SendFeedbackVC.swift */; };
 		3E3646602408281800814F0D /* LocalNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E36465F2408281800814F0D /* LocalNotificationsManager.swift */; };
 		3E3646622408285800814F0D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3646612408285800814F0D /* Notification.swift */; };
 		3E364664240887DF00814F0D /* TaskDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E364663240887DF00814F0D /* TaskDetailVC.swift */; };
@@ -50,6 +52,7 @@
 		3EC0EB4523F5C9810049F13C /* PurpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0EB4423F5C9810049F13C /* PurpleButton.swift */; };
 		3ED40073241D3C8D00BD6C3F /* EditListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED40072241D3C8D00BD6C3F /* EditListVC.swift */; };
 		3ED40077241F355700BD6C3F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3ED40076241F355700BD6C3F /* GoogleService-Info.plist */; };
+		3ED4007A241FC16300BD6C3F /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED40079241FC16300BD6C3F /* MoreVC.swift */; };
 		3ED686E023DCCE0500955D61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED686DF23DCCE0500955D61 /* AppDelegate.swift */; };
 		3ED686E223DCCE0500955D61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED686E123DCCE0500955D61 /* SceneDelegate.swift */; };
 		3ED686E923DCCE0700955D61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ED686E823DCCE0700955D61 /* Assets.xcassets */; };
@@ -74,6 +77,8 @@
 		18CEDE98D28B39FA05DF1106 /* HabitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HabitCell.swift; sourceTree = "<group>"; };
 		360EB87822C77124E9549FF9 /* Pods-Vana.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vana.release.xcconfig"; path = "Target Support Files/Pods-Vana/Pods-Vana.release.xcconfig"; sourceTree = "<group>"; };
 		3E2D2EFF23FB312400045638 /* RoutineBarChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineBarChartVC.swift; sourceTree = "<group>"; };
+		3E305477241FFD5E006F271D /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		3E305479242049FB006F271D /* SendFeedbackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendFeedbackVC.swift; sourceTree = "<group>"; };
 		3E36465F2408281800814F0D /* LocalNotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationsManager.swift; sourceTree = "<group>"; };
 		3E3646612408285800814F0D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		3E364663240887DF00814F0D /* TaskDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailVC.swift; sourceTree = "<group>"; };
@@ -106,6 +111,7 @@
 		3EC0EB4423F5C9810049F13C /* PurpleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurpleButton.swift; sourceTree = "<group>"; };
 		3ED40072241D3C8D00BD6C3F /* EditListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditListVC.swift; sourceTree = "<group>"; };
 		3ED40076241F355700BD6C3F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3ED40079241FC16300BD6C3F /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
 		3ED686DC23DCCE0500955D61 /* Vana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vana.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ED686DF23DCCE0500955D61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3ED686E123DCCE0500955D61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +183,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		3E305476241FFD50006F271D /* More */ = {
+			isa = PBXGroup;
+			children = (
+				3E305477241FFD5E006F271D /* AvatarView.swift */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
 		3E36465E2408280300814F0D /* NotificationsManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +212,7 @@
 		3E4388AB23DD512700B0C45C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3ED40078241FC15300BD6C3F /* More */,
 				3E4388B023DD516700B0C45C /* General */,
 				3E4388B323DD51A800B0C45C /* Lists */,
 				3EE502BC23EE6A5900659802 /* Habits */,
@@ -208,6 +223,7 @@
 		3E4388AC23DD512F00B0C45C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3E305476241FFD50006F271D /* More */,
 				3E8FC00A23F3AA02001CE18C /* Habits */,
 				3EA5A76B23E38A64001BB874 /* Lists */,
 				3E58B50B23DF31B40024DC01 /* General */,
@@ -341,6 +357,15 @@
 				3ED7028C240770080088BC8A /* ListInProgressCell.swift */,
 			);
 			path = Lists;
+			sourceTree = "<group>";
+		};
+		3ED40078241FC15300BD6C3F /* More */ = {
+			isa = PBXGroup;
+			children = (
+				3ED40079241FC16300BD6C3F /* MoreVC.swift */,
+				3E305479242049FB006F271D /* SendFeedbackVC.swift */,
+			);
+			path = More;
 			sourceTree = "<group>";
 		};
 		3ED686D323DCCE0500955D61 = {
@@ -534,6 +559,7 @@
 				3E8C1BC123FE3E3C0009C533 /* EditHabitVC.swift in Sources */,
 				3ED7028D240770080088BC8A /* ListInProgressCell.swift in Sources */,
 				3E3646622408285800814F0D /* Notification.swift in Sources */,
+				3E30547A242049FB006F271D /* SendFeedbackVC.swift in Sources */,
 				3E4EDD0B23F46AAB001A5FC7 /* ThreeHabitPartsDescText.swift in Sources */,
 				3E2D2F0023FB312500045638 /* RoutineBarChartVC.swift in Sources */,
 				3EC006F023DD61F3000E30FC /* UIView + Extension.swift in Sources */,
@@ -559,7 +585,9 @@
 				18CED66F846E7580006208D1 /* CurrentHabitRoutineVC.swift in Sources */,
 				3E75FA5424044611004BA1E5 /* RealmStorageContext.swift in Sources */,
 				18CED2E364D13F05A4493B53 /* HabitCueVC.swift in Sources */,
+				3ED4007A241FC16300BD6C3F /* MoreVC.swift in Sources */,
 				3ED40073241D3C8D00BD6C3F /* EditListVC.swift in Sources */,
+				3E305478241FFD5E006F271D /* AvatarView.swift in Sources */,
 				3E75FA5024044540004BA1E5 /* Storable.swift in Sources */,
 				18CEDADA31C08C8B7D8D0AC8 /* NewHabitRoutineVC.swift in Sources */,
 				18CEDA1B673C363865CB7D3E /* HabitNameVC.swift in Sources */,

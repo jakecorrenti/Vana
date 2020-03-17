@@ -53,7 +53,11 @@ class RoutineBarChartVC: UIViewController {
     
     lazy var halfOfScaleLabel: UILabel = {
         let view = UILabel()
-        view.text = "\(Int(self.habit!.updatedRoutine.count / 2))"
+        if self.habit!.updatedRoutine.count > 1 {
+            view.text = "\(Int(self.habit!.updatedRoutine.count / 2))"
+        } else {
+            view.text = ""
+        }
         view.textColor = Colors.qDarkGrey
         view.font = .systemFont(ofSize: 11)
         return view
