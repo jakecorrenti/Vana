@@ -32,6 +32,18 @@ class EditHabitVC: UIViewController {
         return view
     }()
     
+    lazy var newRoutineActionFAB: UIButton = {
+        let view = UIButton(type: .system)
+        view.layer.cornerRadius = 28
+        view.layer.masksToBounds = true
+        view.backgroundColor = Colors.qPurple
+        view.titleLabel?.font = .boldSystemFont(ofSize: 24)
+        view.setTitle("✎", for: .normal)
+        view.setTitleColor(Colors.qWhite, for: .normal)
+        view.addTarget(self, action: #selector(newRoutineActionButtonPressed), for: .touchUpInside)
+        return view
+    }()
+    
     // -----------------------------------------
     // MARK: Lifecycle
     // -----------------------------------------
@@ -68,8 +80,21 @@ class EditHabitVC: UIViewController {
     
     func setupUI() {
         view.addSubview(tableView)
+        view.addSubview(newRoutineActionFAB)
         
         tableView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, centerX: nil, centerY: nil)
+        
+        constrainNewRoutineActionFAB()
+    }
+    
+    private func constrainNewRoutineActionFAB() {
+        newRoutineActionFAB.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            newRoutineActionFAB.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            newRoutineActionFAB.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            newRoutineActionFAB.heightAnchor.constraint(equalToConstant: 56),
+            newRoutineActionFAB.widthAnchor.constraint(equalToConstant: 56)
+        ])
     }
     
     func registerKeyboardNotifications() {
@@ -182,6 +207,35 @@ class EditHabitVC: UIViewController {
         present(controller, animated: true, completion: nil)
     }
     
+    @objc func newRoutineActionButtonPressed() {
+        let ac = UIAlertController(title: "New routine action", message: nil, preferredStyle: .alert)
+        ac.addTextField()
+
+        let submitAction = UIAlertAction(title: "Done", style: .default) { [unowned ac] _ in
+            let answer = ac.textFields![0]
+
+            if answer.text != nil || answer.text != " " || !answer.text!.isEmpty {
+                let routineAction = RoutineAction()
+                routineAction.name = answer.text!
+                routineAction.uid = UUID().uuidString
+                routineAction.isCompleted = false
+        
+                try! self.realm.write {
+                    self.habit.updatedRoutine.append(routineAction)
+                }
+                
+                self.tableView.reloadData()
+            }
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        ac.addAction(submitAction)
+        ac.addAction(cancelAction)
+
+        present(ac, animated: true)
+    }
+    
     @objc func doneButtonPressed() {
         compareRewards()
         compareRoutineActions()
@@ -266,6 +320,39 @@ extension EditHabitVC : UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 4
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if habit.updatedRoutine.count > 1 {
+                
+                let alert = UIAlertController(title: "Delete action?", message: "This cannot be undone", preferredStyle: .alert)
+                let delete = UIAlertAction(title: "Delete", style: .destructive) { (action: UIAlertAction) in
+                    let dbManager: StorageContext = RealmStorageContext()
+                    let object = self.habit.updatedRoutine[indexPath.row]
+                    try? dbManager.delete(object: object)
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                }
+                let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                alert.addAction(delete)
+                alert.addAction(cancel)
+                present(alert, animated: true, completion: nil)
+            
+            } else {
+                let alert = UIAlertController(title: "You must have at least one action in your routine", message: nil, preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alert.addAction(ok)
+                present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        if indexPath.section == 2 {
+            return .delete
+        } else {
+            return .none
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

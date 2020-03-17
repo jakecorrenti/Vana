@@ -35,6 +35,8 @@ class MyHabitsVC: UIViewController {
 
         tableView.reloadData()
         tabBarController?.tabBar.isHidden = false
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
     
     override func viewDidLoad() {

@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class Habit: Object {
+class Habit: Object, Storable {
     
     @objc dynamic var name: String          = ""
     @objc dynamic var cue: String           = ""
