@@ -8,4 +8,6 @@ target 'Vana' do
   # Pods for quotidian
   pod 'RealmSwift'
   pod 'Firebase/Analytics'
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
 end

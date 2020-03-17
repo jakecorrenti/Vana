@@ -42,6 +42,12 @@ enum Images {
     static var clock           = "clock"
     static var desk            = "studentdesk"
     static var present         = "gift"
+    static var gear            = "gear"
+    static var instaIcon       = "instaIcon"
+    static var paperPlane      = "paperplane"
+    static var star            = "star"
+    static var lock            = "lock"
+    static var camera          = "camera"
 }
 
 enum Cells {
