@@ -90,7 +90,7 @@ class AvatarView: UIView {
         NSLayoutConstraint.activate([
             titleStackView.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor),
             titleStackView.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 8),
-            titleStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 16)
+            titleStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ])
     }
 }
