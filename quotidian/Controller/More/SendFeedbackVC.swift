@@ -30,7 +30,7 @@ class SendFeedbackVC: UIViewController {
         view.delegate = self
         view.font = .systemFont(ofSize: 15)
         view.text = "Enter feedback..."
-        view.textColor = Colors.qDarkGrey
+        view.backgroundColor = UIColor(named: ColorNames.accessoryBGColor)
         return view
     }()
     
@@ -61,7 +61,7 @@ class SendFeedbackVC: UIViewController {
     // -----------------------------------------
     
     private func setupNavBar() {
-        view.backgroundColor = Colors.qBG
+        view.backgroundColor = UIColor(named: ColorNames.bgColor)
         navigationItem.title = "Send feedback"
         
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -113,7 +113,7 @@ class SendFeedbackVC: UIViewController {
 
 extension SendFeedbackVC: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        if textView.text == "" || textView.text == "Enter feedback..." {
+        if textView.text == "" || textView.text == "Enter feedback..." || textView.text == " " {
             sendButton.isEnabled = false
         } else {
             sendButton.isEnabled = true
@@ -124,14 +124,12 @@ extension SendFeedbackVC: UITextViewDelegate {
         if textView.text == "Enter feedback..." {
             textView.text = ""
             textView.font = .systemFont(ofSize: 15)
-            textView.textColor = .black
         }
     }
 
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text == "" {
             textView.text = "Enter feedback..."
-            textView.textColor = .lightGray
             textView.font = .systemFont(ofSize: 15)
         }
     }

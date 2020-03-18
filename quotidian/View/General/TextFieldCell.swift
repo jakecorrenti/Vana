@@ -16,8 +16,7 @@ class TextFieldCell: UITableViewCell {
     
     lazy var textField: UITextField = {
         let view             = UITextField()
-        view.backgroundColor = Colors.qWhite
-        view.textColor       = Colors.qDarkGrey
+        view.backgroundColor = UIColor(named: ColorNames.accessoryBGColor)
         view.font            = UIFont.systemFont(ofSize: 15)
         view.delegate        = self
         return view

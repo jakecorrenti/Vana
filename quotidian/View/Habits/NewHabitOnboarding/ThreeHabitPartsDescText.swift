@@ -18,7 +18,6 @@ class ThreeHabitPartsDescText: UIView {
         let view       = UILabel()
         view.text      = "Cue: "
         view.font      = UIFont.systemFont(ofSize: 18, weight: .bold)
-        view.textColor = .black
         return view
     }()
     
@@ -42,7 +41,6 @@ class ThreeHabitPartsDescText: UIView {
         let view       = UILabel()
         view.text      = "Routine: "
         view.font      = UIFont.systemFont(ofSize: 18, weight: .bold)
-        view.textColor = .black
         return view
     }()
     
@@ -66,7 +64,6 @@ class ThreeHabitPartsDescText: UIView {
         let view       = UILabel()
         view.text      = "Reward: "
         view.font      = UIFont.systemFont(ofSize: 18, weight: .bold)
-        view.textColor = .black
         return view
     }()
     

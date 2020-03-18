@@ -27,7 +27,6 @@ class HabitRewardVC: UIViewController {
         let view           = UILabel()
         view.text          = "What's your reward?"
         view.font          = UIFont.boldSystemFont(ofSize: 30)
-        view.textColor     = .black
         view.textAlignment = .center
         return view
     }()
@@ -44,9 +43,8 @@ class HabitRewardVC: UIViewController {
     
     lazy var rewardTextField: UITextField = {
         let view           = UITextField()
-        view.font          = UIFont.boldSystemFont(ofSize: 30)
+        view.font          = .boldSystemFont(ofSize: 30)
         view.placeholder   = "Enter reward..."
-        view.textColor     = Colors.qDarkGrey
         view.returnKeyType = .done
         view.textAlignment = .center
         view.delegate      = self
@@ -90,7 +88,7 @@ class HabitRewardVC: UIViewController {
     // -----------------------------------------
     
     func setupNavBar() {
-        view.backgroundColor = Colors.qBG
+        view.backgroundColor = UIColor(named: ColorNames.bgColor)
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
     }
     

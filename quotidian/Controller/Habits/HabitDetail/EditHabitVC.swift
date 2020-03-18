@@ -26,7 +26,7 @@ class EditHabitVC: UIViewController {
         let view             = UITableView(frame: .zero, style: .insetGrouped)
         view.delegate        = self
         view.dataSource      = self
-        view.backgroundColor = Colors.qBG
+        view.backgroundColor = UIColor(named: ColorNames.bgColor)
         view.keyboardDismissMode = .onDrag
         view.register(TextFieldCell.self, forCellReuseIdentifier: Cells.textFieldCell)
         return view
@@ -71,7 +71,7 @@ class EditHabitVC: UIViewController {
     // -----------------------------------------
     
     func setupNavBar() {
-        view.backgroundColor = Colors.qBG
+        view.backgroundColor = UIColor(named: ColorNames.bgColor)
         navigationItem.title = "Edit habit"
         
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonPressed))
@@ -279,21 +279,21 @@ extension EditHabitVC : UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: Cells.textFieldCell, for: indexPath) as! TextFieldCell
             cell.configure(placeholder: "Enter habit name...")
             cell.textField.text = habit.name
-            cell.textField.textColor = .black
             cell.selectionStyle = .none
+            cell.backgroundColor = UIColor(named: ColorNames.accessoryBGColor)
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: Cells.textFieldCell, for: indexPath) as! TextFieldCell
             cell.configure(placeholder: "Enter habit cue...")
             cell.textField.text = habit.cue
-            cell.textField.textColor = .black
+            cell.backgroundColor = UIColor(named: ColorNames.accessoryBGColor)
             cell.selectionStyle = .none
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: Cells.textFieldCell, for: indexPath) as! TextFieldCell
             cell.configure(placeholder: "Enter rouine action...")
             cell.textField.text = habit.updatedRoutine[indexPath.row].name
-            cell.textField.textColor = .black
+            cell.backgroundColor = UIColor(named: ColorNames.accessoryBGColor)
             cell.selectionStyle = .none
             return cell
         case 3:
@@ -301,7 +301,7 @@ extension EditHabitVC : UITableViewDataSource {
             cell.configure(placeholder: "Enter habit reward...")
             cell.textField.text = habit.reward
             cell.selectionStyle = .none
-            cell.textField.textColor = .black
+            cell.backgroundColor = UIColor(named: ColorNames.accessoryBGColor)
             return cell
         default:
             return UITableViewCell()

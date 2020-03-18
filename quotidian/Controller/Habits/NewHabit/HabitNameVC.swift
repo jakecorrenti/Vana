@@ -18,7 +18,6 @@ class HabitNameVC: UIViewController {
         let view           = UILabel()
         view.text          = "What's your bad habit?"
         view.textAlignment = .center
-        view.textColor     = .black
         view.font          = UIFont.boldSystemFont(ofSize: 30)
         return view
     }()
@@ -26,7 +25,6 @@ class HabitNameVC: UIViewController {
     lazy var habitNameTextField: UITextField = {
         let view           = UITextField()
         view.font          = UIFont.boldSystemFont(ofSize: 30)
-        view.textColor     = Colors.qDarkGrey
         view.placeholder   = "Enter habit name..."
         view.textAlignment = .center
         view.delegate      = self
@@ -70,7 +68,7 @@ class HabitNameVC: UIViewController {
     // -----------------------------------------
     
     func setupNavBar() {
-        view.backgroundColor             = Colors.qBG
+        view.backgroundColor             = UIColor(named: ColorNames.bgColor)
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
     }
     

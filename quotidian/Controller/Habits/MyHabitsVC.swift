@@ -17,7 +17,7 @@ class MyHabitsVC: UIViewController {
 
     lazy var tableView: UITableView = {
         let view             = UITableView()
-        view.backgroundColor = Colors.qBG
+        view.backgroundColor = UIColor(named: ColorNames.bgColor)
         view.delegate        = self
         view.dataSource      = self
         view.tableFooterView = UIView()
@@ -76,7 +76,7 @@ class MyHabitsVC: UIViewController {
     }
     
     func setupNavBar() {
-        view.backgroundColor = Colors.qBG
+        view.backgroundColor = UIColor(named: ColorNames.bgColor)
         navigationItem.title = "My habits"
         navigationController?.navigationBar.prefersLargeTitles = true
 
@@ -115,7 +115,7 @@ extension MyHabitsVC: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cells.habitCell, for: indexPath) as! HabitCell
-        cell.backgroundColor = Colors.qBG
+        cell.backgroundColor = UIColor(named: ColorNames.bgColor)
         cell.selectionStyle  = .none
         cell.configure(habit: accessHabits()[indexPath.row])
         return cell

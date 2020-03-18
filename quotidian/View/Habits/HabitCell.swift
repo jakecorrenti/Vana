@@ -13,7 +13,7 @@ class HabitCell: UITableViewCell {
 
     lazy var bgView: UIView = {
         let view                 = UIView()
-        view.backgroundColor     = Colors.qWhite
+        view.backgroundColor     = UIColor(named: ColorNames.accessoryBGColor)
         view.layer.cornerRadius  = 12
         view.layer.masksToBounds = true
         return view
@@ -23,15 +23,14 @@ class HabitCell: UITableViewCell {
         let view       = UILabel()
         view.text      = "Habit name"
         view.font      = UIFont.boldSystemFont(ofSize: 22)
-        view.textColor = .black
         return view
     }()
 
     lazy var habitDailyProgressBar: UIProgressView = {
         let view                 = UIProgressView()
         view.progress            = 0
-        view.backgroundColor     = UIColor.init(white: 0.95, alpha: 1)
         view.progressTintColor   = Colors.qPurple
+        view.backgroundColor     = UIColor(named: ColorNames.secondaryAccessoryBGColor)
         view.layer.cornerRadius  = 6
         view.layer.masksToBounds = true
         return view
@@ -41,7 +40,6 @@ class HabitCell: UITableViewCell {
         let view       = UILabel()
         view.text      = "Today's progress:"
         view.font      = UIFont.systemFont(ofSize: 15)
-        view.textColor = .black
         return view
     }()
 
@@ -57,7 +55,6 @@ class HabitCell: UITableViewCell {
         let view           = UILabel()
         view.text          = "Actions completed:"
         view.font          = UIFont.systemFont(ofSize: 15)
-        view.textColor     = .black
         view.textAlignment = .right
         return view
     }()

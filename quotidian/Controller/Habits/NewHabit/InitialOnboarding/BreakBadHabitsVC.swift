@@ -57,7 +57,7 @@ class BreakBadHabitsVC: UIViewController {
     // -----------------------------------------
     
     func setupNavBar() {
-        view.backgroundColor = Colors.qBG
+        view.backgroundColor = UIColor(named: ColorNames.bgColor)
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
     }

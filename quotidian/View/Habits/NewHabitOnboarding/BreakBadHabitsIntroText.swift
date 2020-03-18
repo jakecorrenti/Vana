@@ -16,7 +16,6 @@ class BreakBadHabitsIntroText: UIView {
     
     lazy var header: UILabel = {
         let view           = UILabel()
-        view.textColor     = .black
         view.font          = UIFont.systemFont(ofSize: 30, weight: .bold)
         view.text          = "Break your bad habits!"
         view.textAlignment = .center

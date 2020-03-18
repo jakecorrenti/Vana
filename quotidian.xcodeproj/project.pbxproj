@@ -146,11 +146,11 @@
 			isa = PBXGroup;
 			children = (
 				18CEDFDD9B0D250192A38D91 /* InitialOnboarding */,
-				18CED05A953B254971B8E1FA /* HabitRewardVC.swift */,
-				18CED862F41CC8B1FBA63265 /* CurrentHabitRoutineVC.swift */,
-				18CEDB48CC0C8AA6F6480580 /* HabitCueVC.swift */,
-				18CED7DA564EAE2B5A903C6E /* NewHabitRoutineVC.swift */,
 				18CED2B1199BF483D529EB03 /* HabitNameVC.swift */,
+				18CEDB48CC0C8AA6F6480580 /* HabitCueVC.swift */,
+				18CED862F41CC8B1FBA63265 /* CurrentHabitRoutineVC.swift */,
+				18CED05A953B254971B8E1FA /* HabitRewardVC.swift */,
+				18CED7DA564EAE2B5A903C6E /* NewHabitRoutineVC.swift */,
 			);
 			path = NewHabit;
 			sourceTree = "<group>";
@@ -745,6 +745,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jakecorrenti.quotidian;
 				PRODUCT_NAME = Vana;
 				SWIFT_VERSION = 5.0;
@@ -765,6 +766,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jakecorrenti.quotidian;
 				PRODUCT_NAME = Vana;
 				SWIFT_VERSION = 5.0;

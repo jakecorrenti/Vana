@@ -9,7 +9,7 @@
 import UIKit
 
 enum Colors {
-    static var qBG            = #colorLiteral(red: 0.9582723699, green: 0.9582723699, blue: 0.9582723699, alpha: 1)
+    static var qBG            = #colorLiteral(red: 0.9568627451, green: 0.9568627451, blue: 0.9568627451, alpha: 1)
     static var qWhite         = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     static var qDarkGrey      = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
     static var qPurple        = #colorLiteral(red: 0.6274509804, green: 0.6588235294, blue: 0.9529411765, alpha: 1)
@@ -49,6 +49,13 @@ enum Images {
     static var lock            = "lock"
     static var camera          = "camera"
     static var pencil          = "pencil"
+}
+
+enum ColorNames {
+    static var bgColor                   = "bgColor"
+    static var tabColor                  = "tabColor"
+    static var accessoryBGColor          = "accessoryBGColor"
+    static var secondaryAccessoryBGColor = "secondaryAccessoryBGColor"
 }
 
 enum Cells {
