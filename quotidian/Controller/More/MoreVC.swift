@@ -40,7 +40,7 @@ class MoreVC: UIViewController {
         let view = UITableView(frame: .zero, style: .insetGrouped)
         view.dataSource = self
         view.delegate = self
-        view.backgroundColor = Colors.qBG
+        view.backgroundColor = UIColor(named: ColorNames.bgColor)
         view.register(UITableViewCell.self, forCellReuseIdentifier: Cells.defaultCell)
         return view
     }()
@@ -61,7 +61,7 @@ class MoreVC: UIViewController {
     // -----------------------------------------
     
     private func setupNavBar() {
-        view.backgroundColor = Colors.qBG
+        view.backgroundColor = UIColor(named: ColorNames.bgColor)
         navigationItem.title = "More"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
@@ -128,7 +128,8 @@ extension MoreVC : UITableViewDataSource {
         cell.textLabel?.text = cellTitles[indexPath.row]
         cell.accessoryType = .disclosureIndicator
         cell.textLabel?.font = .boldSystemFont(ofSize: 15)
-        cell.selectionStyle = .none 
+        cell.selectionStyle = .none
+        cell.backgroundColor = UIColor(named: ColorNames.accessoryBGColor)
         cell.imageView?.image = UIImage(systemName: imageNames[indexPath.row])
         return cell
     }

@@ -18,7 +18,7 @@ class AvatarView: UIView {
         let view = UIImageView()
         view.image = UIImage(named: Images.instaIcon)
         view.contentMode = .scaleAspectFill
-        view.layer.borderColor = UIColor.black.cgColor
+        view.layer.borderColor = Colors.qPurple.cgColor
         view.layer.borderWidth = 2
         view.layer.cornerRadius = 35
         view.layer.masksToBounds = true

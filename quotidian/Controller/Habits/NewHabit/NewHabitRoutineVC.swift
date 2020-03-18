@@ -26,7 +26,6 @@ class NewHabitRoutineVC: UIViewController {
         let view           = UILabel()
         view.text          = "What's your new routine?"
         view.font          = UIFont.boldSystemFont(ofSize: 30)
-        view.textColor     = .black
         view.textAlignment = .center
         view.numberOfLines = 0
         return view
@@ -54,7 +53,7 @@ class NewHabitRoutineVC: UIViewController {
         let view             = UITableView()
         view.delegate        = self
         view.dataSource      = self
-        view.backgroundColor = Colors.qBG
+        view.backgroundColor = UIColor(named: ColorNames.bgColor)
         view.separatorStyle  = .none
         view.tableFooterView = UIView()
         view.register(UITableViewCell.self, forCellReuseIdentifier: Cells.defaultCell)
@@ -94,7 +93,7 @@ class NewHabitRoutineVC: UIViewController {
     // Setup UI
 
     func setupNavBar() {
-        view.backgroundColor             = Colors.qBG
+        view.backgroundColor             = UIColor(named: ColorNames.bgColor)
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
     }
 
@@ -219,9 +218,8 @@ extension NewHabitRoutineVC: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cells.defaultCell, for: indexPath)
         cell.textLabel?.text      = actions[indexPath.row]
-        cell.textLabel?.font      = UIFont.systemFont(ofSize: 15)
-        cell.textLabel?.textColor = Colors.qDarkGrey
-        cell.backgroundColor      = Colors.qBG
+        cell.textLabel?.font      = .systemFont(ofSize: 15)
+        cell.backgroundColor      = UIColor(named: ColorNames.bgColor)
         cell.selectionStyle       = .none
         cell.imageView?.image     = UIImage(systemName: Images.completedCircle)
         return cell

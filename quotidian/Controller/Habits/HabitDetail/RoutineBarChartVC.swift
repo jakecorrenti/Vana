@@ -123,7 +123,7 @@ class RoutineBarChartVC: UIViewController {
     }
     
     func setupContainerView() {
-        view.backgroundColor = Colors.qWhite
+        view.backgroundColor = UIColor(named: ColorNames.accessoryBGColor)
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
     }
     
@@ -136,7 +136,7 @@ class RoutineBarChartVC: UIViewController {
         ((-numberOfDays + 1)...0).forEach { day in
             
             let barBGView = UIView()
-            barBGView.backgroundColor    = UIColor.init(white: 0.95, alpha: 1)
+            barBGView.backgroundColor    = UIColor(named: ColorNames.secondaryAccessoryBGColor)
             barBGView.layer.cornerRadius = 4
             
             let barView = UIView()

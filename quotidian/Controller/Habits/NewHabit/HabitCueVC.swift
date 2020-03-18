@@ -17,7 +17,6 @@ class HabitCueVC: UIViewController {
         let view           = UILabel()
         view.text          = "What's your cue?"
         view.font          = UIFont.boldSystemFont(ofSize: 30)
-        view.textColor     = .black
         view.textAlignment = .center
         return view
     }()
@@ -36,7 +35,6 @@ class HabitCueVC: UIViewController {
         let view           = UITextField()
         view.font          = UIFont.boldSystemFont(ofSize: 30)
         view.placeholder   = "Enter cue..."
-        view.textColor     = Colors.qDarkGrey
         view.returnKeyType = .done
         view.textAlignment = .center
         view.delegate      = self
@@ -78,7 +76,7 @@ class HabitCueVC: UIViewController {
     // Setup UI
 
     func setupNavBar() {
-        view.backgroundColor = Colors.qBG
+        view.backgroundColor = UIColor(named: ColorNames.bgColor)
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
     }
 

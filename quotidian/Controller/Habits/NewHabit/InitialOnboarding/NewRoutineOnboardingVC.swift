@@ -28,7 +28,6 @@ class NewRoutineOnboardingVC: UIViewController {
         let view           = UILabel()
         view.text          = "What's next?"
         view.font          = UIFont.boldSystemFont(ofSize: 30)
-        view.textColor     = .black
         view.textAlignment = .center
         return view
     }()
@@ -77,7 +76,7 @@ class NewRoutineOnboardingVC: UIViewController {
     // -----------------------------------------
     
     func setupNavBar() {
-        view.backgroundColor = Colors.qBG
+        view.backgroundColor = UIColor(named: ColorNames.bgColor)
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
     }
     

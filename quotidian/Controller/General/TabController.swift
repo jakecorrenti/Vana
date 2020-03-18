@@ -24,7 +24,7 @@ class TabController: UITabBarController {
         
         viewControllers = [habits, more]
         
-        tabBar.tintColor = .black 
+        tabBar.tintColor = UIColor(named: ColorNames.tabColor)
         
     }
 

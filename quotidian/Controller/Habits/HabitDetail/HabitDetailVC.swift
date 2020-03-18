@@ -38,7 +38,6 @@ class HabitDetailVC: UIViewController {
         let view       = UILabel()
         view.text      = "Routine completion history: "
         view.font      = UIFont.boldSystemFont(ofSize: 18)
-        view.textColor = .black
         return view
     }()
 
@@ -53,14 +52,12 @@ class HabitDetailVC: UIViewController {
         let view       = UILabel()
         view.text      = "Habit cue: "
         view.font      = UIFont.boldSystemFont(ofSize: 18)
-        view.textColor = .black
         return view
     }()
     
     lazy var routineCueValueLabel: UILabel = {
         let view       = UILabel()
         view.font      = UIFont.systemFont(ofSize: 18)
-        view.textColor = .black
         return view
     }()
     
@@ -68,12 +65,12 @@ class HabitDetailVC: UIViewController {
         let view       = UILabel()
         view.text      = "Routine actions: "
         view.font      = UIFont.boldSystemFont(ofSize: 18)
-        view.textColor = .black
         return view
     }()
     
     lazy var actionsTableView: UITableView = {
         let view                 = UITableView()
+        view.backgroundColor     = UIColor(named: ColorNames.accessoryBGColor)
         view.dataSource          = self
         view.delegate            = self
         view.isScrollEnabled     = false
@@ -88,14 +85,12 @@ class HabitDetailVC: UIViewController {
         let view       = UILabel()
         view.text      = "Habit reward: "
         view.font      = UIFont.boldSystemFont(ofSize: 18)
-        view.textColor = .black
         return view
     }()
     
     lazy var routineRewardValueLabel: UILabel = {
         let view       = UILabel()
         view.font      = UIFont.systemFont(ofSize: 18)
-        view.textColor = .black
         return view
     }()
     
@@ -157,7 +152,7 @@ class HabitDetailVC: UIViewController {
     // -----------------------------------------
 
     private func setupNavBar() {
-        view.backgroundColor = Colors.qBG
+        view.backgroundColor = UIColor(named: ColorNames.bgColor)
         navigationItem.title = habit!.name
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
@@ -403,6 +398,7 @@ extension HabitDetailVC : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell             = tableView.dequeueReusableCell(withIdentifier: Cells.defaultCell, for: indexPath)
+        cell.backgroundColor = UIColor(named: ColorNames.accessoryBGColor)
         cell.textLabel?.text = habit!.updatedRoutine[indexPath.row].name
         cell.selectionStyle  = .none
         
@@ -416,10 +412,8 @@ extension HabitDetailVC : UITableViewDataSource {
         }
         
         if habit!.updatedRoutine[indexPath.row].isCompleted {
-            print("Completed")
             cell.imageView?.image = UIImage(systemName: Images.completedCircle)
         } else {
-            print("Not completed")
             cell.imageView?.image = UIImage(systemName: Images.circle)
         }
         
