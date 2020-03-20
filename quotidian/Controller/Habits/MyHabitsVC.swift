@@ -10,6 +10,12 @@ import UIKit
 import RealmSwift
 
 class MyHabitsVC: UIViewController {
+    
+    // -----------------------------------------
+    // MARK: Properties
+    // -----------------------------------------
+    
+    private let routineManager = RoutineManager()
 
     // -----------------------------------------
     // MARK: Views
@@ -22,6 +28,8 @@ class MyHabitsVC: UIViewController {
         view.dataSource      = self
         view.tableFooterView = UIView()
         view.separatorStyle  = .none
+        view.rowHeight       = UITableView.automaticDimension
+        view.estimatedRowHeight = 175
         view.register(HabitCell.self, forCellReuseIdentifier: Cells.habitCell)
         return view
     }()
@@ -80,8 +88,7 @@ class MyHabitsVC: UIViewController {
         navigationItem.title = "My habits"
         navigationController?.navigationBar.prefersLargeTitles = true
 
-        
-        let addButton = UIBarButtonItem(image: UIImage(systemName: Images.plus), style: .plain, target: self, action: #selector(addButtonPressed))
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed))
         navigationItem.rightBarButtonItem = addButton 
         navigationItem.backBarButtonItem  = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
     }
@@ -108,6 +115,10 @@ class MyHabitsVC: UIViewController {
     }
 }
 
+// -----------------------------------------
+// MARK: Data Source
+// -----------------------------------------
+
 extension MyHabitsVC: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return accessHabits().count
@@ -118,15 +129,22 @@ extension MyHabitsVC: UITableViewDataSource {
         cell.backgroundColor = UIColor(named: ColorNames.bgColor)
         cell.selectionStyle  = .none
         cell.configure(habit: accessHabits()[indexPath.row])
+        
+        routineManager.habit = accessHabits()[indexPath.row]
+        cell.setStreak(at: routineManager.getCurrentHabitCompletionStreak())
         return cell
     }
 
 }
 
+// -----------------------------------------
+// MARK: Delegate
+// -----------------------------------------
+
 extension MyHabitsVC: UITableViewDelegate {
-    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 175
-    }
+//    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 175
+//    }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detail = HabitDetailVC()

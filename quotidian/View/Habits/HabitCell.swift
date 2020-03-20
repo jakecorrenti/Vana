@@ -81,6 +81,17 @@ class HabitCell: UITableViewCell {
         view.spacing = 7
         return view
     }()
+    
+    lazy var streakContainerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemRed
+        return view
+    }()
+    
+    lazy var streakCounterLabel: UILabel = {
+        let view = UILabel()
+        return view
+    }()
 
     // -----------------------------------------
     // MARK: Initialization
@@ -102,14 +113,73 @@ class HabitCell: UITableViewCell {
     // MARK: Setup UI
     // -----------------------------------------
 
-    func setupUI() {
-        [bgView, habitNameLabel, habitDailyProgressBar, progressVStack, routinesVStack].forEach {addSubview($0)}
+    private func setupUI() {
+        [bgView, habitNameLabel, habitDailyProgressBar, progressVStack, routinesVStack, streakContainerView].forEach {addSubview($0)}
 
-        bgView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, centerX: nil, centerY: nil, padding: .init(top: 8, left: 16, bottom: 8, right: 16))
-        habitNameLabel.anchor(top: bgView.topAnchor, leading: bgView.leadingAnchor, bottom: nil, trailing: nil, centerX: nil, centerY: nil, padding: .init(top: 16, left: 16, bottom: 0, right: 0))
-        habitDailyProgressBar.anchor(top: habitNameLabel.bottomAnchor, leading: bgView.leadingAnchor, bottom: nil, trailing: bgView.trailingAnchor, centerX: nil, centerY: nil, padding: .init(top: 22, left: 16, bottom: 0, right: 16), size: .init(width: 0, height: 12))
-        progressVStack.anchor(top: habitDailyProgressBar.bottomAnchor, leading: bgView.leadingAnchor, bottom: bgView.bottomAnchor, trailing: bgView.centerXAnchor, centerX: nil, centerY: nil, padding: .init(top: 22, left: 16, bottom: 16, right: 16))
-        routinesVStack.anchor(top: habitDailyProgressBar.bottomAnchor, leading: bgView.centerXAnchor, bottom: bgView.bottomAnchor, trailing: bgView.trailingAnchor, centerX: nil, centerY: nil, padding: .init(top: 22, left: 16, bottom: 16, right: 16))
+        constrainBGView()
+        constrainHabitNameLabel()
+        constrainHabitDailyProgressBar()
+        constrainProgressVStack()
+        constrainRoutinesVStack()
+        constrainStreakContainerView()
+    }
+    
+    private func constrainBGView() {
+        bgView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            bgView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            bgView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            bgView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            bgView.heightAnchor.constraint(equalToConstant: 175)
+        ])
+    }
+    
+    private func constrainHabitNameLabel() {
+        habitNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            habitNameLabel.topAnchor.constraint(equalTo: bgView.topAnchor, constant: 16),
+            habitNameLabel.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 16)
+        ])
+    }
+    
+    private func constrainHabitDailyProgressBar() {
+        habitDailyProgressBar.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            habitDailyProgressBar.topAnchor.constraint(equalTo: habitNameLabel.bottomAnchor, constant: 22),
+            habitDailyProgressBar.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 16),
+            habitDailyProgressBar.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -16),
+            habitDailyProgressBar.heightAnchor.constraint(equalToConstant: 12)
+        ])
+    }
+    
+    private func constrainProgressVStack() {
+        progressVStack.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            progressVStack.topAnchor.constraint(equalTo: habitDailyProgressBar.bottomAnchor, constant: 22),
+            progressVStack.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 16),
+            progressVStack.trailingAnchor.constraint(equalTo: bgView.centerXAnchor, constant: -16),
+            progressVStack.bottomAnchor.constraint(equalTo: bgView.bottomAnchor, constant: -16)
+        ])
+    }
+    
+    private func constrainRoutinesVStack() {
+        routinesVStack.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            routinesVStack.topAnchor.constraint(equalTo: habitDailyProgressBar.bottomAnchor, constant: 22),
+            routinesVStack.leadingAnchor.constraint(equalTo: bgView.centerXAnchor, constant: 16),
+            routinesVStack.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -16),
+            routinesVStack.bottomAnchor.constraint(equalTo: bgView.bottomAnchor, constant: -16)
+        ])
+    }
+    
+    private func constrainStreakContainerView() {
+        streakContainerView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            streakContainerView.topAnchor.constraint(equalTo: bgView.bottomAnchor),
+            streakContainerView.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -12),
+            streakContainerView.leadingAnchor.constraint(equalTo: bgView.centerXAnchor),
+            streakContainerView.heightAnchor.constraint(equalToConstant: 30)
+        ])
     }
 
     func configure(habit: Habit) {
@@ -124,6 +194,10 @@ class HabitCell: UITableViewCell {
         
         progressValueLabel.text = "\(Int(percentage * 100))%"
         routinesCompletedValueLabel.text = "\(Int(progress))/\(habit.updatedRoutine.count)"
+    }
+    
+    func setStreak(at streak: Int) {
+        //TODO: -  write ui components
     }
 
 }
