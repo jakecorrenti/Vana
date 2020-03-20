@@ -12,9 +12,10 @@ class HabitDetailVC: UIViewController {
     // MARK: Properties
     // -----------------------------------------
 
-    var habit      : Habit?
-    let realm      = try! Realm()
+    var habit : Habit?
     let barChartVC = RoutineBarChartVC()
+    private let realm = try! Realm()
+    private var routineManager = RoutineManager()
     
     lazy var formatter: DateFormatter = {
         let f        = DateFormatter()
@@ -50,7 +51,7 @@ class HabitDetailVC: UIViewController {
     
     lazy var routineCueLabel: UILabel = {
         let view       = UILabel()
-        view.text      = "Habit cue: "
+        view.text      = "Cue: "
         view.font      = UIFont.boldSystemFont(ofSize: 18)
         return view
     }()
@@ -63,7 +64,7 @@ class HabitDetailVC: UIViewController {
     
     lazy var routineActionsLabel: UILabel = {
         let view       = UILabel()
-        view.text      = "Routine actions: "
+        view.text      = "Routine: "
         view.font      = UIFont.boldSystemFont(ofSize: 18)
         return view
     }()
@@ -83,7 +84,7 @@ class HabitDetailVC: UIViewController {
     
     lazy var routineRewardLabel: UILabel = {
         let view       = UILabel()
-        view.text      = "Habit reward: "
+        view.text      = "Reward: "
         view.font      = UIFont.boldSystemFont(ofSize: 18)
         return view
     }()
@@ -119,6 +120,23 @@ class HabitDetailVC: UIViewController {
         let view = UILabel()
         view.text = "3/3/2020 - 3/20/2020"
         view.font = .boldSystemFont(ofSize: 18)
+        return view
+    }()
+    
+    lazy var streakBGView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(named: ColorNames.accessoryBGColor)
+        view.layer.cornerRadius = 12
+        view.layer.masksToBounds = true
+        return view
+    }()
+    
+    lazy var streakCounterLabel: UILabel = {
+        let view = UILabel()
+        view.font = .systemFont(ofSize: 15)
+        view.textColor = Colors.qDarkGrey
+        view.textAlignment = .center
+        view.numberOfLines = 0
         return view
     }()
 
@@ -167,9 +185,13 @@ class HabitDetailVC: UIViewController {
         addBarChartVC()
         updateDateRangeLabel(numberOfDays: 7)
         
-        [completionHistoryLabel, timePeriodControl, dateRangeLabel, barChartVC.view, routineCueLabel, routineCueValueLabel, routineActionsLabel, actionsTableView, routineRewardLabel, routineRewardValueLabel, completeHabitButton, deleteHabitButton].forEach {scrollView.addSubview($0)}
+        [streakBGView, streakCounterLabel, completionHistoryLabel, timePeriodControl, dateRangeLabel, barChartVC.view, routineCueLabel, routineCueValueLabel, routineActionsLabel, actionsTableView, routineRewardLabel, routineRewardValueLabel, completeHabitButton, deleteHabitButton].forEach {scrollView.addSubview($0)}
+        
+        setupStreakCounterLabel()
 
         constrainScrollView()
+        constrainStreakBGView()
+        constrainStreakCounterLabel()
         constrainCompletionHistoryLabel()
         constrainTimePeriodControl()
         constrainDateRangeLabel()
@@ -182,6 +204,24 @@ class HabitDetailVC: UIViewController {
         constrainRoutineRewardValueLabel()
         constrainCompleteHabitButton()
         constrainDeleteHabitButton()
+    }
+    
+    private func setupStreakCounterLabel() {
+        routineManager.habit = self.habit!
+        if self.routineManager.getCurrentHabitCompletionStreak() == 0 {
+            streakCounterLabel.text = "Complete all of your actions for today and start a streak!"
+            streakCounterLabel.font = .systemFont(ofSize: 13)
+        } else {
+            let streak = self.routineManager.getCurrentHabitCompletionStreak()
+            let string = "Keep going! You are on a \(streak) day streak!"
+            let attributedString = NSMutableAttributedString(string: string)
+            
+            let digits = streak.digits
+            
+            attributedString.addAttributes([NSAttributedString.Key.foregroundColor : Colors.streakYellow], range: NSRange(location: 24, length: digits.count + 1))
+            attributedString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 18), range: NSRange(location: 24, length: digits.count + 1))
+            streakCounterLabel.attributedText = attributedString
+        }
     }
     
     private func constrainScrollView() {
@@ -197,9 +237,9 @@ class HabitDetailVC: UIViewController {
     private func constrainCompletionHistoryLabel() {
         completionHistoryLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            completionHistoryLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 24),
+            completionHistoryLabel.topAnchor.constraint(equalTo: streakBGView.bottomAnchor, constant: 24),
             completionHistoryLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
-            completionHistoryLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16)
+            completionHistoryLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16)
         ])
     }
     
@@ -208,7 +248,7 @@ class HabitDetailVC: UIViewController {
         NSLayoutConstraint.activate([
             timePeriodControl.topAnchor.constraint(equalTo: completionHistoryLabel.bottomAnchor, constant: 22),
             timePeriodControl.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
-            timePeriodControl.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16),
+            timePeriodControl.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16),
             timePeriodControl.widthAnchor.constraint(equalToConstant: view.frame.width - 32)
         ])
     }
@@ -218,7 +258,7 @@ class HabitDetailVC: UIViewController {
         NSLayoutConstraint.activate([
             dateRangeLabel.topAnchor.constraint(equalTo: timePeriodControl.bottomAnchor, constant: 24),
             dateRangeLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
-            dateRangeLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16)
+            dateRangeLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16)
         ])
     }
     
@@ -227,7 +267,7 @@ class HabitDetailVC: UIViewController {
         NSLayoutConstraint.activate([
             barChartVC.view.topAnchor.constraint(equalTo: dateRangeLabel.bottomAnchor, constant: 8),
             barChartVC.view.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
-            barChartVC.view.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16),
+            barChartVC.view.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16),
             barChartVC.view.heightAnchor.constraint(equalToConstant: 200)
         ])
     }
@@ -237,7 +277,7 @@ class HabitDetailVC: UIViewController {
         NSLayoutConstraint.activate([
             routineCueLabel.topAnchor.constraint(equalTo: barChartVC.view.bottomAnchor, constant: 50),
             routineCueLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
-            routineCueLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16)
+            routineCueLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16)
         ])
     }
     
@@ -246,7 +286,7 @@ class HabitDetailVC: UIViewController {
         NSLayoutConstraint.activate([
             routineCueValueLabel.topAnchor.constraint(equalTo: routineCueLabel.bottomAnchor, constant: 22),
             routineCueValueLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
-            routineCueValueLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16)
+            routineCueValueLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16)
         ])
     }
     
@@ -255,7 +295,7 @@ class HabitDetailVC: UIViewController {
         NSLayoutConstraint.activate([
             routineActionsLabel.topAnchor.constraint(equalTo: routineCueValueLabel.bottomAnchor, constant: 50),
             routineActionsLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
-            routineActionsLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16)
+            routineActionsLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16)
         ])
     }
     
@@ -264,7 +304,7 @@ class HabitDetailVC: UIViewController {
         NSLayoutConstraint.activate([
             actionsTableView.topAnchor.constraint(equalTo: routineActionsLabel.bottomAnchor, constant: 22),
             actionsTableView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
-            actionsTableView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16),
+            actionsTableView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16),
             actionsTableView.heightAnchor.constraint(equalToConstant: CGFloat(habit!.updatedRoutine.count * 50))
         ])
     }
@@ -275,7 +315,7 @@ class HabitDetailVC: UIViewController {
         NSLayoutConstraint.activate([
             routineRewardLabel.topAnchor.constraint(equalTo: actionsTableView.bottomAnchor, constant: 50),
             routineRewardLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
-            routineRewardLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16)
+            routineRewardLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16)
         ])
     }
     
@@ -284,7 +324,7 @@ class HabitDetailVC: UIViewController {
         NSLayoutConstraint.activate([
             routineRewardValueLabel.topAnchor.constraint(equalTo: routineRewardLabel.bottomAnchor, constant: 22),
             routineRewardValueLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
-            routineRewardValueLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16)
+            routineRewardValueLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16)
         ])
     }
     
@@ -293,7 +333,7 @@ class HabitDetailVC: UIViewController {
         NSLayoutConstraint.activate([
             completeHabitButton.topAnchor.constraint(equalTo: routineRewardValueLabel.bottomAnchor, constant: 50),
             completeHabitButton.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
-            completeHabitButton.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16),
+            completeHabitButton.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16),
             completeHabitButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
@@ -303,9 +343,30 @@ class HabitDetailVC: UIViewController {
         NSLayoutConstraint.activate([
             deleteHabitButton.topAnchor.constraint(equalTo: completeHabitButton.bottomAnchor, constant: 22),
             deleteHabitButton.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
-            deleteHabitButton.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 16),
+            deleteHabitButton.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16),
             deleteHabitButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -16),
             deleteHabitButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+    }
+    
+    private func constrainStreakBGView() {
+        streakBGView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            streakBGView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 8),
+            streakBGView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
+            streakBGView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16),
+            streakBGView.heightAnchor.constraint(equalToConstant: 50),
+            streakBGView.widthAnchor.constraint(equalToConstant: view.frame.width - 32)
+        ])
+    }
+    
+    private func constrainStreakCounterLabel() {
+        streakCounterLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            streakCounterLabel.topAnchor.constraint(equalTo: streakBGView.topAnchor, constant: 8),
+            streakCounterLabel.leadingAnchor.constraint(equalTo: streakBGView.leadingAnchor, constant: 8),
+            streakCounterLabel.trailingAnchor.constraint(equalTo: streakBGView.trailingAnchor, constant: -8),
+            streakCounterLabel.bottomAnchor.constraint(equalTo: streakBGView.bottomAnchor, constant: -8)
         ])
     }
     
@@ -463,5 +524,12 @@ extension HabitDetailVC : UITableViewDelegate {
         // updates the bar value when routine actions are completed/un-completed
         historyValueChanged()
         
+    }
+}
+
+extension BinaryInteger {
+    // takes each integer and puts them into separate elements of the array
+    var digits: [Int] {
+        return String(describing: self).compactMap { Int(String($0)) }
     }
 }

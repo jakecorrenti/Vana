@@ -18,6 +18,7 @@ enum Colors {
     static var qLightPurple   = #colorLiteral(red: 0.8941176471, green: 0.9019607843, blue: 0.9882352941, alpha: 1)
     static var qLightGray     = UIColor(red: 239, green: 239, blue: 244, alpha: 1)
     static var qDeactivated   = #colorLiteral(red: 0.8196078431, green: 0.8196078431, blue: 0.8196078431, alpha: 1)
+    static var streakYellow   = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
     
     static var qListRed       = #colorLiteral(red: 0.9529411765, green: 0.6274509804, blue: 0.6274509804, alpha: 1)
     static var qListOrange    = #colorLiteral(red: 0.9529411765, green: 0.7921568627, blue: 0.6274509804, alpha: 1)
