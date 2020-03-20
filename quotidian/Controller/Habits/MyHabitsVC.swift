@@ -28,8 +28,6 @@ class MyHabitsVC: UIViewController {
         view.dataSource      = self
         view.tableFooterView = UIView()
         view.separatorStyle  = .none
-        view.rowHeight       = UITableView.automaticDimension
-        view.estimatedRowHeight = 175
         view.register(HabitCell.self, forCellReuseIdentifier: Cells.habitCell)
         return view
     }()
@@ -142,9 +140,9 @@ extension MyHabitsVC: UITableViewDataSource {
 // -----------------------------------------
 
 extension MyHabitsVC: UITableViewDelegate {
-//    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 175
-//    }
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 175
+    }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detail = HabitDetailVC()

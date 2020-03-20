@@ -99,14 +99,14 @@ class RoutineManager {
         
         var daysCompleted = datesFullyCompleted
         // dont want to include the current day in comparison if there is a gap between the current day and the last fully completed action
-        if daysCompleted.last! == dateFormatter.string(from: Date()) {
+        if daysCompleted.count != 0 && daysCompleted.last! == dateFormatter.string(from: Date()) {
             daysCompleted.removeLast()
         }
         
         let today = Date()
         let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: today)
         
-        if dateFormatter.string(from: yesterday!) != daysCompleted.last! {
+        if daysCompleted.count != 0 && dateFormatter.string(from: yesterday!) != daysCompleted.last! {
             currentStreak = 0
         } else {
             while index + 1 < daysCompleted.count {

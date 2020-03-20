@@ -82,14 +82,11 @@ class HabitCell: UITableViewCell {
         return view
     }()
     
-    lazy var streakContainerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .systemRed
-        return view
-    }()
-    
     lazy var streakCounterLabel: UILabel = {
         let view = UILabel()
+        view.font = .systemFont(ofSize: 18)
+        view.textAlignment = .right
+        view.textColor = Colors.streakYellow
         return view
     }()
 
@@ -114,14 +111,14 @@ class HabitCell: UITableViewCell {
     // -----------------------------------------
 
     private func setupUI() {
-        [bgView, habitNameLabel, habitDailyProgressBar, progressVStack, routinesVStack, streakContainerView].forEach {addSubview($0)}
+        [bgView, streakCounterLabel, habitNameLabel, habitDailyProgressBar, progressVStack, routinesVStack].forEach {addSubview($0)}
 
         constrainBGView()
+        constrainStreakCounterLabel()
         constrainHabitNameLabel()
         constrainHabitDailyProgressBar()
         constrainProgressVStack()
         constrainRoutinesVStack()
-        constrainStreakContainerView()
     }
     
     private func constrainBGView() {
@@ -130,15 +127,23 @@ class HabitCell: UITableViewCell {
             bgView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             bgView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             bgView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            bgView.heightAnchor.constraint(equalToConstant: 175)
+            bgView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
         ])
     }
     
     private func constrainHabitNameLabel() {
         habitNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        var trailinganchor = NSLayoutConstraint()
+        if streakCounterLabel.isHidden {
+            trailinganchor = habitNameLabel.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -16)
+        } else {
+            trailinganchor = habitNameLabel.trailingAnchor.constraint(equalTo: streakCounterLabel.leadingAnchor, constant: -8)
+        }
         NSLayoutConstraint.activate([
             habitNameLabel.topAnchor.constraint(equalTo: bgView.topAnchor, constant: 16),
-            habitNameLabel.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 16)
+            habitNameLabel.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 16),
+            trailinganchor
         ])
     }
     
@@ -172,13 +177,11 @@ class HabitCell: UITableViewCell {
         ])
     }
     
-    private func constrainStreakContainerView() {
-        streakContainerView.translatesAutoresizingMaskIntoConstraints = false
+    private func constrainStreakCounterLabel() {
+        streakCounterLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            streakContainerView.topAnchor.constraint(equalTo: bgView.bottomAnchor),
-            streakContainerView.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -12),
-            streakContainerView.leadingAnchor.constraint(equalTo: bgView.centerXAnchor),
-            streakContainerView.heightAnchor.constraint(equalToConstant: 30)
+            streakCounterLabel.topAnchor.constraint(equalTo: bgView.topAnchor, constant: 16),
+            streakCounterLabel.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -16)
         ])
     }
 
@@ -198,6 +201,11 @@ class HabitCell: UITableViewCell {
     
     func setStreak(at streak: Int) {
         //TODO: -  write ui components
+        if streak > 0 {
+            streakCounterLabel.text = "★ \(streak)"
+        } else {
+            streakCounterLabel.isHidden = true 
+        }
     }
 
 }
