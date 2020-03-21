@@ -26,7 +26,7 @@ class ThreeHabitPartsDescText: UIView {
         view.font          = UIFont.systemFont(ofSize: 18)
         view.textColor     = Colors.qDarkGrey
         view.numberOfLines = 0
-        view.text          = "Trigger that initiates a person to automatically carry out a habit "
+        view.text          = "Trigger that initiates a person to automatically carry out a habit ex) getting home from work"
         return view
     }()
     

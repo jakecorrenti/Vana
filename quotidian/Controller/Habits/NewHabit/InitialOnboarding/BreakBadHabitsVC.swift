@@ -73,6 +73,6 @@ class BreakBadHabitsVC: UIViewController {
     }
     
     @objc func continueButtonPressed() {
-        navigationController?.pushViewController(HabitNameVC(), animated: true)
+        navigationController?.pushViewController(BadHabitExampleVC(), animated: true)
     }
 }

@@ -72,7 +72,7 @@ class MyHabitsVC: UIViewController {
     
     private func setupTableViewEmptyStateUI() {
         view.addSubview(emptyStateView)
-        
+        emptyStateView.createHabitButton.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)
         emptyStateView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             emptyStateView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -93,7 +93,7 @@ class MyHabitsVC: UIViewController {
     
     func setupUI() {
         view.addSubview(tableView)
-
+        
         tableView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, centerX: nil, centerY: nil)
     }
 
