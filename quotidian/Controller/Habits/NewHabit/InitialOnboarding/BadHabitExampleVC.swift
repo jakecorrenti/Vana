@@ -59,8 +59,8 @@ class BadHabitExampleVC: UIViewController {
     }
     
     private func setupUI() {
-        [scrollView].forEach {view.addSubview($0)}
-        [introComponent, nameExampleComponent, cueExampleComponent, routineExampleComponent, rewardExampleComponent, continueButton].forEach {scrollView.addSubview($0)}
+        [continueButton, scrollView].forEach {view.addSubview($0)}
+        [introComponent, nameExampleComponent, cueExampleComponent, routineExampleComponent, rewardExampleComponent].forEach {scrollView.addSubview($0)}
         
         constrainScrollView()
         constrainIntroComponent()
@@ -87,7 +87,7 @@ class BadHabitExampleVC: UIViewController {
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            scrollView.bottomAnchor.constraint(equalTo: continueButton.topAnchor)
         ])
     }
     
@@ -126,17 +126,17 @@ class BadHabitExampleVC: UIViewController {
         NSLayoutConstraint.activate([
             rewardExampleComponent.topAnchor.constraint(equalTo: routineExampleComponent.vStack.bottomAnchor),
             rewardExampleComponent.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            rewardExampleComponent.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor)
+            rewardExampleComponent.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            rewardExampleComponent.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
     }
     
     private func constrainContinueButton() {
         continueButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            continueButton.topAnchor.constraint(equalTo: rewardExampleComponent.vStack.bottomAnchor, constant: 24),
-            continueButton.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
-            continueButton.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16),
-            continueButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -16),
+            continueButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            continueButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            continueButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
             continueButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }

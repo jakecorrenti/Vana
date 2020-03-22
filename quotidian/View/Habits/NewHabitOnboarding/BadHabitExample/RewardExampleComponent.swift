@@ -62,7 +62,8 @@ class RewardExampleComponent: UIView {
         NSLayoutConstraint.activate([
             vStack.topAnchor.constraint(equalTo: topAnchor, constant: 24),
             vStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            vStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
+            vStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            vStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
         ])
     }
 
