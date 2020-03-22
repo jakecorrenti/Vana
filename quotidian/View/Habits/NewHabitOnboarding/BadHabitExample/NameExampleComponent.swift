@@ -1,40 +1,38 @@
 //
-//  HabitListEmptyState.swift
+//  NameExampleComponent.swift
 //  Vana
 //
-//  Created by Jake Correnti on 3/17/20.
+//  Created by Jake Correnti on 3/21/20.
 //  Copyright © 2020 Jake Correnti. All rights reserved.
 //
 
 import UIKit
 
-class HabitListEmptyState: UIView {
+class NameExampleComponent: UIView {
     
     // -----------------------------------------
     // MARK: Views
     // -----------------------------------------
     
-    lazy var vStack: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [self.titleLabel, self.createHabitButton])
-        view.axis = .vertical
-        view.spacing = 16
-        return view
-    }()
-    
     lazy var titleLabel: UILabel = {
         let view = UILabel()
-        view.text = "Oh no! You haven't created any Habits!"
-        view.numberOfLines = 0
-        view.textAlignment = .center
-        view.font = .init(descriptor: .preferredFontDescriptor(withTextStyle: .headline), size: 20)
+        view.text = "Name:"
+        view.font = .boldSystemFont(ofSize: 18)
         return view
     }()
     
-    lazy var createHabitButton: UIButton = {
-        let view = UIButton(type: .system)
-        view.setTitle("Create habit", for: .normal)
-        view.setTitleColor(Colors.qPurple, for: .normal)
-        view.titleLabel?.font = .boldSystemFont(ofSize: 18)
+    lazy var subtitleLabel: UILabel = {
+        let view = UILabel()
+        view.text = "Procrastination"
+        view.textColor = Colors.qDarkGrey
+        view.font = .systemFont(ofSize: 18)
+        return view
+    }()
+    
+    lazy var vStack: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [self.titleLabel, self.subtitleLabel])
+        view.axis = .vertical
+        view.spacing = 16
         return view
     }()
     
@@ -60,13 +58,11 @@ class HabitListEmptyState: UIView {
     
     private func setupUI() {
         addSubview(vStack)
-        
         vStack.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             vStack.topAnchor.constraint(equalTo: topAnchor),
-            vStack.leadingAnchor.constraint(equalTo: leadingAnchor),
-            vStack.trailingAnchor.constraint(equalTo: trailingAnchor),
-            vStack.bottomAnchor.constraint(equalTo: bottomAnchor)
+            vStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            vStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ])
     }
 }

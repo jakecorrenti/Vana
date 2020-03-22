@@ -63,6 +63,12 @@
 		3ED7028D240770080088BC8A /* ListInProgressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7028C240770080088BC8A /* ListInProgressCell.swift */; };
 		3EDFDD802412ED260076DBC5 /* EditTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDFDD7F2412ED260076DBC5 /* EditTaskVC.swift */; };
 		3EECBE30242307220044E39F /* RoutineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EECBE2F242307220044E39F /* RoutineManager.swift */; };
+		3EFD72BB24268DFD00C44E7E /* BadHabitExampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD72BA24268DFD00C44E7E /* BadHabitExampleVC.swift */; };
+		3EFD72BE24268E8400C44E7E /* ExampleIntroTextComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD72BD24268E8400C44E7E /* ExampleIntroTextComponent.swift */; };
+		3EFD72C02426930A00C44E7E /* NameExampleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD72BF2426930A00C44E7E /* NameExampleComponent.swift */; };
+		3EFD72C22426A1A300C44E7E /* CueExampleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD72C12426A1A300C44E7E /* CueExampleComponent.swift */; };
+		3EFD72C42426B05D00C44E7E /* RoutineExampleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD72C32426B05D00C44E7E /* RoutineExampleComponent.swift */; };
+		3EFD72C62426B8FE00C44E7E /* RewardExampleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD72C52426B8FE00C44E7E /* RewardExampleComponent.swift */; };
 		750B85CCF6CDECDC40A2A3E3 /* Pods_Vana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D498B0E63758311CC58654A6 /* Pods_Vana.framework */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +132,12 @@
 		3ED7028C240770080088BC8A /* ListInProgressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInProgressCell.swift; sourceTree = "<group>"; };
 		3EDFDD7F2412ED260076DBC5 /* EditTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskVC.swift; sourceTree = "<group>"; };
 		3EECBE2F242307220044E39F /* RoutineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineManager.swift; sourceTree = "<group>"; };
+		3EFD72BA24268DFD00C44E7E /* BadHabitExampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadHabitExampleVC.swift; sourceTree = "<group>"; };
+		3EFD72BD24268E8400C44E7E /* ExampleIntroTextComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleIntroTextComponent.swift; sourceTree = "<group>"; };
+		3EFD72BF2426930A00C44E7E /* NameExampleComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameExampleComponent.swift; sourceTree = "<group>"; };
+		3EFD72C12426A1A300C44E7E /* CueExampleComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CueExampleComponent.swift; sourceTree = "<group>"; };
+		3EFD72C32426B05D00C44E7E /* RoutineExampleComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineExampleComponent.swift; sourceTree = "<group>"; };
+		3EFD72C52426B8FE00C44E7E /* RewardExampleComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardExampleComponent.swift; sourceTree = "<group>"; };
 		524830ADCB0AE818ED122F10 /* Pods-quotidian.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quotidian.debug.xcconfig"; path = "Target Support Files/Pods-quotidian/Pods-quotidian.debug.xcconfig"; sourceTree = "<group>"; };
 		B5CB5F5548ACF3F476020EB1 /* Pods-quotidian.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quotidian.release.xcconfig"; path = "Target Support Files/Pods-quotidian/Pods-quotidian.release.xcconfig"; sourceTree = "<group>"; };
 		D498B0E63758311CC58654A6 /* Pods_Vana.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vana.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +184,7 @@
 			children = (
 				18CED96F938A1BB2C4870617 /* BreakBadHabitsVC.swift */,
 				18CED76B7BA4D8CD94916D4E /* NewRoutineOnboardingVC.swift */,
+				3EFD72BA24268DFD00C44E7E /* BadHabitExampleVC.swift */,
 			);
 			path = InitialOnboarding;
 			sourceTree = "<group>";
@@ -337,6 +350,7 @@
 		3E8FC00B23F3AA08001CE18C /* NewHabitOnboarding */ = {
 			isa = PBXGroup;
 			children = (
+				3EFD72BC24268E6D00C44E7E /* BadHabitExample */,
 				3E8FC00C23F3AA26001CE18C /* BreakBadHabitsIntroText.swift */,
 				3E4EDD0A23F46AAB001A5FC7 /* ThreeHabitPartsDescText.swift */,
 				3EC0EB4423F5C9810049F13C /* PurpleButton.swift */,
@@ -435,6 +449,18 @@
 				3EECBE2F242307220044E39F /* RoutineManager.swift */,
 			);
 			path = RoutineManager;
+			sourceTree = "<group>";
+		};
+		3EFD72BC24268E6D00C44E7E /* BadHabitExample */ = {
+			isa = PBXGroup;
+			children = (
+				3EFD72BD24268E8400C44E7E /* ExampleIntroTextComponent.swift */,
+				3EFD72BF2426930A00C44E7E /* NameExampleComponent.swift */,
+				3EFD72C12426A1A300C44E7E /* CueExampleComponent.swift */,
+				3EFD72C32426B05D00C44E7E /* RoutineExampleComponent.swift */,
+				3EFD72C52426B8FE00C44E7E /* RewardExampleComponent.swift */,
+			);
+			path = BadHabitExample;
 			sourceTree = "<group>";
 		};
 		99BE4424E0314170163CFC80 /* Frameworks */ = {
@@ -565,6 +591,7 @@
 				3E364664240887DF00814F0D /* TaskDetailVC.swift in Sources */,
 				3E4388B523DD51B700B0C45C /* MyListsVC.swift in Sources */,
 				3E8E6E842402D720004B5D04 /* NewListVC.swift in Sources */,
+				3EFD72C22426A1A300C44E7E /* CueExampleComponent.swift in Sources */,
 				3EC006F523DD69C0000E30FC /* NewTaskVC.swift in Sources */,
 				3E971E6A23E1B11E00F6E191 /* Task.swift in Sources */,
 				3E660AD923DFB401008F3F95 /* RepeatDaysSelectionVC.swift in Sources */,
@@ -584,12 +611,15 @@
 				3E8FC00D23F3AA26001CE18C /* BreakBadHabitsIntroText.swift in Sources */,
 				3E75FA522404458A004BA1E5 /* StorageContext.swift in Sources */,
 				3E75FA4D24043D36004BA1E5 /* UserList.swift in Sources */,
+				3EFD72C62426B8FE00C44E7E /* RewardExampleComponent.swift in Sources */,
 				3E4388B223DD518800B0C45C /* TabController.swift in Sources */,
 				3E3646602408281800814F0D /* LocalNotificationsManager.swift in Sources */,
 				3EECBE30242307220044E39F /* RoutineManager.swift in Sources */,
 				3ED686E223DCCE0500955D61 /* SceneDelegate.swift in Sources */,
 				3EC0EB4523F5C9810049F13C /* PurpleButton.swift in Sources */,
+				3EFD72C02426930A00C44E7E /* NameExampleComponent.swift in Sources */,
 				3E3170E1242169AC005C59CC /* HabitListEmptyState.swift in Sources */,
+				3EFD72BE24268E8400C44E7E /* ExampleIntroTextComponent.swift in Sources */,
 				3E41564323F9A3A400B614FB /* UIViewController + Extension.swift in Sources */,
 				3E58B50D23DF31C40024DC01 /* TextFieldCell.swift in Sources */,
 				3E41563D23F98E3600B614FB /* Habit.swift in Sources */,
@@ -606,6 +636,7 @@
 				3E305478241FFD5E006F271D /* AvatarView.swift in Sources */,
 				3E75FA5024044540004BA1E5 /* Storable.swift in Sources */,
 				18CEDADA31C08C8B7D8D0AC8 /* NewHabitRoutineVC.swift in Sources */,
+				3EFD72BB24268DFD00C44E7E /* BadHabitExampleVC.swift in Sources */,
 				18CEDA1B673C363865CB7D3E /* HabitNameVC.swift in Sources */,
 				3ED70289240631E50088BC8A /* ListDetailVC.swift in Sources */,
 				3EDFDD802412ED260076DBC5 /* EditTaskVC.swift in Sources */,
@@ -613,6 +644,7 @@
 				18CED182AF5AA7E9C1260B78 /* HabitDetailVC.swift in Sources */,
 				18CED2B6E0C0E373F79FE1F7 /* MyHabitsVC.swift in Sources */,
 				18CED4FC85164A04BB77F00B /* HabitCell.swift in Sources */,
+				3EFD72C42426B05D00C44E7E /* RoutineExampleComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
