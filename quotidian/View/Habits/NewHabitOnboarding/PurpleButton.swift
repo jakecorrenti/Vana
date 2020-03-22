@@ -32,10 +32,10 @@ class PurpleButton: UIButton {
     
     func setupUI() {
         
-        backgroundColor     = Colors.qLightPurple
+        backgroundColor     = Colors.qPurple
         layer.cornerRadius  = 12
         layer.masksToBounds = true
-        setTitleColor(Colors.qPurple, for: .normal)
+        setTitleColor(Colors.qWhite, for: .normal)
         
     }
     
@@ -51,8 +51,8 @@ class PurpleButton: UIButton {
     }
     
     func setActivatedState() {
-        backgroundColor = Colors.qLightPurple
-        setTitleColor(Colors.qPurple, for: .normal)
+        backgroundColor = Colors.qPurple
+        setTitleColor(Colors.qWhite, for: .normal)
         isEnabled = true
     }
 }
