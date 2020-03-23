@@ -27,6 +27,9 @@
 		3E41563B23F98DDB00B614FB /* RoutineAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41563A23F98DDB00B614FB /* RoutineAction.swift */; };
 		3E41563D23F98E3600B614FB /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41563C23F98E3600B614FB /* Habit.swift */; };
 		3E41564323F9A3A400B614FB /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41564223F9A3A400B614FB /* UIViewController + Extension.swift */; };
+		3E41F9F5242831170036AEBD /* SetNotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41F9F4242831170036AEBD /* SetNotificationsVC.swift */; };
+		3E41F9F82428347C0036AEBD /* SetupNotificationsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41F9F72428347C0036AEBD /* SetupNotificationsComponent.swift */; };
+		3E41F9FA24292D020036AEBD /* EditNotificationsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41F9F924292D020036AEBD /* EditNotificationsComponent.swift */; };
 		3E4388B223DD518800B0C45C /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4388B123DD518800B0C45C /* TabController.swift */; };
 		3E4388B523DD51B700B0C45C /* MyListsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4388B423DD51B700B0C45C /* MyListsVC.swift */; };
 		3E4388B823DD520300B0C45C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4388B723DD520300B0C45C /* Constants.swift */; };
@@ -94,6 +97,9 @@
 		3E41563A23F98DDB00B614FB /* RoutineAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineAction.swift; sourceTree = "<group>"; };
 		3E41563C23F98E3600B614FB /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		3E41564223F9A3A400B614FB /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
+		3E41F9F4242831170036AEBD /* SetNotificationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNotificationsVC.swift; sourceTree = "<group>"; };
+		3E41F9F72428347C0036AEBD /* SetupNotificationsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupNotificationsComponent.swift; sourceTree = "<group>"; };
+		3E41F9F924292D020036AEBD /* EditNotificationsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNotificationsComponent.swift; sourceTree = "<group>"; };
 		3E4388B123DD518800B0C45C /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		3E4388B423DD51B700B0C45C /* MyListsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListsVC.swift; sourceTree = "<group>"; };
 		3E4388B723DD520300B0C45C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -226,9 +232,27 @@
 			path = NewHabit;
 			sourceTree = "<group>";
 		};
+		3E41F9F3242830E00036AEBD /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				3E41F9F4242831170036AEBD /* SetNotificationsVC.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		3E41F9F6242834680036AEBD /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				3E41F9F72428347C0036AEBD /* SetupNotificationsComponent.swift */,
+				3E41F9F924292D020036AEBD /* EditNotificationsComponent.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		3E4388AB23DD512700B0C45C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3E41F9F3242830E00036AEBD /* Notifications */,
 				3ED40078241FC15300BD6C3F /* More */,
 				3E4388B023DD516700B0C45C /* General */,
 				3E4388B323DD51A800B0C45C /* Lists */,
@@ -240,6 +264,7 @@
 		3E4388AC23DD512F00B0C45C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3E41F9F6242834680036AEBD /* Notifications */,
 				3E305476241FFD50006F271D /* More */,
 				3E8FC00A23F3AA02001CE18C /* Habits */,
 				3EA5A76B23E38A64001BB874 /* Lists */,
@@ -596,7 +621,9 @@
 				3E971E6A23E1B11E00F6E191 /* Task.swift in Sources */,
 				3E660AD923DFB401008F3F95 /* RepeatDaysSelectionVC.swift in Sources */,
 				3E58CEA123E88BEF0042881B /* CompletionButtonCell.swift in Sources */,
+				3E41F9F5242831170036AEBD /* SetNotificationsVC.swift in Sources */,
 				3E971E6C23E1B12C00F6E191 /* ChecklistItem.swift in Sources */,
+				3E41F9F82428347C0036AEBD /* SetupNotificationsComponent.swift in Sources */,
 				3E8C1BC123FE3E3C0009C533 /* EditHabitVC.swift in Sources */,
 				3ED7028D240770080088BC8A /* ListInProgressCell.swift in Sources */,
 				3E3646622408285800814F0D /* Notification.swift in Sources */,
@@ -640,6 +667,7 @@
 				18CEDA1B673C363865CB7D3E /* HabitNameVC.swift in Sources */,
 				3ED70289240631E50088BC8A /* ListDetailVC.swift in Sources */,
 				3EDFDD802412ED260076DBC5 /* EditTaskVC.swift in Sources */,
+				3E41F9FA24292D020036AEBD /* EditNotificationsComponent.swift in Sources */,
 				3E8C1BC323FF09D40009C533 /* TextFieldWithImageCell.swift in Sources */,
 				18CED182AF5AA7E9C1260B78 /* HabitDetailVC.swift in Sources */,
 				18CED2B6E0C0E373F79FE1F7 /* MyHabitsVC.swift in Sources */,

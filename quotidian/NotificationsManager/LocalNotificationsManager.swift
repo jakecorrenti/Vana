@@ -24,6 +24,27 @@ class LocalNotificationsManager {
         }
     }
     
+    // the number of notifications that have been scheduled
+    func listNumberOfNotificationsScheduled() -> Int {
+        var numberOfNotifications = 0
+        var continueLooping = true
+        
+        var localNotifications = [UNNotificationRequest]()
+        
+        UNUserNotificationCenter.current().getPendingNotificationRequests { (notifications) in
+            for notification in notifications {
+                localNotifications.append(notification)
+            }
+            continueLooping = false
+        }
+        
+        while continueLooping {}
+        
+        numberOfNotifications = localNotifications.count
+        
+        return numberOfNotifications
+    }
+    
     // checks authorization to send noticications to the user or provides the prompt to allow them
     private func requestAuthorization() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
@@ -53,7 +74,6 @@ class LocalNotificationsManager {
             let content      = UNMutableNotificationContent()
             content.title    = notification.title
             content.sound    = .default
-            content.body     = "Go to your Quotidian app to complete your tasks!"
 
             var trigger: UNCalendarNotificationTrigger?
             
