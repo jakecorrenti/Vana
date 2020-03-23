@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import RealmSwift
 
 struct LocalNotification {
     
@@ -19,4 +19,8 @@ struct LocalNotification {
     var title: String
     var dateTime: DateComponents
     var isRepeating: Bool
+}
+
+class GeneralHabitNotification: Object, Storable {
+    @objc dynamic var time: Date? = nil
 }

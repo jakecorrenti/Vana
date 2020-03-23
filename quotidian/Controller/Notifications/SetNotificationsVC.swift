@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SetNotificationsVC: UIViewController {
     
@@ -15,13 +16,16 @@ class SetNotificationsVC: UIViewController {
     // -----------------------------------------
     
     let notificationsManager = LocalNotificationsManager()
+    let dbManager = RealmStorageContext()
     var isNotificationPresent = false
+    let realm = try! Realm()
     
     // -----------------------------------------
     // MARK: Views
     // -----------------------------------------
     
     let setNotificationsComponent = SetupNotificationsComponent()
+    let editNotificationsComponent = EditNotificationsComponent()
     
     // -----------------------------------------
     // MARK: Lifecycle
@@ -31,6 +35,7 @@ class SetNotificationsVC: UIViewController {
         super.viewWillAppear(animated)
         
         tabBarController?.tabBar.isHidden = true
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -61,7 +66,6 @@ class SetNotificationsVC: UIViewController {
     }
     
     private func verifyNotificationsExist() -> Bool {
-        
         if notificationsManager.listNumberOfNotificationsScheduled() == 0 {
             return false
         }
@@ -73,6 +77,7 @@ class SetNotificationsVC: UIViewController {
         if verifyNotificationsExist() {
             // use the edit notifications view
             isNotificationPresent = true
+            setupEditNotificationsUI()
         } else {
             // use the setupNotifications view
             setupSetNotificationsUI()
@@ -91,16 +96,29 @@ class SetNotificationsVC: UIViewController {
         ])
     }
     
+    private func setupEditNotificationsUI() {
+        view.addSubview(editNotificationsComponent)
+        
+        editNotificationsComponent.removeReminderButton.addTarget(self, action: #selector(removeReminderButtonPressed), for: .touchUpInside)
+        editNotificationsComponent.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            editNotificationsComponent.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            editNotificationsComponent.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            editNotificationsComponent.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            editNotificationsComponent.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+    
     private func getNotificationTime() -> Date {
         if isNotificationPresent {
             // check edit notification text field
-            
+            let timeFull: Date = editNotificationsComponent.timeFull
+            return timeFull
         } else {
             // check set notification text field
             let timeFull: Date = setNotificationsComponent.timeFull
             return timeFull
         }
-        return Date()
     }
     
     private func getReminderHourComponent() -> Int {
@@ -139,8 +157,30 @@ class SetNotificationsVC: UIViewController {
     
     @objc func doneButtonPressed() {
         
-        createNotification()
+        if isNotificationPresent {
+            // update the notification time
+            let habitNotification = realm.objects(GeneralHabitNotification.self).first!
+            try? dbManager.delete(object: habitNotification)
+            
+            let newNotification = GeneralHabitNotification()
+            newNotification.time = getNotificationTime()
+            try? dbManager.save(object: newNotification)
+            createNotification()
+            
+        } else {
+            let habitReminderTime = GeneralHabitNotification()
+            habitReminderTime.time = getNotificationTime()
+            
+            try? dbManager.save(object: habitReminderTime)
+            createNotification()
+        }
         
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func removeReminderButtonPressed() {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        try? dbManager.delete(object: realm.objects(GeneralHabitNotification.self).first!)
         dismiss(animated: true, completion: nil)
     }
 }
