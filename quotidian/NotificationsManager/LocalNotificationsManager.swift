@@ -24,6 +24,12 @@ class LocalNotificationsManager {
         }
     }
     
+    // the number of notifications that have been scheduled
+    func listNumberOfNotificationsScheduled() -> Int {
+        var numberOfNotifications = 0
+        return numberOfNotifications
+    }
+    
     // checks authorization to send noticications to the user or provides the prompt to allow them
     private func requestAuthorization() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in

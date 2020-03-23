@@ -86,8 +86,9 @@ class MyHabitsVC: UIViewController {
         navigationItem.title = "My habits"
         navigationController?.navigationBar.prefersLargeTitles = true
 
+        let notificationsButton = UIBarButtonItem(image: UIImage(systemName: Images.bell), style: .plain, target: self, action: #selector(notificationsButtonPressed))
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed))
-        navigationItem.rightBarButtonItem = addButton 
+        navigationItem.rightBarButtonItems = [addButton, notificationsButton]
         navigationItem.backBarButtonItem  = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
     }
     
@@ -100,6 +101,10 @@ class MyHabitsVC: UIViewController {
     func accessHabits() -> Results<Habit> {
         let realm = try! Realm()
         return realm.objects(Habit.self).filter("isCompleted == false")
+    }
+    
+    @objc func notificationsButtonPressed() {
+        present(UINavigationController(rootViewController: SetNotificationsVC()), animated: true, completion: nil)
     }
     
     @objc func addButtonPressed() {

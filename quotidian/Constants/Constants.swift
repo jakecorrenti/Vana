@@ -33,7 +33,7 @@ enum Images {
     static var plus            = "plus.circle.fill"
     static var circle          = "circle"
     static var completedCircle = "largecircle.fill.circle"
-    static var bell            = "bell.circle.fill"
+    static var bell            = "bell"
     static var list            = "line.horizontal.3.decrease.circle.fill"
     static var repeatRing      = "arrow.2.circlepath.circle.fill"
     static var timelapse       = "timelapse"
