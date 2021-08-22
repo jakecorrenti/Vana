@@ -1,6 +1,6 @@
 # Vana
 
-Have a bad habit that you would love to brea? Meet, Vana! Vana allows you to break down your habits, turn them into good ones, and track your results along the way!
+Have a bad habit that you would love to break? Meet, Vana! Vana allows you to break down your habits, turn them into good ones, and track your results along the way!
 
 Here is how Vana works: 
 1. Figure out the habit that you want to break 
